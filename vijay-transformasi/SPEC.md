@@ -1,4 +1,4 @@
-GOAL:    Viewer sees a clean mullet + taper fade at Ela's Barbershop, stays to the final look, and wants to book.
+GOAL:    Viewer sees frizzy, puffy hair turn sleek after a keratin treatment at Ela's Barbershop, and wants to book.
 OUTPUT:  HyperFrames, 1080 x 1920 (Reels / TikTok / Shorts), 30 fps
 TIME:    33.0 s x 30 = 990 frames. No music source available offline: ambience from the footage + SFX on cuts and reveals.
 SOURCE:  Drive folder "Vijay video": 3 phone clips (478x850, 60 fps, no speech — shop ambience, blow-dryer in clip 3)
