@@ -1,6 +1,6 @@
 GOAL:    Viewer sees frizzy, puffy hair turn sleek after a keratin treatment at Ela's Barbershop, and wants to book.
 OUTPUT:  HyperFrames, 1080 x 1920 (Reels / TikTok / Shorts), 30 fps
-TIME:    33.0 s x 30 = 990 frames. No music source available offline: ambience from the footage + SFX on cuts and reveals.
+TIME:    37.5 s x 30 = 1125 frames. Malay female voiceover (SCRIPT.md) is the clock; SFX on cuts and reveals; footage ambience low.
 SOURCE:  Drive folder "Vijay video": 3 phone clips (478x850, 60 fps, no speech — shop ambience, blow-dryer in clip 3)
          and 6 photos (3 wet-look with cape, 3 final-look in jersey). Whisper found no speech (hallucinated
          "Terima kasih kerana menonton!" on noise), so text carries the story.
