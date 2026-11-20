@@ -1,0 +1,31 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #e1251b; font-family: "Inter", sans-serif; overflow: hidden; }
+    #cta-photo { position: absolute; left: 0; top: 1180px; width: 1080px; height: 740px; object-fit: cover; object-position: 50% 66%; }
+    #cta-q { position: absolute; left: 130px; top: 330px; color: #fff; font-weight: 900; font-size: 58px; line-height: 1; }
+    #cta-name { position: absolute; left: 130px; top: 430px; color: #fff; font-family: "Archivo Black", sans-serif;
+      font-size: 92px; line-height: 0.95; letter-spacing: -0.01em; transform-origin: 0% 50%; }
+    #cta-name span { display: block; }
+    #cta-name .dark { color: #0b0b0b; }
+    #cta-book { position: absolute; left: 130px; top: 700px; padding: 18px 28px; background: #0b0b0b; color: #fff;
+      font-weight: 900; font-size: 50px; line-height: 1; letter-spacing: 0.02em; }
+    #cta-follow { position: absolute; left: 130px; top: 820px; width: 760px; color: #fff; font-weight: 800; font-size: 40px; line-height: 1.25; }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <img id="cta-photo" src="assets/img/final-right.jpg" alt="" />
+    <div id="cta-q">Nak gaya macam ni?</div>
+    <div id="cta-name"><span>ELA'S</span><span class="dark">BARBERSHOP</span></div>
+    <div id="cta-book">TEMPAH SLOT SEKARANG</div>
+    <div id="cta-follow">Follow untuk lebih banyak transformasi</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0);
+    tl.fromTo("#cta-photo", { y: 200 }, { y: 0, duration: 0.6, ease: "power4.out" }, 0.1);
+    tl.fromTo("#cta-q", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.2);
+    tl.fromTo("#cta-name", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, 0.33);
+    tl.fromTo("#cta-book", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.2)" }, 0.95);
+    tl.fromTo("#cta-follow", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 1.15);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>
