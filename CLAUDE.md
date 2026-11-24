@@ -27,3 +27,10 @@ Elas Barbershop social reels (1080×1920, Malay).
      Then 10–14 hashtags mixing topic, Malaysian hair/barber tags, `#reelsmalaysia` and `#elasbarbershop`.
    - Claims must match the video. No invented prices, locations or results. Ask for the shop's
      location hashtag rather than guessing one.
+7. **Animated explainer style (default for tips/education reels):** build with the generator in
+   `siri/` (`siri/specs.py` → `python3 siri/tools/build.py <slug>` → `siri/tools/finish.sh <slug>`).
+   It applies the house style: the Elas 2D character (`siri/tools/character.py`) as the hero,
+   word-by-word captions with the spoken word highlighted, a short top title with one keyword in a
+   yellow block, tick badge pills, navy/cream alternating scenes, yellow tip scenes, diagonal stripe
+   transitions, the comment-box CTA, music bed and the locked logo outro. New topics are added as
+   entries in `siri/specs.py`.

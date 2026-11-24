@@ -11,6 +11,7 @@ ROOT = "/home/user/edit-video-claude"
 SIRI = f"{ROOT}/siri"
 sys.path.insert(0, f"{SIRI}/tools"); sys.path.insert(0, SIRI)
 import icons  # noqa: E402
+import style2 as S2  # noqa: E402
 from specs import VIDEOS  # noqa: E402
 
 VOICE = "nPczCjzI2devNBz1zQrb"  # Brian
@@ -310,24 +311,32 @@ def build(v):
         vos.append(make_vo(proj, i + 1, text))
     npts = sum(1 for s in scenes if s["t"] == "point")
     t = 0.0; hosts = []; sfx_abs = []; prev_theme = None; k = 0; z = 1; vo_tags = []; outro_start = None
+    alt = "cream"
     for i, sc in enumerate(scenes):
         sid = f"s{i + 1}"; vo = vos[i]
         lead = 0.15 if i == 0 else 0.3
         if sc["t"] == "hook":
-            theme, css, html, js, sfx = build_hook(sid, sc, vo, v["series"], lead)
-        elif sc["t"] == "point":
-            theme = "yellow" if prev_theme == "cream" else "cream"
-            theme, css, html, js, sfx = build_point(sid, sc, vo, theme, k + 1, k, npts, lead); k += 1
+            theme, css, html, js, sfx = S2.s_hook(sid, sc, vo, lead, v["series"], cue)
+        elif sc["t"] in ("point", "rows"):
+            theme = alt; alt = "navy" if alt == "cream" else "cream"
+            if sc["t"] == "point":
+                theme, css, html, js, sfx = S2.s_point(sid, sc, vo, lead, theme, k + 1, cue); k += 1
+            else:
+                theme, css, html, js, sfx = S2.s_rows(sid, sc, vo, lead, theme, cue)
         elif sc["t"] == "tip":
-            theme, css, html, js, sfx = build_tip(sid, sc, vo, "yellow" if prev_theme == "navy" else "navy", lead)
-        elif sc["t"] == "rows":
-            theme, css, html, js, sfx = build_rows(sid, sc, vo, lead)
+            theme, css, html, js, sfx = S2.s_tip(sid, sc, vo, lead, "yellow", cue)
         elif sc["t"] == "compare":
-            theme, css, html, js, sfx = build_compare(sid, sc, vo, lead)
+            theme, css, html, js, sfx = S2.s_compare(sid, sc, vo, lead, cue)
         elif sc["t"] == "cta":
-            theme, css, html, js, sfx = build_cta(sid, sc, vo, lead)
+            theme, css, html, js, sfx = S2.s_cta(sid, sc, vo, lead, cue)
         prev_theme = theme
-        open(f"{proj}/compositions/{sid}.html", "w").write(scene_file(sid, theme, css, html, js, first=(i == 0)))
+        if sc["t"] == "cta":
+            el = [s_ for w, s_ in vo["words"] if norm(w).startswith("elas")]
+            cap_end = lead + (el[-1] if el else vo["dur"] - 1.0) + 0.45
+        else:
+            cap_end = lead + vo["dur"] + 0.35
+        cap_css, cap_html, cap_js = S2.captions(sid, sc["vo"], vo, lead, theme, cap_end)
+        open(f"{proj}/compositions/{sid}.html", "w").write(S2.scene_file(sid, theme, css, html, js, i == 0, cap_css, cap_html, cap_js))
         slot = lead + vo["dur"] + 0.35
         if sc["t"] == "cta":
             el = [s for w, s in vo["words"] if norm(w).startswith("elas")]
@@ -337,9 +346,9 @@ def build(v):
         vo_tags.append((i + 1, t + lead, vo["dur"]))
         if i > 0:
             if i % 2:
-                sfx_abs.append(("whoosh", t - 0.06, 0.85, 0.57, 0))
+                sfx_abs.append(("whoosh", t + 0.1, 0.85, 0.57, 0))
             else:
-                sfx_abs.append(("whoosh-cinematic", t - 0.55, 0.45, 1.2, 1.8))
+                sfx_abs.append(("whoosh-cinematic", t - 0.45, 0.45, 1.2, 1.8))
         for s in sfx:
             name, at, vol = s[0], s[1], s[2]
             d = s[3] if len(s) > 3 else {"pop": 0.7, "click": 0.37, "sparkle": 1.8, "impact-bass-1": 2.1}.get(name, 0.6)
