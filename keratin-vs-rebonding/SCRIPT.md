@@ -1,6 +1,6 @@
 # Skrip — Keratin vs Rebonding (animasi, tanpa footage)
 
-Suara: perempuan, Bahasa Melayu. Sementara: Microsoft ms-MY-YasminNeural (+5%). Boleh ditukar ke ElevenLabs.
+Suara: lelaki, ElevenLabs "Brian" (eleven_multilingual_v2). Teks TTS guna "Ke-ratin" supaya sebutan betul, dan jeda pendek pada baris 1, 7 dan 8. Versi Yasmin (perempuan) disimpan dalam `assets/vo/yasmin/`.
 
 | # | Babak | Voice over |
 |---|---|---|

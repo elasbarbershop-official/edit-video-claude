@@ -27,22 +27,22 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#ct-q", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }, 0.15);
-    tl.fromTo("#ct-box", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.out" }, 1.4);
+    tl.fromTo("#ct-box", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.out" }, 0.99);
     // "Komen KERATIN": typed letter by letter.
-    tl.fromTo("#ct-box", { scale: 1 }, { scale: 1.04, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 2.75);
-    tl.set("#ct-ph", { opacity: 0 }, 3.3);
+    tl.fromTo("#ct-box", { scale: 1 }, { scale: 1.04, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 1.91);
+    tl.set("#ct-ph", { opacity: 0 }, 2.26);
     const word = "KERATIN", typed = document.querySelector("#ct-typed");
     const st = { n: 0 };
     tl.fromTo(st, { n: 0 }, { n: word.length, duration: 0.63, ease: "none", immediateRender: false,
-      onUpdate: () => { typed.textContent = word.slice(0, Math.floor(st.n + 0.0001)); } }, 3.33);
+      onUpdate: () => { typed.textContent = word.slice(0, Math.floor(st.n + 0.0001)); } }, 2.28);
     tl.set(typed, { textContent: "" }, 0);
-    tl.to("#ct-send", { backgroundColor: "#ffba00", duration: 0.1, ease: "none" }, 3.85);
-    tl.fromTo("#ct-send", { scale: 1 }, { scale: 0.85, duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 3.9);
-    tl.fromTo("#ct-reply", { scale: 0.5, opacity: 0, transformOrigin: "0% 100%" }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.2)" }, 4.25);
+    tl.to("#ct-send", { backgroundColor: "#ffba00", duration: 0.1, ease: "none" }, 2.55);
+    tl.fromTo("#ct-send", { scale: 1 }, { scale: 0.85, duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 2.57);
+    tl.fromTo("#ct-reply", { scale: 0.5, opacity: 0, transformOrigin: "0% 100%" }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.2)" }, 2.75);
     // "Elas Barbershop": logo end card.
-    tl.fromTo("#ct-logo-card", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }, 6.1);
-    tl.fromTo("#ct-logo", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 6.4);
-    tl.fromTo("#ct-logo", { scale: 1 }, { scale: 1.04, duration: 3.0, ease: "sine.inOut", immediateRender: false }, 6.7);
+    tl.fromTo("#ct-logo-card", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }, 4.34);
+    tl.fromTo("#ct-logo", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 4.53);
+    tl.fromTo("#ct-logo", { scale: 1 }, { scale: 1.04, duration: 2.2, ease: "sine.inOut", immediateRender: false }, 4.83);
     window.__timelines["cta"] = tl;
   </script>
 </template>

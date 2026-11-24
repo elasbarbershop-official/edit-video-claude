@@ -29,13 +29,13 @@
     const h2 = Hair.build(document.querySelector("#pl-h2"), { n: 8, x0: 740, gap: 16, len: 190, y0: 850, width: 9, clip: "#091936", mode: "smooth" });
     tl.fromTo("#pl-top", { x: -1080 }, { x: 0, duration: 0.4, ease: "power4.out" }, 0);
     tl.fromTo("#pl-bot", { x: 1080 }, { x: 0, duration: 0.4, ease: "power4.out" }, 0.08);
-    tl.fromTo(["#pl-q1", "#pl-h1"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.3);
-    tl.fromTo("#pl-p1", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 3.4);
-    tl.fromTo("#pl-a1", { scale: 1.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 3.6);
-    tl.fromTo(["#pl-q2", "#pl-h2"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 5.0);
-    h2.sway(tl, 5.0, 4.3, 2);
-    tl.fromTo("#pl-p2", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 7.95);
-    tl.fromTo("#pl-a2", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 8.2);
+    tl.fromTo(["#pl-q1", "#pl-h1"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.63);
+    tl.fromTo("#pl-p1", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 2.29);
+    tl.fromTo("#pl-a1", { scale: 1.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 2.42);
+    tl.fromTo(["#pl-q2", "#pl-h2"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 3.72);
+    h2.sway(tl, 3.72, 3.65, 2);
+    tl.fromTo("#pl-p2", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 6.24);
+    tl.fromTo("#pl-a2", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 6.4);
     window.__timelines["pilih"] = tl;
   </script>
 </template>
