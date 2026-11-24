@@ -1,0 +1,75 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #ffba00; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #kr-chip { position: absolute; left: 130px; top: 310px; padding: 12px 24px; background: #091936; color: #ffba00; font-weight: 900; font-size: 56px; line-height: 1; }
+    #kr-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #kr-cap { position: absolute; left: 130px; top: 880px; width: 760px; color: #091936; font-weight: 800; font-size: 50px; line-height: 1.15; }
+    #kr-cap b { background: #091936; color: #ffba00; padding: 0 10px; }
+    .kr-lab { position: absolute; left: 540px; color: #091936; font-weight: 900; line-height: 1; }
+    #kr-kembang { top: 470px; font-size: 58px; }
+    #kr-strike { position: absolute; left: -6px; top: 26px; width: 0; height: 9px; background: #091936; }
+    #kr-hilang { top: 545px; font-size: 58px; }
+    #kr-natural { top: 690px; padding: 10px 20px; background: #091936; color: #faf8f2; font-size: 56px; }
+    #kr-gerak { top: 780px; font-size: 42px; }
+  </style>
+  <div id="root" data-composition-id="keratin" data-width="1080" data-height="1920">
+    <svg id="kr-svg" viewBox="0 0 1080 1920">
+      <g id="kr-diagram">
+        <g id="kr-scales"></g>
+        <rect x="150" y="600" width="730" height="100" rx="50" fill="#1e140f" />
+        <rect id="kr-coat" x="140" y="590" width="750" height="120" rx="60" fill="none" stroke="#faf8f2" stroke-width="10" />
+        <rect id="kr-sheen" x="180" y="616" width="70" height="14" rx="7" fill="#faf8f2" opacity="0.8" />
+      </g>
+      <g id="kr-tress"></g>
+    </svg>
+    <div id="kr-chip">KERATIN</div>
+    <div id="kr-cap"><b>Salut</b> &amp; licinkan rambut</div>
+    <div id="kr-kembang" class="kr-lab">KEMBANG<div id="kr-strike"></div></div>
+    <div id="kr-hilang" class="kr-lab">HILANG</div>
+    <div id="kr-natural" class="kr-lab">NATURAL</div>
+    <div id="kr-gerak" class="kr-lab">&amp; BERGERAK</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const NS = "http://www.w3.org/2000/svg";
+    // Cuticle scales lifted off the fibre (frizz), laid flat by keratin.
+    const sc = document.querySelector("#kr-scales"), scales = [];
+    for (let j = 0; j < 14; j++) {
+      [0, 1].forEach((bot) => {
+        const r = document.createElementNS(NS, "rect");
+        const x = 200 + j * 48, y = bot ? 684 : 600;
+        r.setAttribute("x", x); r.setAttribute("y", y); r.setAttribute("width", 50); r.setAttribute("height", 16); r.setAttribute("rx", 8);
+        r.setAttribute("fill", "#1e140f");
+        gsap.set(r, { svgOrigin: `${x} ${y + 8}` });
+        sc.appendChild(r); scales.push([r, bot, j]);
+      });
+    }
+    scales.forEach(([r, bot, j]) => gsap.set(r, { rotation: (bot ? 1 : -1) * (24 + (j % 3) * 9) }));
+    tl.fromTo("#kr-chip", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.1);
+    tl.fromTo("#kr-diagram", { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.35, ease: "power4.out" }, 0.15);
+    tl.set("#kr-coat", { scaleX: 0, transformOrigin: "0% 50%" }, 0);
+    tl.set("#kr-sheen", { opacity: 0 }, 0);
+    // "menyalut": coating slides over the fibre.
+    tl.to("#kr-coat", { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 0.8);
+    tl.fromTo("#kr-cap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 0.85);
+    // "melicinkan": scales lie flat, sheen passes.
+    scales.forEach(([r, bot, j]) => tl.to(r, { rotation: 0, duration: 0.3, ease: "power3.out" }, 1.65 + j * 0.025));
+    tl.set("#kr-sheen", { opacity: 0.85 }, 1.9);
+    tl.fromTo("#kr-sheen", { x: 0 }, { x: 610, duration: 0.6, ease: "power2.inOut", immediateRender: false }, 1.9);
+    tl.set("#kr-sheen", { opacity: 0 }, 2.5);
+    // "Kembang": swap to the tress.
+    tl.to(["#kr-diagram", "#kr-cap"], { x: -500, opacity: 0, duration: 0.3, ease: "power3.in" }, 3.1);
+    const tress = Hair.build(document.querySelector("#kr-tress"), { n: 16, x0: 195, gap: 17, len: 560, y0: 450, width: 11, clip: "#091936", mode: "frizz" });
+    tl.fromTo("#kr-tress", { x: 400, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power4.out" }, 3.25);
+    tl.fromTo("#kr-kembang", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 3.4);
+    // "hilang": frizz goes, hair falls smooth.
+    tress.to(tl, "smooth", 4.0, 0.7, "power3.inOut");
+    tl.to("#kr-strike", { width: 340, duration: 0.25, ease: "power3.out" }, 4.05);
+    tl.fromTo("#kr-hilang", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 4.1);
+    tl.fromTo("#kr-natural", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.2)" }, 6.2);
+    tl.fromTo("#kr-gerak", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 6.9);
+    // "bergerak": the smooth tress sways.
+    tress.sway(tl, 6.1, 1.8, 1);
+    window.__timelines["keratin"] = tl;
+  </script>
+</template>

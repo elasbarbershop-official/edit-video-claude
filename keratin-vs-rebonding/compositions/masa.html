@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #ffba00; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #ms-head { position: absolute; left: 130px; top: 320px; color: #091936; font-weight: 800; font-size: 54px; line-height: 1; }
+    .ms-row { position: absolute; left: 130px; display: flex; align-items: center; gap: 34px; }
+    #ms-r1 { top: 470px; } #ms-r2 { top: 730px; }
+    .ms-t { color: #091936; font-weight: 900; font-size: 92px; line-height: 0.98; }
+    #ms-note { position: absolute; left: 130px; top: 985px; width: 640px; color: #091936; font-weight: 700; font-size: 28px; line-height: 1.3; opacity: 0.8; }
+  </style>
+  <div id="root" data-composition-id="masa" data-width="1080" data-height="1920">
+    <div id="ms-head">Keratin juga...</div>
+    <div id="ms-r1" class="ms-row">
+      <svg id="ms-c1" width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="70" fill="#091936" /><path d="M40 78 L65 102 L112 52" fill="none" stroke="#ffba00" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      <div class="ms-t">LEBIH<br />CEPAT</div>
+    </div>
+    <div id="ms-r2" class="ms-row">
+      <svg id="ms-c2" width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="70" fill="#091936" /><path d="M40 78 L65 102 L112 52" fill="none" stroke="#ffba00" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      <div class="ms-t">LEBIH<br />LEMBUT</div>
+    </div>
+    <div id="ms-note">*Biasanya. Masa &amp; tempoh tahan bergantung pada jenis dan panjang rambut.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ms-head", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, 0.1);
+    tl.fromTo("#ms-r1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 1.5);
+    tl.fromTo("#ms-c1", { scale: 0.4, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.5)" }, 1.5);
+    tl.fromTo("#ms-r2", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 2.9);
+    tl.fromTo("#ms-c2", { scale: 0.4, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.5)" }, 2.9);
+    tl.fromTo("#ms-note", { opacity: 0 }, { opacity: 0.8, duration: 0.3, ease: "none" }, 0.4);
+    window.__timelines["masa"] = tl;
+  </script>
+</template>

@@ -1,0 +1,92 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #faf8f2; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #rb-chip { position: absolute; left: 130px; top: 310px; padding: 12px 24px; background: #091936; color: #faf8f2; font-weight: 900; font-size: 56px; line-height: 1; }
+    #rb-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #rb-cap { position: absolute; left: 130px; top: 880px; width: 760px; color: #091936; font-weight: 800; font-size: 50px; line-height: 1.15; }
+    #rb-cap b { background: #ffba00; padding: 0 10px; }
+    #rb-drop-lab { position: absolute; left: 720px; top: 440px; padding: 8px 16px; background: #091936; color: #ffba00; font-weight: 900; font-size: 36px; line-height: 1; }
+    .rb-lab { position: absolute; left: 540px; color: #091936; font-weight: 900; line-height: 1; }
+    #rb-lurus { top: 470px; font-size: 72px; }
+    #rb-kekal { top: 660px; padding: 10px 20px; background: #ffba00; font-size: 60px; }
+    #rb-sub { top: 760px; width: 340px; font-weight: 700; font-size: 34px; line-height: 1.25; }
+  </style>
+  <div id="root" data-composition-id="rebond" data-width="1080" data-height="1920">
+    <svg id="rb-svg" viewBox="0 0 1080 1920">
+      <g id="rb-diagram">
+        <path id="rb-rail1" d="" fill="none" stroke="#1e140f" stroke-width="16" stroke-linecap="round" />
+        <path id="rb-rail2" d="" fill="none" stroke="#1e140f" stroke-width="16" stroke-linecap="round" />
+        <g id="rb-rungs"></g>
+        <g id="rb-new"></g>
+        <g id="rb-drops">
+          <g transform="translate(330,470)"><path class="rb-drop" d="M0,-40 C14,-18 22,-4 22,8 A22,22 0 1 1 -22,8 C-22,-4 -14,-18 0,-40 Z" fill="#091936" /></g>
+          <g transform="translate(500,470)"><path class="rb-drop" d="M0,-40 C14,-18 22,-4 22,8 A22,22 0 1 1 -22,8 C-22,-4 -14,-18 0,-40 Z" fill="#091936" /></g>
+          <g transform="translate(670,470)"><path class="rb-drop" d="M0,-40 C14,-18 22,-4 22,8 A22,22 0 1 1 -22,8 C-22,-4 -14,-18 0,-40 Z" fill="#091936" /></g>
+        </g>
+      </g>
+      <g id="rb-tress"></g>
+      <rect id="rb-root-mark" x="160" y="440" width="10" height="130" fill="#ffba00" />
+    </svg>
+    <div id="rb-chip">REBONDING</div>
+    <div id="rb-drop-lab">KIMIA</div>
+    <div id="rb-cap">Kimia <b>ubah struktur</b> rambut</div>
+    <div id="rb-lurus" class="rb-lab">LURUS<br />KEJUNG</div>
+    <div id="rb-kekal" class="rb-lab">KEKAL*</div>
+    <div id="rb-sub" class="rb-lab">*sampai rambut baru tumbuh</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const NS = "http://www.w3.org/2000/svg";
+    // Ladder model of a hair fibre: two rails joined by bonds (rungs).
+    const X0 = 150, X1 = 880, Y1 = 610, Y2 = 760, N = 21;
+    const rail = (y, amp, ph) => { let s = ""; for (let k = 0; k < N; k++) { const x = X0 + (X1 - X0) * k / (N - 1); const yy = y + amp * Math.sin(k / (N - 1) * Math.PI * 3 + ph); s += (k ? " L" : "M") + x.toFixed(1) + "," + yy.toFixed(1); } return s; };
+    const r1 = document.querySelector("#rb-rail1"), r2 = document.querySelector("#rb-rail2");
+    r1.setAttribute("d", rail(Y1, 34, 0)); r2.setAttribute("d", rail(Y2, 34, 0));
+    const rungs = document.querySelector("#rb-rungs"), nw = document.querySelector("#rb-new");
+    const halves = [], fresh = [];
+    for (let j = 0; j < 10; j++) {
+      const x = 195 + j * 72, t = (x - X0) / (X1 - X0), wob = 34 * Math.sin(t * Math.PI * 3);
+      const yA = Y1 + wob + 8, yB = Y2 + wob - 8, ym = (yA + yB) / 2;
+      [[yA, ym], [ym, yB]].forEach(([a, b], h) => {
+        const l = document.createElementNS(NS, "line");
+        l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", a); l.setAttribute("y2", b);
+        l.setAttribute("stroke", "#091936"); l.setAttribute("stroke-width", 10); l.setAttribute("stroke-linecap", "round");
+        gsap.set(l, { svgOrigin: `${x} ${h ? b : a}` });
+        rungs.appendChild(l); halves.push([l, h]);
+      });
+      const f = document.createElementNS(NS, "line");
+      f.setAttribute("x1", x); f.setAttribute("x2", x); f.setAttribute("y1", Y1 + 8); f.setAttribute("y2", Y2 - 8);
+      f.setAttribute("stroke", "#ffba00"); f.setAttribute("stroke-width", 12); f.setAttribute("stroke-linecap", "round");
+      gsap.set(f, { svgOrigin: `${x} ${(Y1 + Y2) / 2}` });
+      nw.appendChild(f); fresh.push(f);
+    }
+    tl.fromTo("#rb-chip", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.1);
+    tl.fromTo("#rb-diagram", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, 0.2);
+    fresh.forEach((f) => tl.set(f, { scaleY: 0 }, 0));
+    // "kimia": drops fall onto the fibre.
+    tl.fromTo(".rb-drop", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, stagger: 0.08, ease: "power2.out" }, 1.0);
+    tl.fromTo("#rb-drop-lab", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.2, ease: "power2.out" }, 1.05);
+    tl.to(".rb-drop", { y: 110, scale: 0.5, duration: 0.35, stagger: 0.08, ease: "power2.in" }, 1.3);
+    tl.to(".rb-drop", { opacity: 0, duration: 0.1, stagger: 0.08, ease: "none" }, 1.6);
+    tl.to("#rb-drop-lab", { opacity: 0, duration: 0.15, ease: "none" }, 1.8);
+    // "ubah": bonds break.
+    halves.forEach(([l, h], i) => tl.to(l, { rotation: h ? 28 : -28, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.98 + Math.floor(i / 2) * 0.03));
+    tl.fromTo("#rb-cap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 2.0);
+    // "struktur": rails straighten, new bonds form.
+    tl.to(r1, { attr: { d: rail(Y1, 0, 0) }, duration: 0.5, ease: "power4.inOut" }, 2.35);
+    tl.to(r2, { attr: { d: rail(Y2, 0, 0) }, duration: 0.5, ease: "power4.inOut" }, 2.35);
+    fresh.forEach((f, j) => tl.to(f, { scaleY: 1, duration: 0.2, ease: "back.out(2)" }, 2.85 + j * 0.04));
+    // "Hasilnya": diagram out, tress in.
+    tl.to(["#rb-diagram", "#rb-cap"], { x: -500, opacity: 0, duration: 0.3, ease: "power3.in" }, 3.95);
+    const tress = Hair.build(document.querySelector("#rb-tress"), { n: 16, x0: 195, gap: 17, len: 560, y0: 450, width: 11, clip: "#091936", mode: "frizz" });
+    tl.fromTo("#rb-tress", { x: 400, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power4.out" }, 4.1);
+    tress.to(tl, "straight", 4.6, 0.3, "power4.out");
+    tl.fromTo("#rb-lurus", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 4.62);
+    tl.fromTo("#rb-kekal", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.2)" }, 6.0);
+    // "rambut baru tumbuh": roots regrow wavy.
+    tress.to(tl, "regrow", 6.7, 0.6, "power2.out");
+    tl.fromTo("#rb-root-mark", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.3, ease: "power3.out" }, 6.75);
+    tl.fromTo("#rb-sub", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 6.75);
+    window.__timelines["rebond"] = tl;
+  </script>
+</template>

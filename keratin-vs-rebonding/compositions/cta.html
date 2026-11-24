@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #ct-q { position: absolute; left: 130px; top: 330px; color: #faf8f2; font-weight: 900; font-size: 70px; line-height: 1.05; }
+    #ct-q span { color: #ffba00; }
+    #ct-box { position: absolute; left: 130px; top: 720px; width: 750px; height: 120px; border-radius: 60px; background: #faf8f2; }
+    #ct-av { position: absolute; left: 22px; top: 22px; width: 76px; height: 76px; border-radius: 38px; background: #ffba00; }
+    #ct-ph { position: absolute; left: 124px; top: 38px; color: #8a8f9c; font-weight: 600; font-size: 40px; line-height: 1; }
+    #ct-typed { position: absolute; left: 124px; top: 34px; color: #091936; font-weight: 900; font-size: 48px; line-height: 1; letter-spacing: 0.04em; }
+    #ct-send { position: absolute; right: 16px; top: 16px; width: 88px; height: 88px; border-radius: 44px; background: #d7d9df; }
+    #ct-send svg { position: absolute; left: 22px; top: 22px; }
+    #ct-reply { position: absolute; left: 230px; top: 880px; padding: 22px 30px; border-radius: 34px 34px 34px 8px; background: #ffba00; color: #091936; font-weight: 900; font-size: 44px; line-height: 1; }
+    #ct-logo-card { position: absolute; inset: 0; background: #091936; }
+    #ct-logo { position: absolute; left: 160px; top: 740px; width: 760px; height: 435px; }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <div id="ct-q">Tak pasti yang<br />mana <span>sesuai?</span></div>
+    <div id="ct-box">
+      <div id="ct-av"></div>
+      <div id="ct-ph">Tambah komen...</div>
+      <div id="ct-typed"></div>
+      <div id="ct-send"><svg width="44" height="44" viewBox="0 0 44 44"><path d="M6 22 L38 6 L28 38 L22 24 Z" fill="#091936" /></svg></div>
+    </div>
+    <div id="ct-reply">Kami bantu pilih!</div>
+    <div id="ct-logo-card"><img id="ct-logo" src="assets/img/logo-elas-crop.png" alt="Elas Barbershop" /></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ct-q", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }, 0.15);
+    tl.fromTo("#ct-box", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.out" }, 1.4);
+    // "Komen KERATIN": typed letter by letter.
+    tl.fromTo("#ct-box", { scale: 1 }, { scale: 1.04, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 2.75);
+    tl.set("#ct-ph", { opacity: 0 }, 3.3);
+    const word = "KERATIN", typed = document.querySelector("#ct-typed");
+    const st = { n: 0 };
+    tl.fromTo(st, { n: 0 }, { n: word.length, duration: 0.63, ease: "none", immediateRender: false,
+      onUpdate: () => { typed.textContent = word.slice(0, Math.floor(st.n + 0.0001)); } }, 3.33);
+    tl.set(typed, { textContent: "" }, 0);
+    tl.to("#ct-send", { backgroundColor: "#ffba00", duration: 0.1, ease: "none" }, 3.85);
+    tl.fromTo("#ct-send", { scale: 1 }, { scale: 0.85, duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 3.9);
+    tl.fromTo("#ct-reply", { scale: 0.5, opacity: 0, transformOrigin: "0% 100%" }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.2)" }, 4.25);
+    // "Elas Barbershop": logo end card.
+    tl.fromTo("#ct-logo-card", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }, 6.1);
+    tl.fromTo("#ct-logo", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 6.4);
+    tl.fromTo("#ct-logo", { scale: 1 }, { scale: 1.04, duration: 3.0, ease: "sine.inOut", immediateRender: false }, 6.7);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>

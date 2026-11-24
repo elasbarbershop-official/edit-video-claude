@@ -1,0 +1,31 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #hk-k { position: absolute; left: 130px; top: 330px; color: #ffba00; font-weight: 900; font-size: 136px; line-height: 1; letter-spacing: -0.02em; transform-origin: 0% 50%; }
+    #hk-vs { position: absolute; left: 130px; top: 500px; width: 150px; height: 150px; border-radius: 75px; background: #faf8f2; color: #091936;
+      font-weight: 900; font-size: 64px; line-height: 150px; text-align: center; }
+    #hk-r { position: absolute; left: 130px; top: 690px; color: #faf8f2; font-weight: 900; font-size: 112px; line-height: 1; letter-spacing: -0.02em; transform-origin: 0% 50%; }
+    #hk-stamp { position: absolute; left: 150px; top: 920px; padding: 20px 30px; border: 8px solid #ffba00; color: #ffba00;
+      font-weight: 900; font-size: 60px; line-height: 1.05; letter-spacing: 0.02em; transform: rotate(-5deg); }
+    #hk-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <svg id="hk-svg" viewBox="0 0 1080 1920"><g id="hk-hair"></g></svg>
+    <div id="hk-k">KERATIN</div>
+    <div id="hk-vs">VS</div>
+    <div id="hk-r">REBONDING</div>
+    <div id="hk-stamp-wrap"><div id="hk-stamp">RAMAI<br />SALAH PILIH</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Decorative frizzy tress on the right edge (outside the text column).
+    const hair = Hair.build(document.querySelector("#hk-hair"), { n: 12, x0: 730, gap: 13, len: 260, y0: 930, width: 9, color: "#faf8f2", clip: "#ffba00", mode: "frizz" });
+    tl.fromTo("#hk-hair", { opacity: 0.0 }, { opacity: 0.9, duration: 0.3, ease: "none" }, 0);
+    // Frame 0 is the thumbnail: the matchup is already readable, then settles.
+    tl.fromTo("#hk-k", { scale: 1.08 }, { scale: 1, duration: 0.3, ease: "power4.out" }, 0);
+    tl.fromTo("#hk-vs", { scale: 0.85, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.5)" }, 0.05);
+    tl.fromTo("#hk-r", { scale: 1.08 }, { scale: 1, duration: 0.3, ease: "power4.out" }, 0.1);
+    tl.fromTo("#hk-stamp-wrap", { scale: 1.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 2.15);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

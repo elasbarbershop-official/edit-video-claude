@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #pl-top { position: absolute; left: 0; top: 0; width: 1080px; height: 800px; background: #faf8f2; }
+    #pl-bot { position: absolute; left: 0; top: 800px; width: 1080px; height: 1120px; background: #ffba00; }
+    #pl-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .pl-q { position: absolute; left: 130px; color: #091936; font-weight: 800; font-size: 56px; line-height: 1.12; }
+    #pl-q1 { top: 360px; } #pl-q2 { top: 830px; }
+    .pl-a { position: absolute; left: 130px; color: #091936; font-weight: 900; line-height: 1; letter-spacing: -0.02em; transform-origin: 0% 50%; }
+    #pl-a1 { top: 560px; font-size: 104px; }
+    #pl-a2 { top: 1018px; font-size: 112px; }
+    .pl-pick { position: absolute; left: 130px; padding: 8px 16px; background: #091936; color: #ffba00; font-weight: 900; font-size: 32px; line-height: 1; }
+    #pl-p1 { top: 505px; } #pl-p2 { top: 975px; color: #ffba00; }
+  </style>
+  <div id="root" data-composition-id="pilih" data-width="1080" data-height="1920">
+    <div id="pl-top"></div>
+    <div id="pl-bot"></div>
+    <svg id="pl-svg" viewBox="0 0 1080 1920"><g id="pl-h1"></g><g id="pl-h2"></g></svg>
+    <div id="pl-q1" class="pl-q">Nak lurus<br />kejung?</div>
+    <div id="pl-p1" class="pl-pick">PILIH</div>
+    <div id="pl-a1" class="pl-a">REBONDING</div>
+    <div id="pl-q2" class="pl-q">Nak licin tapi<br />natural?</div>
+    <div id="pl-p2" class="pl-pick">PILIH</div>
+    <div id="pl-a2" class="pl-a">KERATIN</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const h1 = Hair.build(document.querySelector("#pl-h1"), { n: 8, x0: 740, gap: 16, len: 190, y0: 350, width: 9, clip: "#ffba00", mode: "straight" });
+    const h2 = Hair.build(document.querySelector("#pl-h2"), { n: 8, x0: 740, gap: 16, len: 190, y0: 850, width: 9, clip: "#091936", mode: "smooth" });
+    tl.fromTo("#pl-top", { x: -1080 }, { x: 0, duration: 0.4, ease: "power4.out" }, 0);
+    tl.fromTo("#pl-bot", { x: 1080 }, { x: 0, duration: 0.4, ease: "power4.out" }, 0.08);
+    tl.fromTo(["#pl-q1", "#pl-h1"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.3);
+    tl.fromTo("#pl-p1", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 3.4);
+    tl.fromTo("#pl-a1", { scale: 1.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 3.6);
+    tl.fromTo(["#pl-q2", "#pl-h2"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 5.0);
+    h2.sway(tl, 5.0, 4.3, 2);
+    tl.fromTo("#pl-p2", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 7.95);
+    tl.fromTo("#pl-a2", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 8.2);
+    window.__timelines["pilih"] = tl;
+  </script>
+</template>
