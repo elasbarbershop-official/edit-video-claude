@@ -18,3 +18,12 @@ Elas Barbershop social reels (1080×1920, Malay).
 4. Voiceover: ElevenLabs "Brian" (`nPczCjzI2devNBz1zQrb`, `eleven_multilingual_v2`). Write
    "Ke-ratin" in TTS text so it is pronounced correctly; add `<break time="0.5s" />` before punchlines.
 5. Finish at about −15 LUFS (`loudnorm=I=-15:TP=-1.5`) with no clipping.
+6. **Every finished video gets a `CAPTION.md`** in its project folder, delivered with the render:
+   - **TikTok:** 2–3 short lines in Malay: the hook question, a "tengok sampai habis" pull, and a
+     comment CTA (e.g. Komen "KERATIN"). Then 5–6 hashtags: 2–3 topic tags, `#elasbarbershop`,
+     `#fyp`, and one Malaysia tag.
+   - **Instagram:** the hook, then 3–4 key points as emoji bullets (✂️ ✨ ⏳), the verdict, and a
+     comment/DM-to-book CTA. Add any footnote the video has (e.g. "bergantung pada jenis rambut").
+     Then 10–14 hashtags mixing topic, Malaysian hair/barber tags, `#reelsmalaysia` and `#elasbarbershop`.
+   - Claims must match the video. No invented prices, locations or results. Ask for the shop's
+     location hashtag rather than guessing one.
