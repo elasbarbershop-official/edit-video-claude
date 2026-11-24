@@ -1,3 +1,8 @@
 node_modules/
 .hyperframes/
 vijay-transformasi/renders/vijay-keratin-vo.mp4
+siri/build.log
+__pycache__/
+siri/*/check.json
+siri/*/render.log
+siri/*/raw.mp4
