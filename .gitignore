@@ -16,3 +16,4 @@ siri/*/.raw.hf-transaction-*/
 siri/finish-batch.log
 siri/build-jan.log
 siri/finish-jan.log
+siri/*.log
