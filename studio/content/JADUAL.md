@@ -24,3 +24,42 @@ Semua ditanda AI-generated (IG / YouTube / TikTok) dan TikTok "kandungan jenama 
 | Kha 2026-12-24 | 45 | 37-gaya-100-tahun | ✓ | ✓ |
 
 Setiap baris = 7 siaran (IG, Google 30 s, FB, YT Short, TikTok, Threads, YT 16:9). Jumlah siri ini: 17 video × 7 = 119 siaran.
+
+## Kumpulan Januari (26 Dis 2026 – 31 Jan 2027)
+
+Had pelan Metricool: 200 siaran sebulan (ikut bulan siaran). Disember sudah penuh (200), Januari kini 165/200.
+
+| Tarikh | # | Video | Platform dijadualkan |
+|---|---|---|---|
+| Sab 2026-12-26 | 55 | 38-pomade-gugur | 7/7 |
+| Aha 2026-12-27 | 65 | 39-sikap-barber-pro | 4/7 (IG, Google, FB, YT Short) |
+| Sel 2026-12-29 | 35 | 40-kedai-tutup-setahun | belum (had Disember penuh) |
+| Kha 2026-12-31 | 46 | 41-rambut-tentera | belum (had Disember penuh) |
+| Sab 2027-01-02 | 56 | 42-mousse-vs-gel | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Aha 2027-01-03 | 66 | 43-terus-belajar | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sel 2027-01-05 | 36 | 44-gaji-vs-komisen | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Kha 2027-01-07 | 47 | 45-pisau-cukur | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sab 2027-01-09 | 57 | 46-produk-tak-tahan | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Aha 2027-01-10 | 67 | 47-sijil-vs-pengalaman | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sel 2027-01-12 | 37 | 48-pekerja-bagus-pergi | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Rab 2027-01-13 | 1 | 49-rambut-menipis | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Kha 2027-01-14 | 48 | 50-budaya-rambut | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Jum 2027-01-15 | 28 | 51-cabaran-10-tahun | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sab 2027-01-16 | 58 | 52-terlalu-banyak-produk | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Aha 2027-01-17 | 68 | 53-kerjaya-anak-muda | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Isn 2027-01-18 | 2 | 54-cepat-beruban | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sel 2027-01-19 | 38 | 55-perang-harga | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Rab 2027-01-20 | 3 | 56-punca-kelemumur | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Kha 2027-01-21 | 49 | 57-barbershop-sosial | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Jum 2027-01-22 | 29 | 58-barber-burnout | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sab 2027-01-23 | 59 | 59-fungsi-keratin | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Aha 2027-01-24 | 69 | 60-gunting-ke-syarikat | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Isn 2027-01-25 | 4 | 61-topi-botak | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sel 2027-01-26 | 39 | 62-pelanggan-tetap | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Rab 2027-01-27 | 5 | 63-cukur-lebih-tebal | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Kha 2027-01-28 | 50 | 64-evolusi-barbershop | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Jum 2027-01-29 | 30 | 65-jangan-pandang-rendah | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Sab 2027-01-30 | 60 | 66-produk-ikut-rambut | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+| Aha 2027-01-31 | 70 | 67-ai-dan-barber | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
+
+Belum dijadualkan kerana had: 39 (TikTok, Threads, YT 16:9), 40 dan 41 (semua platform), serta Google Business + Threads untuk 42–67 (52 siaran; Januari ada baki 35 slot).
