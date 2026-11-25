@@ -17,7 +17,7 @@ Lima kesilapan yang selalu dilakukan oleh pemilik barbershop baharu. 👇
 ✨ Tiada Rekod Kewangan: Untung atau rugi pun tak tahu
 ⏳ Campur Duit Peribadi: Asingkan akaun dari hari pertama
 💡 Abaikan Pemasaran: Kedai bagus pun perlu dikenali
-✅ Tiada Sop & Latihan: Servis jadi tak konsisten
+✅ Tiada SOP & Latihan: Servis jadi tak konsisten
 
 Pemilik kedai, pernah buat yang mana? Komen nombornya. Atau DM kami untuk tempah slot 📩
 

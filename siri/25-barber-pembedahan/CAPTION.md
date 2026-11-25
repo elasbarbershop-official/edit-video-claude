@@ -13,7 +13,7 @@ Nak lagi fakta macam ni? Komen FAKTA. ✂️
 
 Tahukah anda, suatu masa dahulu barber juga melakukan pembedahan? 👇
 
-✂️ Barber- Surgeon: Cabut gigi, rawat luka, bekam
+✂️ Barber-surgeon: Cabut gigi, rawat luka, bekam
 ✨ Kenapa Barber?: Mahir pisau, doktor pula mahal
 ⏳ Tahun 1540: Barber & pakar bedah, satu persatuan
 💡 Berpisah Tahun 1745: Pakar bedah bawa haluan sendiri
