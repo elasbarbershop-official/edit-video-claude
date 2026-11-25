@@ -64,7 +64,7 @@ def captions(sid, text, vo, lead, theme, end):
     chunks, cur = [], []
     for w in words:
         cur.append(w)
-        if len(cur) == 3 or sum(len(x[0]) for x in cur) >= 14 or re.search(r"[.,?!]$", w[2]):
+        if len(cur) == 3 or sum(len(x[0]) for x in cur) >= 12 or re.search(r"[.,?!]$", w[2]):
             chunks.append(cur); cur = []
     if cur:
         chunks.append(cur)
@@ -81,7 +81,7 @@ def captions(sid, text, vo, lead, theme, end):
             hl = th["cap_hl"]
             bg = re.search(r"background:([^;]+)", hl).group(1); fg = re.search(r"color:([^;]+)", hl).group(1)
             js.append(f'tl.set("#{sid}-w{c}_{j}", {{ backgroundColor: "{bg}", color: "{fg}" }}, {tw:.2f}); tl.set("#{sid}-w{c}_{j}", {{ backgroundColor: "rgba(0,0,0,0)", color: "{th["text"]}" }}, {tn:.2f});')
-    css = f"""    .cap {{ position: absolute; left: 200px; top: {CAP_TOP}px; width: 600px; text-align: center; font-weight: 900; font-size: 50px; line-height: 1.25;
+    css = f"""    .cap {{ position: absolute; left: 190px; top: {CAP_TOP}px; width: 590px; text-align: center; font-weight: 900; font-size: 50px; line-height: 1.25;
       letter-spacing: 0.01em; color: {th['text']}; transform-origin: 50% 50%; }}"""
     return css, "\n".join(html), "\n    ".join(js)
 
