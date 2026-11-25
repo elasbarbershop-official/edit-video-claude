@@ -1,6 +1,6 @@
 # Jadual siaran — Di Sebalik Kerusi Barber (Metricool, auto-publish, waktu Malaysia)
 
-Setiap video: Instagram Reel 10:00 · Facebook Reel 12:00 · YouTube Short (9:16) 16:00 · TikTok 18:00 · YouTube video penuh (16:9) 21:00.
+Setiap video: Instagram Reel 10:00 · Google Business (video 30 s) 11:00 · Facebook Reel 12:00 · YouTube Short (9:16) 16:00 · TikTok 18:00 · Threads 20:00 · YouTube video penuh (16:9) 21:00.
 Semua ditanda AI-generated (IG / YouTube / TikTok) dan TikTok "kandungan jenama sendiri".
 
 | Tarikh | # | Video | 9:16 | 16:9 |

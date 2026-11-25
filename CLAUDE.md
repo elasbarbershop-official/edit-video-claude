@@ -53,3 +53,10 @@ Elas Barbershop social reels (1080×1920, Malay).
    claims; label every money figure as "contoh ilustrasi"; health topics need reliable sources, no
    diagnosis or cure claims, and should suggest seeing a professional; nothing is scheduled without the
    owner's approval. Set the topic's status as you go (Idea → … → Published).
+10. **Posting pattern (Metricool, auto-publish, Asia/Kuala_Lumpur), one set per video:** Instagram Reel 10:00 ·
+    Google Business Profile 11:00 (type "photo" = video to the gallery, no text; Google takes videos of 30 s
+    or less, so post `siri/renders/gbp/<slug>-30s.mp4` made by `python3 siri/tools/gbp_cut.py <slug>`) ·
+    Facebook Reel 12:00 · YouTube Short 9:16 16:00 · TikTok 18:00 · Threads 20:00 (TikTok caption without
+    #fyp, under 500 characters) · YouTube normal video 16:9 21:00. Animated videos are marked AI-generated
+    on IG/YT/TikTok; real-customer footage is not. Media URLs are the public raw.githubusercontent links on
+    this branch, so push the renders before scheduling.

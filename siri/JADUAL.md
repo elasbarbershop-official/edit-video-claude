@@ -38,3 +38,9 @@ Jumlah: 80 siaran (20 video × 4 platform). Ubah atau padam dalam Metricool → 
 
 Ditambah 25 Nov 2026: setiap tarikh di atas juga ada video YouTube biasa (bukan Short) pada **21:00**
 menggunakan `renders/landscape/<slug>-16x9.mp4`. Jumlah kini 100 siaran (20 video × 5).
+
+## Threads + Google Business Profile (ditambah 25 Nov 2026)
+
+Setiap tarikh juga ada **Threads 20:00** (video 9:16 + caption TikTok) dan **Google Business Profile 11:00**
+(video ke galeri, versi 30 saat `renders/gbp/<slug>-30s.mp4` kerana Google hadkan video kepada 30 saat).
+Jumlah kini 140 siaran (20 video × 7).
