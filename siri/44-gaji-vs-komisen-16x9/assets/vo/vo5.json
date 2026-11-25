@@ -1,0 +1,55 @@
+{
+ "hash": "54a10b80c01c",
+ "text": "Barber, anda pilih yang mana? Komen GAJI atau KOMISEN. <break time=\"1.0s\" /> Elas Barbershop.",
+ "dur": 5.169,
+ "words": [
+  [
+   "Barber",
+   0.0
+  ],
+  [
+   "anda",
+   0.4
+  ],
+  [
+   "pilih",
+   0.58
+  ],
+  [
+   "yang",
+   0.92
+  ],
+  [
+   "mana?",
+   1.0
+  ],
+  [
+   "Komen",
+   1.5
+  ],
+  [
+   "gaji",
+   1.78
+  ],
+  [
+   "atau",
+   2.2
+  ],
+  [
+   "komisen?",
+   2.38
+  ],
+  [
+   "Elas",
+   3.88
+  ],
+  [
+   "Barber",
+   4.44
+  ],
+  [
+   "Shop.",
+   4.84
+  ]
+ ]
+}

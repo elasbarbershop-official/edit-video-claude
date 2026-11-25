@@ -226,7 +226,7 @@ def s_follow(sid, sc, vo, lead, series, handle, tagline, cue):
             + f'<div style="position:absolute;left:232px;top:72px;color:rgba(9,25,54,0.65);font-weight:700;font-size:24px;line-height:1;white-space:nowrap;">{escape(sc.get("cardsub", "Ilmu barber setiap hari"))}</div>'
             + f'<div id="{sid}-btn" style="position:absolute;left:232px;top:112px;width:200px;height:58px;border-radius:29px;background:{YEL};color:{NAVY};font-weight:900;font-size:26px;line-height:58px;text-align:center;">'
             + f'<span id="{sid}-b1">IKUTI</span><span id="{sid}-b2" style="position:absolute;left:0;right:0;top:0;opacity:0;">✓ DIIKUTI</span></div></div>'
-            + f'\n    <div id="{sid}-tag" style="position:absolute;left:130px;top:{y_card + 240:.0f}px;width:{750 if not S2.LAND else 860}px;color:{CREAM};font-weight:800;font-style:italic;font-size:40px;line-height:1.2;">{escape(tagline)}</div>')
+            + f'\n    <div id="{sid}-tag" style="position:absolute;left:130px;top:{y_card + 240:.0f}px;width:{620 if not S2.LAND else 860}px;color:{CREAM};font-weight:800;font-style:italic;font-size:40px;line-height:1.2;">{escape(tagline)}</div>')
     js = (f'tl.fromTo("#{sid}-chip", {{ scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }}, 0.15);\n    '
           f'tl.fromTo("#{sid}-q", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }}, 0.25);\n    '
           f'tl.fromTo("#{sid}-card", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power4.out" }}, {max(0.5, t_f - 0.5):.2f});\n    '

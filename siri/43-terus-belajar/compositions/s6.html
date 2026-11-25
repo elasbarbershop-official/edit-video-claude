@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; color: #faf8f2; font-family: "Montserrat", sans-serif; overflow: hidden; --ink:#faf8f2;--acc:#ffba00;--paper:#1c2d55; }
+    .ttl { position: absolute; left: 130px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; transform-origin: 0% 50%; }
+    .hero { position: absolute; transform-origin: 50% 100%; }
+    .hero svg, .ic svg { width: 100%; height: 100%; display: block; }
+    .chip { position: absolute; left: 130px; top: 300px; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }
+    #root .fit svg { width: 100%; height: 100%; display: block; }
+    .cap { position: absolute; left: 190px; top: 1112px; width: 590px; text-align: center; font-weight: 900; font-size: 50px; line-height: 1.25;
+      letter-spacing: 0.01em; color: #faf8f2; transform-origin: 50% 50%; }
+  </style>
+  <div id="root" data-composition-id="s6" data-width="1080" data-height="1920">
+    <div id="s6-chip" class="chip" style="background:#ffba00;color:#091936;">BARBER BUKAN BIASA</div>
+    <div id="s6-q" style="position:absolute;left:130px;top:360px;font-weight:900;font-size:75px;line-height:1.08;"><div style="color:#faf8f2;">Ikuti kami untuk</div><div style="color:#faf8f2;">ilmu dunia</div><div style="color:#ffba00;">barber</div></div>
+    <div id="s6-card" style="position:absolute;left:130px;top:653px;width:750px;height:190px;border-radius:30px;background:#faf8f2;"><div style="position:absolute;left:20px;top:40px;width:190px;height:110px;border-radius:20px;background:#091936;"><img src="assets/img/elas-logo.png" alt="" style="position:absolute;left:14px;top:10px;width:162px;height:90px;object-fit:contain;"/></div><div style="position:absolute;left:232px;top:30px;color:#091936;font-weight:900;font-size:30px;line-height:1;white-space:nowrap;">@elasbarbershop.official</div><div style="position:absolute;left:232px;top:72px;color:rgba(9,25,54,0.65);font-weight:700;font-size:24px;line-height:1;white-space:nowrap;">Ilmu &amp; inspirasi barber</div><div id="s6-btn" style="position:absolute;left:232px;top:112px;width:200px;height:58px;border-radius:29px;background:#ffba00;color:#091936;font-weight:900;font-size:26px;line-height:58px;text-align:center;"><span id="s6-b1">IKUTI</span><span id="s6-b2" style="position:absolute;left:0;right:0;top:0;opacity:0;">✓ DIIKUTI</span></div></div>
+    <div id="s6-tag" style="position:absolute;left:130px;top:893px;width:620px;color:#faf8f2;font-weight:800;font-style:italic;font-size:40px;line-height:1.2;">Lebih daripada sekadar gunting rambut.</div>
+    <div id="s6-c0" class="cap" style="opacity:0;"><span id="s6-w0_0" style="padding:2px 10px;border-radius:8px;">IKUTI</span> <span id="s6-w0_1" style="padding:2px 10px;border-radius:8px;">KAMI</span> <span id="s6-w0_2" style="padding:2px 10px;border-radius:8px;">UNTUK</span></div>
+    <div id="s6-c1" class="cap" style="opacity:0;"><span id="s6-w1_0" style="padding:2px 10px;border-radius:8px;">LEBIH</span> <span id="s6-w1_1" style="padding:2px 10px;border-radius:8px;">BANYAK</span> <span id="s6-w1_2" style="padding:2px 10px;border-radius:8px;">ILMU</span></div>
+    <div id="s6-c2" class="cap" style="opacity:0;"><span id="s6-w2_0" style="padding:2px 10px;border-radius:8px;">DUNIA</span> <span id="s6-w2_1" style="padding:2px 10px;border-radius:8px;">BARBER</span></div>
+    <div style="position:absolute;left:-660px;top:-240px;width:2400px;height:2400px;transform:rotate(22deg);pointer-events:none;z-index:9;"><div id="s6-sa" style="position:absolute;left:-200px;top:0;width:170px;height:2400px;background:#ffba00;"></div><div id="s6-sb" style="position:absolute;left:-400px;top:0;width:120px;height:2400px;background:#faf8f2;"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "polygon(0% 0%, -30% 0%, -70% 100%, 0% 100%)" }, { clipPath: "polygon(0% 0%, 150% 0%, 110% 100%, 0% 100%)", duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-sa", { x: 0 }, { x: 2700, duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-sb", { x: 0 }, { x: 2700, duration: 0.55, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-chip", { scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 0.15);
+    tl.fromTo("#s6-q", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }, 0.25);
+    tl.fromTo("#s6-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power4.out" }, 0.50);
+    tl.fromTo("#s6-btn", { scale: 1 }, { scale: 0.86, duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 0.60);
+    tl.to("#s6-btn", { backgroundColor: "#091936", color: "#faf8f2", duration: 0.12, ease: "none" }, 0.68);
+    tl.set("#s6-b1", { opacity: 0 }, 0.68); tl.set("#s6-b2", { opacity: 1 }, 0.68);
+    tl.fromTo("#s6-tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.20);
+    tl.set("#s6-c0", { opacity: 1 }, 0.30); tl.fromTo("#s6-c0", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.30); tl.set("#s6-c0", { opacity: 0 }, 1.28);
+    tl.set("#s6-w0_0", { backgroundColor: "#ffba00", color: "#091936" }, 0.30); tl.set("#s6-w0_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 0.70);
+    tl.set("#s6-w0_1", { backgroundColor: "#ffba00", color: "#091936" }, 0.70); tl.set("#s6-w0_1", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.02);
+    tl.set("#s6-w0_2", { backgroundColor: "#ffba00", color: "#091936" }, 1.02); tl.set("#s6-w0_2", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.28);
+    tl.set("#s6-c1", { opacity: 1 }, 1.28); tl.fromTo("#s6-c1", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 1.28); tl.set("#s6-c1", { opacity: 0 }, 2.28);
+    tl.set("#s6-w1_0", { backgroundColor: "#ffba00", color: "#091936" }, 1.28); tl.set("#s6-w1_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.52);
+    tl.set("#s6-w1_1", { backgroundColor: "#ffba00", color: "#091936" }, 1.52); tl.set("#s6-w1_1", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.90);
+    tl.set("#s6-w1_2", { backgroundColor: "#ffba00", color: "#091936" }, 1.90); tl.set("#s6-w1_2", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 2.28);
+    tl.set("#s6-c2", { opacity: 1 }, 2.28); tl.fromTo("#s6-c2", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 2.28); tl.set("#s6-c2", { opacity: 0 }, 4.41);
+    tl.set("#s6-w2_0", { backgroundColor: "#ffba00", color: "#091936" }, 2.28); tl.set("#s6-w2_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 2.64);
+    tl.set("#s6-w2_1", { backgroundColor: "#ffba00", color: "#091936" }, 2.64); tl.set("#s6-w2_1", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 4.41);
+    window.__timelines["s6"] = tl;
+  </script>
+</template>
