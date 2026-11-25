@@ -13,7 +13,7 @@ Barber, apa tips anda? Komen TIPS. ✂️
 
 Macam mana nak jadikan pelanggan baharu, pelanggan tetap? 👇
 
-✂️ Ingat Nama: Dan gaya kegemaran
+✂️ Ingat Nama: dan gaya kegemaran
 ✨ Hasil Konsisten: Setiap kali datang
 ⏳ Hantar Peringatan: Bila tiba masa potong
 💡 Kad Kesetiaan: Sebab untuk kembali

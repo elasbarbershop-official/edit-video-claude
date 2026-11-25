@@ -13,7 +13,7 @@ Barber, apa cabaran terbesar anda? Komen CABARAN. ✂️
 
 Sepuluh tahun menjadi barber. Apa cabaran yang orang jarang nampak? 👇
 
-✂️ Berdiri Berjam-Jam: Belakang & kaki terkesan
+✂️ Berdiri Berjam-jam: Belakang & kaki terkesan
 ✨ Trend Berubah: Perlu terus belajar
 ⏳ Ujian Kesabaran: Setiap pelanggan berbeza
 💡 Persaingan Sengit: Kedai baharu di mana-mana

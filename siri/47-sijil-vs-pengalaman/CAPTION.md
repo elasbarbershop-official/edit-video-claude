@@ -16,7 +16,7 @@ Sijil kemahiran atau pengalaman, mana lebih penting untuk seorang barber? 👇
 ✂️ Sijil: asas yang betul, tambah kepercayaan
 ✨ Pengalaman: kemahiran diasah, lebih pantas
 ⏳ Contoh: Skm: Sijil Kemahiran Malaysia
-💡 Kedua-Duanya Penting: Sijil buka pintu
+💡 Kedua-duanya Penting: Sijil buka pintu
 
 Anda setuju? Komen SETUJU. Atau DM kami untuk tempah slot 📩
 

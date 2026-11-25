@@ -15,7 +15,7 @@ Apa jadi kalau guna produk rambut terlalu banyak? 👇
 
 ✂️ Berminyak & Berat: Bukannya kemas
 ✨ Gaya Jadi Leper: Rambut tak tahan berat
-⏳ Terkumpul Di Kulit Kepala: Gatal & serpihan putih
+⏳ Terkumpul di Kulit Kepala: Gatal & serpihan putih
 💡 Mula Sedikit: Tambah jika perlu
 ✅ Cuci Sampai Bersih: Elak produk terkumpul
 

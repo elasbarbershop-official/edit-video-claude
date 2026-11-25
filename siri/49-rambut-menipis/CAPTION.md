@@ -14,7 +14,7 @@ Nak cadangan gaya untuk rambut nipis? Komen NIPIS. ✂️
 Kenapa rambut lelaki semakin menipis? Ini sebab yang paling biasa. 👇
 
 ✂️ Genetik & Hormon: Keguguran rambut corak lelaki
-✨ Pelipis & Ubun-Ubun: Bermula perlahan-lahan
+✨ Pelipis & Ubun-ubun: Bermula perlahan-lahan
 ⏳ Faktor Lain: Tekanan, pemakanan, kesihatan
 💡 Jumpa Pakar: Ada pilihan rawatan
 ✅ Potongan Yang Betul: Rambut nampak lebih penuh

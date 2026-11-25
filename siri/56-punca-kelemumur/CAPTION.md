@@ -16,7 +16,7 @@ Apa sebenarnya yang menyebabkan kelemumur? Bukan semestinya sebab rambut kotor. 
 ✂️ Yis & Minyak: Biasa ada di kulit kepala
 ✨ Kulit Kering & Sensitif: Reaksi pada produk
 ⏳ Cuaca & Tekanan: Boleh jadi lebih teruk
-💡 Syampu Anti-Kelemumur: Ikut arahan pada botol
+💡 Syampu Anti-kelemumur: Ikut arahan pada botol
 ✅ Tak Sembuh? Jumpa Pakar: Gatal teruk atau merah
 
 Ada masalah kelemumur? Komen KELEMUMUR. Atau DM kami untuk tempah slot 📩
