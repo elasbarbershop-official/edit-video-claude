@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; color: #faf8f2; font-family: "Montserrat", sans-serif; overflow: hidden; --ink:#faf8f2;--acc:#ffba00;--paper:#1c2d55; }
+    .ttl { position: absolute; left: 130px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; transform-origin: 0% 50%; }
+    .hero { position: absolute; transform-origin: 50% 100%; }
+    .hero svg, .ic svg { width: 100%; height: 100%; display: block; }
+    .chip { position: absolute; left: 130px; top: 300px; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }
+    .cap { position: absolute; left: 200px; top: 1112px; width: 600px; text-align: center; font-weight: 900; font-size: 50px; line-height: 1.25;
+      letter-spacing: 0.01em; color: #faf8f2; transform-origin: 50% 50%; }
+  </style>
+  <div id="root" data-composition-id="s5" data-width="1080" data-height="1920">
+    <div id="s5-chip" class="chip" style="background:#ffba00;color:#091936;">04</div>
+    <div id="s5-t0" class="ttl" style="top:364px;font-size:79px;color:#faf8f2;">PRODUK</div>
+    <div id="s5-t1" class="ttl" style="top:446px;font-size:79px;color:#faf8f2;color:#ffba00;">TAK DIBILAS</div>
+    <div id="s5-h" class="hero ic" style="left:278px;top:594px;width:445px;height:445px;"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" overflow="visible"><rect x="52" y="78" width="96" height="94" rx="18" fill="var(--paper)" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><rect x="44" y="40" width="112" height="40" rx="12" fill="var(--acc)" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M76 116 L124 116 M76 138 L110 138" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div style="position:absolute;left:500px;top:988px;transform:translateX(-50%);max-width:560px;width:max-content;"><div id="s5-bd" style="display:flex;align-items:center;gap:14px;padding:12px 26px 12px 14px;border-radius:40px;background:#ffba00;color:#091936;font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(9,25,54,0.25);"><svg width="46" height="46" viewBox="0 0 46 46" style="flex:none"><circle cx="23" cy="23" r="21" fill="#091936"/><path d="M12 24 L20 32 L34 15" fill="none" stroke="#ffba00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>POMADE &amp; GEL BERAT TERTINGGAL</span></div></div>
+    <div id="s5-c0" class="cap" style="opacity:0;"><span id="s5-w0_0" style="padding:2px 10px;border-radius:8px;">KEEMPAT</span></div>
+    <div id="s5-c1" class="cap" style="opacity:0;"><span id="s5-w1_0" style="padding:2px 10px;border-radius:8px;">PRODUK</span> <span id="s5-w1_1" style="padding:2px 10px;border-radius:8px;">BERAT</span> <span id="s5-w1_2" style="padding:2px 10px;border-radius:8px;">YANG</span></div>
+    <div id="s5-c2" class="cap" style="opacity:0;"><span id="s5-w2_0" style="padding:2px 10px;border-radius:8px;">TAK</span> <span id="s5-w2_1" style="padding:2px 10px;border-radius:8px;">DIBILAS</span> <span id="s5-w2_2" style="padding:2px 10px;border-radius:8px;">SAMPAI</span></div>
+    <div id="s5-c3" class="cap" style="opacity:0;"><span id="s5-w3_0" style="padding:2px 10px;border-radius:8px;">BERSIH</span></div>
+    <div style="position:absolute;left:-660px;top:-240px;width:2400px;height:2400px;transform:rotate(22deg);pointer-events:none;z-index:9;"><div id="s5-sa" style="position:absolute;left:-200px;top:0;width:170px;height:2400px;background:#ffba00;"></div><div id="s5-sb" style="position:absolute;left:-400px;top:0;width:120px;height:2400px;background:#faf8f2;"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "polygon(0% 0%, -30% 0%, -70% 100%, 0% 100%)" }, { clipPath: "polygon(0% 0%, 150% 0%, 110% 100%, 0% 100%)", duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s5-sa", { x: 0 }, { x: 2700, duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s5-sb", { x: 0 }, { x: 2700, duration: 0.55, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s5-chip", { scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 0.2);
+    tl.fromTo("#s5-t0", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.30);
+    tl.fromTo("#s5-t1", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.42);
+    tl.fromTo("#s5-h", { y: 80, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.35);
+    tl.to("#s5-h", { scale: 1.025, duration: 2.91, ease: "sine.inOut" }, 0.80);
+    tl.fromTo("#s5-bd", { scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 1.94);
+    tl.set("#s5-c0", { opacity: 1 }, 0.30); tl.fromTo("#s5-c0", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.30); tl.set("#s5-c0", { opacity: 0 }, 0.92);
+    tl.set("#s5-w0_0", { backgroundColor: "#ffba00", color: "#091936" }, 0.30); tl.set("#s5-w0_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 0.92);
+    tl.set("#s5-c1", { opacity: 1 }, 0.92); tl.fromTo("#s5-c1", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.92); tl.set("#s5-c1", { opacity: 0 }, 1.80);
+    tl.set("#s5-w1_0", { backgroundColor: "#ffba00", color: "#091936" }, 0.92); tl.set("#s5-w1_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.18);
+    tl.set("#s5-w1_1", { backgroundColor: "#ffba00", color: "#091936" }, 1.18); tl.set("#s5-w1_1", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.62);
+    tl.set("#s5-w1_2", { backgroundColor: "#ffba00", color: "#091936" }, 1.62); tl.set("#s5-w1_2", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.80);
+    tl.set("#s5-c2", { opacity: 1 }, 1.80); tl.fromTo("#s5-c2", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 1.80); tl.set("#s5-c2", { opacity: 0 }, 2.72);
+    tl.set("#s5-w2_0", { backgroundColor: "#ffba00", color: "#091936" }, 1.80); tl.set("#s5-w2_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 1.94);
+    tl.set("#s5-w2_1", { backgroundColor: "#ffba00", color: "#091936" }, 1.94); tl.set("#s5-w2_1", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 2.50);
+    tl.set("#s5-w2_2", { backgroundColor: "#ffba00", color: "#091936" }, 2.50); tl.set("#s5-w2_2", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 2.72);
+    tl.set("#s5-c3", { opacity: 1 }, 2.72); tl.fromTo("#s5-c3", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 2.72); tl.set("#s5-c3", { opacity: 0 }, 3.56);
+    tl.set("#s5-w3_0", { backgroundColor: "#ffba00", color: "#091936" }, 2.72); tl.set("#s5-w3_0", { backgroundColor: "rgba(0,0,0,0)", color: "#faf8f2" }, 3.56);
+    window.__timelines["s5"] = tl;
+  </script>
+</template>

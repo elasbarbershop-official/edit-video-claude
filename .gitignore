@@ -6,3 +6,6 @@ __pycache__/
 siri/*/check.json
 siri/*/render.log
 siri/*/raw.mp4
+siri/*/work-*/
+siri/*/check-summary.txt
+siri/*/.hyperframes/
