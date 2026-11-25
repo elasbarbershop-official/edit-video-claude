@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #ffba00; color: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; --ink:#091936;--acc:#faf8f2;--paper:#ffffff; }
+    .ttl { position: absolute; left: 130px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; transform-origin: 0% 50%; }
+    .hero { position: absolute; transform-origin: 50% 100%; }
+    .hero svg, .ic svg { width: 100%; height: 100%; display: block; }
+    .chip { position: absolute; left: 130px; top: 110px; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }
+    .cap { position: absolute; left: 130px; top: 905px; width: 880px; text-align: left; font-weight: 900; font-size: 56px; line-height: 1.25;
+      letter-spacing: 0.01em; color: #091936; transform-origin: 0% 50%; }
+  </style>
+  <div id="root" data-composition-id="s6" data-width="1920" data-height="1080">
+    <div id="s6-t0" class="ttl" style="top:140px;font-size:100px;color:#091936;">SEDIKIT</div>
+    <div id="s6-t1" class="ttl" style="top:244px;font-size:100px;color:#091936;background:#091936;color:#ffba00;padding:0 14px;margin-left:-14px;">DAH CUKUP</div>
+    <div id="s6-h" class="hero ic" style="left:1134px;top:278px;width:613px;height:613px;"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" overflow="visible"><circle cx="100" cy="100" r="74" fill="var(--acc)" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 102 L90 128 L138 76" fill="none" stroke="var(--ink)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div style="position:absolute;left:130px;top:408px;max-width:860px;width:max-content;"><div id="s6-bd" style="display:flex;align-items:center;gap:14px;padding:12px 26px 12px 14px;border-radius:40px;background:#faf8f2;color:#091936;font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(9,25,54,0.25);"><svg width="46" height="46" viewBox="0 0 46 46" style="flex:none"><circle cx="23" cy="23" r="21" fill="#091936"/><path d="M12 24 L20 32 L34 15" fill="none" stroke="#faf8f2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>TERLALU BANYAK = KESAT</span></div></div>
+    <div id="s6-c0" class="cap" style="opacity:0;"><span id="s6-w0_0" style="padding:2px 10px;border-radius:8px;">INGAT</span></div>
+    <div id="s6-c1" class="cap" style="opacity:0;"><span id="s6-w1_0" style="padding:2px 10px;border-radius:8px;">SEDIKIT</span> <span id="s6-w1_1" style="padding:2px 10px;border-radius:8px;">PUN</span> <span id="s6-w1_2" style="padding:2px 10px;border-radius:8px;">DAH</span></div>
+    <div id="s6-c2" class="cap" style="opacity:0;"><span id="s6-w2_0" style="padding:2px 10px;border-radius:8px;">CUKUP</span></div>
+    <div id="s6-c3" class="cap" style="opacity:0;"><span id="s6-w3_0" style="padding:2px 10px;border-radius:8px;">TERLALU</span> <span id="s6-w3_1" style="padding:2px 10px;border-radius:8px;">BANYAK</span></div>
+    <div id="s6-c4" class="cap" style="opacity:0;"><span id="s6-w4_0" style="padding:2px 10px;border-radius:8px;">BOLEH</span> <span id="s6-w4_1" style="padding:2px 10px;border-radius:8px;">BUAT</span> <span id="s6-w4_2" style="padding:2px 10px;border-radius:8px;">RAMBUT</span></div>
+    <div id="s6-c5" class="cap" style="opacity:0;"><span id="s6-w5_0" style="padding:2px 10px;border-radius:8px;">RASA</span> <span id="s6-w5_1" style="padding:2px 10px;border-radius:8px;">KESAT</span></div>
+    <div style="position:absolute;left:-660px;top:-1200px;width:3600px;height:3600px;transform:rotate(22deg);pointer-events:none;z-index:9;"><div id="s6-sa" style="position:absolute;left:-200px;top:0;width:170px;height:3600px;background:#ffba00;"></div><div id="s6-sb" style="position:absolute;left:-400px;top:0;width:120px;height:3600px;background:#faf8f2;"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "polygon(0% 0%, -30% 0%, -70% 100%, 0% 100%)" }, { clipPath: "polygon(0% 0%, 150% 0%, 110% 100%, 0% 100%)", duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-sa", { x: 0 }, { x: 3900, duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-sb", { x: 0 }, { x: 3900, duration: 0.55, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s6-t0", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, 0.30);
+    tl.fromTo("#s6-t1", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, 0.48);
+    tl.fromTo("#s6-h", { y: 80, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.40);
+    tl.to("#s6-h", { scale: 1.025, duration: 3.87, ease: "sine.inOut" }, 0.85);
+    tl.fromTo("#s6-bd", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 0.58);
+    tl.set("#s6-c0", { opacity: 1 }, 0.30); tl.fromTo("#s6-c0", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.30); tl.set("#s6-c0", { opacity: 0 }, 0.58);
+    tl.set("#s6-w0_0", { backgroundColor: "#091936", color: "#ffba00" }, 0.30); tl.set("#s6-w0_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 0.58);
+    tl.set("#s6-c1", { opacity: 1 }, 0.58); tl.fromTo("#s6-c1", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.58); tl.set("#s6-c1", { opacity: 0 }, 1.30);
+    tl.set("#s6-w1_0", { backgroundColor: "#091936", color: "#ffba00" }, 0.58); tl.set("#s6-w1_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 0.96);
+    tl.set("#s6-w1_1", { backgroundColor: "#091936", color: "#ffba00" }, 0.96); tl.set("#s6-w1_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 1.14);
+    tl.set("#s6-w1_2", { backgroundColor: "#091936", color: "#ffba00" }, 1.14); tl.set("#s6-w1_2", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 1.30);
+    tl.set("#s6-c2", { opacity: 1 }, 1.30); tl.fromTo("#s6-c2", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 1.30); tl.set("#s6-c2", { opacity: 0 }, 2.00);
+    tl.set("#s6-w2_0", { backgroundColor: "#091936", color: "#ffba00" }, 1.30); tl.set("#s6-w2_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.00);
+    tl.set("#s6-c3", { opacity: 1 }, 2.00); tl.fromTo("#s6-c3", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 2.00); tl.set("#s6-c3", { opacity: 0 }, 2.76);
+    tl.set("#s6-w3_0", { backgroundColor: "#091936", color: "#ffba00" }, 2.00); tl.set("#s6-w3_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.50);
+    tl.set("#s6-w3_1", { backgroundColor: "#091936", color: "#ffba00" }, 2.50); tl.set("#s6-w3_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.76);
+    tl.set("#s6-c4", { opacity: 1 }, 2.76); tl.fromTo("#s6-c4", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 2.76); tl.set("#s6-c4", { opacity: 0 }, 3.52);
+    tl.set("#s6-w4_0", { backgroundColor: "#091936", color: "#ffba00" }, 2.76); tl.set("#s6-w4_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.02);
+    tl.set("#s6-w4_1", { backgroundColor: "#091936", color: "#ffba00" }, 3.02); tl.set("#s6-w4_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.22);
+    tl.set("#s6-w4_2", { backgroundColor: "#091936", color: "#ffba00" }, 3.22); tl.set("#s6-w4_2", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.52);
+    tl.set("#s6-c5", { opacity: 1 }, 3.52); tl.fromTo("#s6-c5", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 3.52); tl.set("#s6-c5", { opacity: 0 }, 4.52);
+    tl.set("#s6-w5_0", { backgroundColor: "#091936", color: "#ffba00" }, 3.52); tl.set("#s6-w5_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.70);
+    tl.set("#s6-w5_1", { backgroundColor: "#091936", color: "#ffba00" }, 3.70); tl.set("#s6-w5_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 4.52);
+    window.__timelines["s6"] = tl;
+  </script>
+</template>

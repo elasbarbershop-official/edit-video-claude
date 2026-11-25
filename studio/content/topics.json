@@ -424,8 +424,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Berapa sebenarnya keuntungan daripada satu potongan rambut?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "28-untung-satu-potongan",
    "needs_fact_check": false
   },
   {
@@ -435,8 +435,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Modal yang diperlukan untuk membuka barbershop.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "32-modal-buka-kedai",
    "needs_fact_check": false
   },
   {
@@ -446,8 +446,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Lima kesilapan pemilik barbershop baharu.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "36-kesilapan-pemilik",
    "needs_fact_check": false
   },
   {
@@ -534,8 +534,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Tahukah anda barber dahulu turut menjalankan prosedur pembedahan?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "25-barber-pembedahan",
    "needs_fact_check": true
   },
   {
@@ -545,8 +545,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Sejarah pekerjaan barber di dunia.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "29-sejarah-barber",
    "needs_fact_check": true
   },
   {
@@ -556,8 +556,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Siapakah yang mencipta mesin gunting rambut elektrik?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "33-pencipta-clipper",
    "needs_fact_check": true
   },
   {
@@ -567,8 +567,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Bagaimana gaya rambut lelaki berubah dalam tempoh 100 tahun?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "37-gaya-100-tahun",
    "needs_fact_check": true
   },
   {
@@ -644,8 +644,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Apa sebenarnya fungsi Hair Styling Powder?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "26-styling-powder",
    "needs_fact_check": true
   },
   {
@@ -655,8 +655,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Kenapa rambut menjadi keras selepas menggunakan hair spray?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "30-hair-spray-keras",
    "needs_fact_check": true
   },
   {
@@ -666,8 +666,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Cara menggunakan hair serum dengan betul.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "34-cara-guna-serum",
    "needs_fact_check": true
   },
   {
@@ -754,8 +754,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Bolehkah seorang barber menjadi jutawan?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "27-barber-jutawan",
    "needs_fact_check": false
   },
   {
@@ -765,8 +765,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Kenapa kemahiran lebih penting daripada ego?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "31-kemahiran-vs-ego",
    "needs_fact_check": false
   },
   {
@@ -776,8 +776,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Perjalanan daripada pembantu barber kepada pemilik barbershop.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "35-pembantu-ke-pemilik",
    "needs_fact_check": false
   },
   {
