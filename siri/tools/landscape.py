@@ -34,7 +34,7 @@ def panel_png(out_png, series, lines, hl, word):
 .pill{{display:inline-block;background:{YEL};color:{NAVY};font-weight:900;font-size:34px;padding:14px 30px;border-radius:40px}}
 .cta p{{color:{CREAM};font-weight:700;font-size:24px;margin:18px 0 0}}
 .st{{position:absolute;width:60px;height:1600px;transform:rotate(22deg)}}</style></head><body>
-<div class="st" style="left:-40px;top:560px;background:{YEL}"></div><div class="st" style="left:40px;top:640px;background:{CREAM};width:34px"></div>
+<div class="st" style="left:-130px;top:800px;background:{YEL}"></div><div class="st" style="left:-50px;top:880px;background:{CREAM};width:34px"></div>
 <div class="chip">{escape(series)}</div><div class="title">{title}</div><div class="sub">Tonton sampai habis &#8594;</div>
 <div class="frame"></div>
 <img class="logo" src="data:image/png;base64,{logo}">
