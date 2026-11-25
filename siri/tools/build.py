@@ -452,6 +452,8 @@ def write_docs(v, proj, total):
         elif s["t"] == "rows":
             for r in s["items"]:
                 bullets.append(f"{emo[e % len(emo)]} {r['label'].title()}: {r['desc']}"); e += 1
+        elif s["t"] == "split":
+            bullets.append(f"{emo[e % len(emo)]} " + ", ".join(f"{l} RM{amt}" for l, amt in s["costs"]) + " (contoh ilustrasi)"); e += 1
         elif s["t"] == "compare":
             for key in ("L", "R"):
                 sd = s[key]
@@ -478,7 +480,7 @@ Tengok sampai habis 👇
 {chr(10).join(bullets)}
 
 {cta_line} Atau DM kami untuk tempah slot 📩
-
+{chr(10) + v["footnote"] + chr(10) if v.get("footnote") else ""}
 {' '.join(ig)}
 """)
 

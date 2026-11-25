@@ -144,6 +144,15 @@ ICONS = {
             + "".join(f'<path d="M44 {y} L164 {y}" stroke="var(--acc)" stroke-width="9"/>' for y in (50, 70, 90)) + f'<rect x="44" y="30" width="54" height="42" {INK}/>',
     "book": f'<path d="M100 48 Q70 30 28 36 L28 164 Q70 158 100 176 Q130 158 172 164 L172 36 Q130 30 100 48 Z" {P} {SI}/><path d="M100 48 L100 176" {S}/>'
             f'<path d="M48 70 L82 74 M48 96 L82 100 M118 74 L152 70 M118 100 L152 96" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/>',
+    "powder": f'<rect x="56" y="70" width="88" height="110" rx="18" {P} {SI}/><rect x="62" y="38" width="76" height="34" rx="10" {A} {SI}/>'
+              + "".join(f'<circle cx="{x}" cy="52" r="4" {INK}/>' for x in (82, 100, 118)) + "".join(f'<circle cx="{x}" cy="{y}" r="5" {A}/>' for x, y in [(80, 20), (104, 12), (126, 22)])
+              + f'<rect x="76" y="104" width="48" height="40" rx="6" {A}/>',
+    "dropper": f'<path d="M80 92 L120 92 L132 176 Q100 190 68 176 Z" {P} {SI}/><rect x="86" y="58" width="28" height="34" {A} {SI}/><path d="M90 58 Q90 24 100 24 Q110 24 110 58" {A} {SI}/>'
+               + f'<path d="M150 120 C142 134 142 142 150 146 C158 142 158 134 150 120 Z" {A} {SI}/>',
+    "coin": f'<ellipse cx="100" cy="150" rx="66" ry="22" {A} {SI}/><path d="M34 150 L34 120" {S}/><path d="M166 150 L166 120" {S}/><ellipse cx="100" cy="120" rx="66" ry="22" {A} {SI}/>'
+            f'<ellipse cx="100" cy="90" rx="66" ry="22" {A} {SI}/><path d="M34 120 L34 90 M166 120 L166 90" {S}/>'
+            f'<text x="100" y="98" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="28" fill="var(--ink)">RM</text>',
+    "bolt": f'<path d="M112 16 L48 112 L94 112 L80 184 L152 82 L104 82 Z" {A} {SI}/>',
     "beard": face("oval", beard=True),
     "hair-thin": head("thin"),
 }

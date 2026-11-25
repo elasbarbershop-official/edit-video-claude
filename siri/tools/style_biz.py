@@ -140,16 +140,15 @@ def s_split(sid, sc, vo, lead, theme, cue):
     y_cnt = bottom + 24
     y_bar = y_cnt + 170
     y_rows = y_bar + 120
-    total = sum(a for _, a in sc["costs"])
-    left = 100 - total
+    base_rm = sc.get("base", 100)
     seg, rows, js, sfx = [], [], [], []
-    off = 0; prev = -1.0; remain = 100
-    js.append(f'const rm{sid} = {{ v: 100 }}; const rmEl{sid} = document.querySelector("#{sid}-rm");')
-    js.append(f'tl.set("#{sid}-rm", {{ textContent: "RM100" }}, 0);')
+    off = 0; prev = -1.0; remain = base_rm
+    js.append(f'const rm{sid} = {{ v: {base_rm} }}; const rmEl{sid} = document.querySelector("#{sid}-rm");')
+    js.append(f'tl.set("#{sid}-rm", {{ textContent: "RM{base_rm}" }}, 0);')
     for i, (label, amt) in enumerate(sc["costs"]):
         raw = cue(vo, label.split()[0], (i + 1) / (len(sc["costs"]) + 2), prev); prev = raw
         t = lead + raw
-        sw = w * amt / 100
+        sw = w * amt / base_rm
         shade = ["#ffffff", "#e9e6dc", "#ffffff", "#e9e6dc", "#ffffff", "#e9e6dc"][i % 6] if theme == "navy" else [NAVY, "#24365e"][i % 2]
         tc = NAVY if theme == "navy" else CREAM
         seg.append(f'<div id="{sid}-s{i}" style="position:absolute;left:{x + off:.0f}px;top:{y_bar:.0f}px;width:{sw:.0f}px;height:88px;background:{shade};border-right:4px solid {th["bg"]};box-sizing:border-box;'
@@ -164,9 +163,9 @@ def s_split(sid, sc, vo, lead, theme, cue):
         off += sw; remain -= amt
     t_end = lead + cue(vo, "keuntungan", 0.9, prev)
     base = f'<div id="{sid}-base" style="position:absolute;left:{x}px;top:{y_bar:.0f}px;width:{w}px;height:88px;border-radius:14px;background:{YEL};overflow:hidden;"></div>'
-    keep = (f'<div id="{sid}-keep" style="position:absolute;left:{x + w - 130:.0f}px;top:{y_bar - 64:.0f}px;padding:8px 14px;border-radius:12px;background:{YEL};color:{NAVY};font-weight:900;font-size:28px;line-height:1;white-space:nowrap;">UNTUNG</div>')
-    cnt = (f'<div style="position:absolute;left:{x}px;top:{y_cnt:.0f}px;font-weight:700;font-size:30px;line-height:1;color:{ink};opacity:0.8;">Daripada setiap RM100 jualan, baki untuk anda:</div>'
-           f'<div id="{sid}-rm" style="position:absolute;left:{x}px;top:{y_cnt + 40:.0f}px;font-weight:900;font-size:110px;line-height:1;color:{YEL if theme == "navy" else NAVY};">RM100</div>')
+    keep = (f'<div id="{sid}-keep" style="position:absolute;left:{x + w - 150:.0f}px;top:{y_bar - 64:.0f}px;padding:8px 14px;border-radius:12px;background:{YEL};color:{NAVY};font-weight:900;font-size:28px;line-height:1;white-space:nowrap;">UNTUNG</div>')
+    cnt = (f'<div style="position:absolute;left:{x}px;top:{y_cnt:.0f}px;width:{w}px;font-weight:700;font-size:{30 if S2.LAND else 26}px;line-height:1.1;color:{ink};opacity:0.8;">{escape(sc.get("lead_text", "Daripada setiap RM100 jualan, baki untuk anda:"))}</div>'
+           f'<div id="{sid}-rm" style="position:absolute;left:{x}px;top:{y_cnt + 40:.0f}px;font-weight:900;font-size:110px;line-height:1;color:{YEL if theme == "navy" else NAVY};">RM{base_rm}</div>')
     note = f'<div style="position:absolute;left:{x}px;top:{y_rows + 3 * 66 + 6:.0f}px;width:{w}px;font-weight:600;font-size:24px;line-height:1.2;color:{ink};opacity:0.7;">*Contoh ilustrasi sahaja, bukan angka sebenar Ela&#39;s Barbershop.</div>'
     js.append(f'tl.fromTo("#{sid}-keep", {{ opacity: 0, y: 10 }}, {{ opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)" }}, {t_end:.2f});')
     js.append(f'tl.fromTo("#{sid}-rm", {{ scale: 1 }}, {{ scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, transformOrigin: "0% 50%", immediateRender: false }}, {t_end:.2f});')

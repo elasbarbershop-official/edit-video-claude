@@ -235,7 +235,7 @@ VIDEOS = [
 # ---------------------------------------------------------------- Di Sebalik Kerusi Barber (studio/)
 def shop(vo, lines, hl): return dict(t="shop", vo=vo, lines=lines, hl=hl)
 def chart(vo, title, tts=None): return dict(t="chart", vo=vo, title=title, **({"tts": tts} if tts else {}))
-def split(vo, title, costs): return dict(t="split", vo=vo, title=title, costs=costs)
+def split(vo, title, costs, **kw): return dict(t="split", vo=vo, title=title, costs=costs, **kw)
 def morph(vo, title, sub, tts=None): return dict(t="morph", vo=vo, title=title, sub=sub, **({"tts": tts} if tts else {}))
 def follow(vo, ask, cardsub="Ilmu & rahsia industri barber"): return dict(t="follow", vo=vo, ask=ask, cardsub=cardsub)
 
@@ -418,4 +418,148 @@ Ikuti @elasbarbershop.official untuk siri Di Sebalik Kerusi Barber.
 
 #barberlife #kerjayabarber #motivasi #barbermalaysia #barbershopmalaysia #profesionbarber #inspirasi #usahawanmalaysia #lelakimalaysia #reelsmalaysia #elasbarbershop
 """),
+]
+
+# ---------------------------------------------------------------- 30-day calendar batch (3–24 Dec 2026)
+E_, F_, G_, D_ = "RAHSIA DUNIA BARBER", "SEMINIT ILMU BARBER", "BARBER BUKAN BIASA", "BISNES DI SEBALIK GUNTING"
+def V(slug, series, topic, tags, scenes, music="lofi", **kw):
+    return dict(slug=slug, series=series, music=music, topic_id=topic, tags=tags, scenes=scenes, **kw)
+
+def tts(scene, text):
+    scene["tts"] = text; return scene
+
+VIDEOS += [
+ V("25-barber-pembedahan", E_, 42, ["#sejarahbarber", "#faktamenarik", "#barbersurgeon", "#tahukahanda", "#lelakimalaysia"], [
+   hook("Tahukah anda, suatu masa dahulu barber juga melakukan pembedahan?", ["BARBER JUGA", "BUAT", "PEMBEDAHAN?"], [2], "razor", "Kisah benar zaman dahulu"),
+   point("Di Eropah zaman pertengahan, barber bukan sahaja menggunting rambut. Mereka juga mencabut gigi, merawat luka dan melakukan bekam darah.",
+         ["BARBER-", "SURGEON"], "Cabut gigi, rawat luka, bekam", "bandage", "mencabut"),
+   point("Kenapa barber? Kerana mereka mahir menggunakan pisau tajam, dan doktor pada masa itu sedikit dan mahal.",
+         ["KENAPA", "BARBER?"], "Mahir pisau, doktor pula mahal", "scissors", "mahir"),
+   tts(point("Di England, pada tahun 1540, barber dan pakar bedah disatukan dalam satu persatuan rasmi.",
+         ["TAHUN", "1540"], "Barber & pakar bedah, satu persatuan", "book", "england"),
+       "Di England, pada tahun seribu lima ratus empat puluh, barber dan pakar bedah disatukan dalam satu persatuan rasmi."),
+   tts(point("Hanya pada tahun 1745, pakar bedah berpisah dan membentuk persatuan mereka sendiri.",
+         ["BERPISAH", "TAHUN 1745"], "Pakar bedah bawa haluan sendiri", "calendar", "berpisah"),
+       "Hanya pada tahun seribu tujuh ratus empat puluh lima, pakar bedah berpisah dan membentuk persatuan mereka sendiri."),
+   tip("Hari ini, barber fokus pada rambut dan janggut. Tetapi warisan itu masih ada pada tiang barber merah dan putih.",
+       ["WARISAN", "MASIH ADA"], "Lihat pada tiang barber", "pole", "warisan"),
+   cta("Nak lagi fakta macam ni? Komen FAKTA.", ["Nak lagi", "fakta menarik?"], "FAKTA", "Kami kongsi lagi!"),
+ ]),
+ V("26-styling-powder", F_, 52, ["#stylingpowder", "#produkrambut", "#rambutnipis", "#rambutlelaki", "#menshairstyle"], [
+   hook("Rambut nampak leper walaupun dah guna produk? Mungkin anda perlukan hair styling powder.", ["RAMBUT", "NAMPAK", "LEPER?"], [2], "powder", "Cuba hair styling powder"),
+   point("Hair styling powder ialah serbuk ringan yang memberi volume dan tekstur, terutamanya di bahagian akar rambut.",
+         ["VOLUME DI", "AKAR RAMBUT"], "Serbuk ringan, rambut lebih naik", "powder", "volume"),
+   point("Hasilnya matte, tidak berkilat, dan rambut tidak terasa berat.", ["MATTE &", "RINGAN"], "Tak berkilat, tak berat", "hair-texture", "matte"),
+   point("Ia sangat sesuai untuk rambut nipis atau halus yang susah naik.", ["SESUAI RAMBUT", "NIPIS"], "Rambut halus yang susah naik", "hair-thin", "nipis"),
+   tip("Cara guna, tabur sedikit pada akar rambut yang kering, kemudian urut dengan hujung jari dan bentukkan.",
+       ["TABUR DI AKAR,", "URUT & BENTUK"], "Pada rambut yang kering", "hand", "tabur"),
+   tip("Ingat, sedikit pun dah cukup. Terlalu banyak boleh buat rambut rasa kesat.", ["SEDIKIT", "DAH CUKUP"], "Terlalu banyak = kesat", "check", "sedikit"),
+   cta("Pernah cuba styling powder? Komen POWDER.", ["Pernah cuba", "styling powder?"], "POWDER", "Kongsi pengalaman!"),
+ ]),
+ V("27-barber-jutawan", G_, 62, ["#kerjayabarber", "#usahawanmalaysia", "#motivasi", "#barbermalaysia", "#lelakimalaysia"], [
+   hook("Bolehkah seorang barber menjadi jutawan? Boleh, tetapi bukan dengan menggunting rambut sahaja.", ["BARBER JADI", "JUTAWAN?"], [1], "coin", "Boleh, tapi bukan dengan gunting sahaja"),
+   point("Satu kerusi ada had. Masa anda terhad, jadi pendapatan daripada menggunting sahaja juga terhad.",
+         ["SATU KERUSI", "ADA HAD"], "Masa terhad, pendapatan terhad", "clock", "kerusi"),
+   point("Ramai yang berkembang dengan membuka lebih banyak cawangan dan membina pasukan.", ["CAWANGAN &", "PASUKAN"], "Bina sistem, bukan kerja seorang", "shop", "cawangan"),
+   point("Ada juga yang mengajar, membuka akademi, atau melancarkan produk sendiri.", ["AKADEMI &", "PRODUK"], "Ilmu & jenama jadi sumber baharu", "book", "mengajar"),
+   point("Semua ini memerlukan ilmu kewangan, disiplin, dan masa bertahun-tahun.", ["ILMU, DISIPLIN", "& MASA"], "Tiada jalan pintas", "calendar", "disiplin"),
+   tip("Jadi, kemahiran gunting ialah permulaan. Perniagaan yang membawa anda lebih jauh.", ["GUNTING ITU", "PERMULAAN"], "Bisnes bawa anda lebih jauh", "trophy", "permulaan"),
+   cta("Apa impian anda dalam industri barber? Komen IMPIAN.", ["Apa impian", "anda?"], "IMPIAN", "Kami nak dengar!"),
+ ], music="trap", footnote="*Tiada jaminan pendapatan. Kejayaan bergantung pada usaha dan keadaan masing-masing."),
+ V("28-untung-satu-potongan", D_, 32, ["#bisnesbarber", "#usahawanmalaysia", "#tipsbisnes", "#barbershopmalaysia", "#lelakimalaysia"], [
+   hook("Berapa sebenarnya untung kedai daripada satu potongan rambut? Jawapannya mungkin mengejutkan anda.", ["BERAPA UNTUNG", "SATU", "POTONGAN?"], [2], "coin", "Jawapannya mungkin mengejutkan"),
+   split("Katakan satu potongan berharga dua puluh lima ringgit. Hampir separuh pergi kepada gaji atau komisen barber. Kemudian sewa dan bil, produk dan alatan, dan kos lain seperti pemasaran. Bakinya, keuntungan mungkin cuma beberapa ringgit.",
+         ["KE MANA PERGI", "RM25 ANDA?"], [("Gaji / komisen", 12), ("Sewa & bil", 5), ("Produk & alat", 3), ("Kos lain", 2)],
+         base=25, lead_text="Daripada satu potongan RM25, baki untuk kedai:"),
+   tip("Sebab itu, kedai perlu ramai pelanggan tetap, dan kawalan kos yang ketat, untuk terus untung.", ["PELANGGAN TETAP", "+ KAWAL KOS"], "Kunci untung yang stabil", "check", "pelanggan"),
+   cta("Terkejut dengan angka ni? Komen UNTUNG.", ["Terkejut dengan", "angka ni?"], "UNTUNG", "Kami kongsi lagi!"),
+ ], footnote="*Angka dalam video ialah contoh ilustrasi, bukan angka sebenar Ela's Barbershop."),
+ V("29-sejarah-barber", E_, 43, ["#sejarahbarber", "#faktamenarik", "#barberlife", "#tahukahanda", "#lelakimalaysia"], [
+   hook("Pekerjaan barber antara yang tertua di dunia. Jom lihat sejarahnya.", ["ANTARA KERJA", "TERTUA", "DI DUNIA"], [1], "razor", "Sejarah ribuan tahun"),
+   point("Di Mesir purba, barber sudah wujud ribuan tahun dahulu, mencukur dengan pisau daripada batu dan gangsa.", ["MESIR", "PURBA"], "Pisau batu & gangsa", "sun", "mesir"),
+   point("Di Rom purba, kedai barber menjadi tempat lelaki berkumpul, berbual dan berkongsi berita.", ["ROM", "PURBA"], "Tempat lelaki berkumpul & berbual", "talk", "rom"),
+   point("Di Eropah zaman pertengahan, barber juga merawat luka dan mencabut gigi.", ["ZAMAN", "PERTENGAHAN"], "Barber juga merawat luka", "bandage", "eropah"),
+   point("Kini, barber moden menggabungkan seni, teknik dan perniagaan.", ["BARBER", "MODEN"], "Seni, teknik & bisnes", "clipper", "moden"),
+   cta("Suka sejarah macam ni? Komen SEJARAH.", ["Suka sejarah", "macam ni?"], "SEJARAH", "Kami kongsi lagi!"),
+ ]),
+ V("30-hair-spray-keras", F_, 53, ["#hairspray", "#produkrambut", "#tipsrambut", "#rambutlelaki", "#menshairstyle"], [
+   hook("Kenapa rambut jadi keras macam plastik selepas guna hair spray?", ["KENAPA RAMBUT", "JADI KERAS?"], [1], "spray", "Selepas guna hair spray"),
+   point("Hair spray membentuk lapisan nipis apabila ia kering. Lapisan inilah yang mengunci bentuk rambut.", ["LAPISAN", "PENGUNCI"], "Bentuk lapisan bila kering", "spray", "lapisan"),
+   point("Jika disembur terlalu banyak atau terlalu dekat, lapisan jadi tebal dan rambut terasa keras.", ["TERLALU BANYAK,", "TERLALU DEKAT"], "Lapisan tebal = keras", "cross", "dekat"),
+   tip("Sembur dari jarak kira-kira dua puluh hingga tiga puluh sentimeter, dengan semburan yang nipis.", ["SEMBUR", "20–30 CM"], "Semburan nipis dan rata", "ruler", "jarak"),
+   tip("Pilih flexible hold jika anda mahu rambut kekal kemas, tetapi masih boleh bergerak.", ["PILIH", "FLEXIBLE HOLD"], "Kemas tapi masih bergerak", "check", "flexible"),
+   cta("Ada soalan pasal produk rambut? Komen SPRAY.", ["Soalan pasal", "produk rambut?"], "SPRAY", "Kami jawab!"),
+ ]),
+ V("31-kemahiran-vs-ego", G_, 63, ["#barberlife", "#motivasi", "#kerjayabarber", "#barbermalaysia", "#lelakimalaysia"], [
+   hook("Dalam dunia barber, ego boleh menghalang anda menjadi lebih baik.", ["KEMAHIRAN", "ATAU", "EGO?"], [2], "mirror", "Ego boleh menghalang anda"),
+   point("Barber yang ego rasa dia sudah tahu semua, jadi dia berhenti belajar.", ["BERHENTI", "BELAJAR"], "Rasa dah tahu semua", "cross", "ego"),
+   point("Barber yang mahu berkembang terima teguran, sama ada daripada pelanggan atau rakan sekerja.", ["TERIMA", "TEGURAN"], "Daripada pelanggan & rakan", "talk", "teguran"),
+   point("Malah, kadang-kadang kita boleh belajar teknik baharu daripada barber yang lebih muda.", ["BELAJAR DARI", "YANG MUDA"], "Ilmu tak kenal umur", "sprout", "muda"),
+   point("Pelanggan pun lebih percaya barber yang mendengar, bukan yang bercakap sahaja.", ["DENGAR", "PELANGGAN"], "Dengar dulu, baru potong", "chat", "mendengar"),
+   tip("Ingat, ego membuat kita berhenti. Kemahiran membuat kita terus naik.", ["TURUNKAN EGO,", "NAIKKAN SKILL"], "Kemahiran bawa anda jauh", "trophy", "kemahiran"),
+   cta("Setuju atau tidak? Komen SETUJU.", ["Setuju", "atau tidak?"], "SETUJU", "Kongsi pendapat!"),
+ ], music="trap"),
+ V("32-modal-buka-kedai", D_, 33, ["#bisnesbarber", "#bukakedai", "#usahawanmalaysia", "#barbershopmalaysia", "#lelakimalaysia"], [
+   hook("Nak buka barbershop sendiri? Ini perkara yang perlu ada dalam bajet modal anda.", ["MODAL BUKA", "BARBERSHOP"], [1], "shop", "Senarai semak sebelum mula"),
+   point("Pertama, sewa dan deposit kedai, serta kos ubah suai.", ["SEWA &", "UBAH SUAI"], "Deposit, sewa awal, renovasi", "shop", "sewa"),
+   point("Kedua, kerusi barber, cermin, sinki dan perabot.", ["KERUSI &", "PERABOT"], "Kerusi, cermin, sinki", "mirror", "kerusi"),
+   point("Ketiga, alatan seperti clipper, trimmer, gunting dan alat sterilisasi.", ["ALATAN", "BARBER"], "Clipper, trimmer, sterilisasi", "clipper", "alatan"),
+   point("Keempat, lesen perniagaan dan permit daripada pihak berkuasa tempatan.", ["LESEN &", "PERMIT"], "Ikut syarat PBT anda", "book", "lesen"),
+   point("Kelima, dan ramai terlupa, modal pusingan untuk beberapa bulan pertama.", ["MODAL", "PUSINGAN"], "Gaji, bil & stok bulan awal", "calendar", "pusingan"),
+   tip("Jumlah modal bergantung pada lokasi dan saiz kedai. Buat bajet terperinci sebelum mula.", ["BUAT BAJET", "DULU"], "Ikut lokasi & saiz kedai", "check", "bajet"),
+   cta("Ada soalan pasal modal? Komen MODAL.", ["Ada soalan", "pasal modal?"], "MODAL", "Kami bantu jawab!"),
+ ]),
+ V("33-pencipta-clipper", E_, 44, ["#sejarahbarber", "#clipper", "#faktamenarik", "#barberlife", "#lelakimalaysia"], [
+   hook("Siapa yang mencipta mesin gunting rambut? Ceritanya bermula lebih seratus tahun lalu.", ["SIAPA CIPTA", "MESIN", "GUNTING?"], [2], "clipper", "Lebih 100 tahun lalu"),
+   point("Sebelum ada mesin, barber hanya menggunakan gunting, sikat dan pisau cukur.", ["DULU CUMA", "GUNTING"], "Gunting, sikat & pisau cukur", "scissors", "sebelum"),
+   tts(point("Sekitar tahun 1850-an, seorang tukang gunting dari Serbia, Nikola Bizumić, dipercayai mencipta mesin gunting manual.",
+         ["CLIPPER", "MANUAL"], "Dipercayai Nikola Bizumić, 1850-an", "hand", "manual"),
+       "Sekitar tahun lapan belas lima puluhan, seorang tukang gunting dari Serbia, Nikola Bizumich, dipercayai mencipta mesin gunting manual."),
+   tts(point("Kemudian pada tahun 1919, Leo J. Wahl dari Amerika Syarikat memperkenalkan mesin gunting elektrik yang praktikal.",
+         ["CLIPPER", "ELEKTRIK"], "Leo J. Wahl, 1919", "bolt", "elektrik"),
+       "Kemudian pada tahun sembilan belas sembilan belas, Leo Wahl dari Amerika Syarikat memperkenalkan mesin gunting elektrik yang praktikal."),
+   tip("Sejak itu, clipper menjadi alat utama setiap barber, terutamanya untuk gaya fade.", ["ALAT UTAMA", "BARBER"], "Terutamanya untuk fade", "clipper", "utama"),
+   cta("Barber, clipper apa yang anda guna? Komen CLIPPER.", ["Barber, clipper", "apa anda guna?"], "CLIPPER", "Kongsi pilihan anda!"),
+ ]),
+ V("34-cara-guna-serum", F_, 54, ["#hairserum", "#produkrambut", "#tipsrambut", "#rambutlelaki", "#menshairstyle"], [
+   hook("Ramai guna hair serum, tapi cara yang salah buat rambut nampak berminyak.", ["CARA BETUL", "GUNA HAIR", "SERUM"], [2], "dropper", "Elak rambut berminyak"),
+   point("Hair serum membantu mengurangkan rambut kembang dan memberi kilauan.", ["KURANG KEMBANG,", "LEBIH BERKILAT"], "Fungsi utama serum", "drop", "kembang"),
+   tip("Pertama, ambil satu atau dua titis sahaja.", ["1–2 TITIS", "SAHAJA"], "Sedikit dah cukup", "dropper", "titis"),
+   tip("Kedua, gosok di tapak tangan, kemudian sapu pada bahagian tengah hingga hujung rambut.", ["TENGAH HINGGA", "HUJUNG"], "Gosok di tapak tangan dulu", "hand", "hujung"),
+   tip("Ketiga, elakkan kulit kepala, supaya akar rambut tidak nampak berminyak.", ["ELAK KULIT", "KEPALA"], "Akar tak nampak berminyak", "scalp", "elakkan"),
+   point("Serum boleh digunakan pada rambut lembap atau kering. Ikut arahan pada produk anda.", ["LEMBAP ATAU", "KERING"], "Ikut arahan produk", "check", "lembap"),
+   cta("Pernah tersalah guna serum? Komen SERUM.", ["Pernah tersalah", "guna serum?"], "SERUM", "Kami bantu!"),
+ ]),
+ V("35-pembantu-ke-pemilik", G_, 64, ["#kerjayabarber", "#motivasi", "#barberlife", "#usahawanmalaysia", "#lelakimalaysia"], [
+   hook("Dari menyapu lantai kedai, sehingga memiliki barbershop sendiri. Begini perjalanannya.", ["PEMBANTU", "KE PEMILIK"], [1], "broom", "Perjalanan biasa dalam industri"),
+   point("Ramai bermula sebagai pembantu. Menyapu lantai, mencuci rambut, dan memerhati barber senior bekerja.", ["MULA SEBAGAI", "PEMBANTU"], "Sapu, cuci & perhati", "broom", "pembantu"),
+   point("Kemudian, belajar dan berlatih sehingga dipercayai memegang pelanggan sendiri.", ["BELAJAR &", "BERLATIH"], "Sampai dipercayai pelanggan", "scissors", "berlatih"),
+   point("Selepas beberapa tahun, membina nama, pelanggan tetap, dan kemahiran yang matang.", ["BINA NAMA &", "PELANGGAN"], "Pelanggan tetap ikut anda", "star", "nama"),
+   point("Sebelum buka kedai, belajar asas bisnes dan kumpul modal sedikit demi sedikit.", ["BELAJAR BISNES", "& KUMPUL MODAL"], "Sedikit demi sedikit", "coin", "modal"),
+   tip("Perjalanan ini panjang. Tetapi setiap pemilik barbershop pernah bermula dari bawah.", ["SEMUA BERMULA", "DARI BAWAH"], "Sabar & konsisten", "sprout", "bawah"),
+   cta("Kongsi perjalanan anda. Komen MULA.", ["Kongsi perjalanan", "anda!"], "MULA", "Semangat!"),
+ ], music="trap"),
+ V("36-kesilapan-pemilik", D_, 34, ["#bisnesbarber", "#usahawanmalaysia", "#tipsbisnes", "#barbershopmalaysia", "#lelakimalaysia"], [
+   hook("Lima kesilapan yang selalu dilakukan oleh pemilik barbershop baharu.", ["5 KESILAPAN", "PEMILIK", "BAHARU"], [2], "shop", "Elakkan dari awal"),
+   point("Satu, letak harga terlalu murah semata-mata untuk menarik pelanggan.", ["HARGA TERLALU", "MURAH"], "Susah naik harga kemudian", "tag", "harga"),
+   point("Dua, tiada rekod kewangan. Tak tahu sebenarnya untung atau rugi.", ["TIADA REKOD", "KEWANGAN"], "Untung atau rugi pun tak tahu", "book", "rekod"),
+   point("Tiga, campur duit peribadi dengan duit perniagaan.", ["CAMPUR DUIT", "PERIBADI"], "Asingkan akaun dari hari pertama", "coin", "campur"),
+   point("Empat, abaikan pemasaran. Kedai yang bagus pun perlu dikenali.", ["ABAIKAN", "PEMASARAN"], "Kedai bagus pun perlu dikenali", "camera", "pemasaran"),
+   point("Lima, tiada SOP dan latihan untuk pekerja.", ["TIADA SOP", "& LATIHAN"], "Servis jadi tak konsisten", "check", "latihan"),
+   cta("Pemilik kedai, pernah buat yang mana? Komen nombornya.", ["Pernah buat", "yang mana?"], "3", "Kongsi pengalaman!"),
+ ]),
+ V("37-gaya-100-tahun", E_, 45, ["#gayarambut", "#sejarahrambut", "#menshairstyle", "#rambutlelaki", "#lelakimalaysia"], [
+   tts(hook("Bagaimana gaya rambut lelaki berubah dalam tempoh 100 tahun?", ["100 TAHUN", "GAYA RAMBUT", "LELAKI"], [0], "cut-sidepart", "Dari 1920-an hingga kini"),
+       "Bagaimana gaya rambut lelaki berubah dalam tempoh seratus tahun?"),
+   tts(point("Tahun 1920-an hingga 1940-an, rambut disikat licin ke belakang atau belah tepi dengan pomade.", ["1920-AN", "SLICK BACK"], "Licin, kemas, berkilat", "cut-sidepart", "licin"),
+       "Tahun sembilan belas dua puluhan hingga empat puluhan, rambut disikat licin ke belakang atau belah tepi dengan pomade."),
+   tts(point("Tahun 1950-an, gaya pompadour dan quiff yang tinggi di depan menjadi ikutan.", ["1950-AN", "POMPADOUR"], "Tinggi di bahagian depan", "cut-quiff", "pompadour"),
+       "Tahun sembilan belas lima puluhan, gaya pompadour dan quiff yang tinggi di depan menjadi ikutan."),
+   tts(point("Tahun 1960-an dan 1970-an, rambut lebih panjang dan bebas mula popular.", ["1960–70-AN", "RAMBUT PANJANG"], "Lebih bebas & santai", "cut-long", "panjang"),
+       "Tahun sembilan belas enam puluhan dan tujuh puluhan, rambut lebih panjang dan bebas mula popular."),
+   tts(point("Tahun 1980-an dan 1990-an, kita nampak mullet, belah tengah dan rambut tercacak.", ["1980–90-AN", "MULLET & SPIKY"], "Belah tengah pun popular", "cut-fringe", "mullet"),
+       "Tahun sembilan belas lapan puluhan dan sembilan puluhan, kita nampak mullet, belah tengah dan rambut tercacak."),
+   point("Kini, fade, textured crop dan gaya bertekstur paling banyak diminta.", ["KINI:", "FADE & TEKSTUR"], "Kemas tapi santai", "fade-mid", "fade"),
+   cta("Gaya era mana yang anda suka? Komen ERA.", ["Gaya era mana", "anda suka?"], "ERA", "Kongsi pilihan!"),
+ ]),
 ]
