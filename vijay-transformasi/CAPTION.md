@@ -3,6 +3,7 @@
 ## TikTok
 
 Rambut kembang jadi licin dengan keratin ✨
+Hasil kerja Barber Vijay di Elas Barbershop
 Tengok sampai habis 👇
 
 Nak rambut licin macam ni? Komen KERATIN ✂️
@@ -11,7 +12,7 @@ Nak rambut licin macam ni? Komen KERATIN ✂️
 
 ## Instagram
 
-Rambut kembang & kasar? Ini hasil keratin treatment di Elas Barbershop 👇
+Rambut kembang & kasar? Ini hasil keratin treatment oleh Barber Vijay di Elas Barbershop 👇
 
 ✂️ Sebelum: kembang, kasar, susah nak bentuk
 ✨ Proses: rawatan keratin, kemudian dibilas
