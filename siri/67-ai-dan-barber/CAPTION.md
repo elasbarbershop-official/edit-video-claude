@@ -13,10 +13,10 @@ Ikuti kami untuk lebih banyak cerita di sebalik kerusi barber. ✂️
 
 Adakah AI akan mengambil alih kerja barber? 👇
 
-✂️ Ai Sebagai Pembantu: Tempahan, pemasaran, cadangan gaya
-✨ Video Ini Pun Ai: Dengan bantuan AI
+✂️ AI Sebagai Pembantu: Tempahan, pemasaran, cadangan gaya
+✨ Video Ini Pun AI: Dengan bantuan AI
 ⏳ Sentuhan Manusia: Tak boleh diganti
-💡 Guna Ai Dengan Bijak: Barber akan lebih maju
+💡 Guna AI Dengan Bijak: Barber akan lebih maju
 
 Ikuti kami untuk lebih banyak cerita di sebalik kerusi barber. Atau DM kami untuk tempah slot 📩
 
