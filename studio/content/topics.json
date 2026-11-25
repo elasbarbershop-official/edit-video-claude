@@ -63,8 +63,8 @@
    "subseries": "Sains Rambut",
    "style": "2d-motion",
    "title": "Kenapa rambut lelaki semakin menipis?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "49-rambut-menipis",
    "needs_fact_check": true
   },
   {
@@ -74,8 +74,8 @@
    "subseries": "Sains Rambut",
    "style": "2d-motion",
    "title": "Kenapa rambut kita cepat beruban?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "54-cepat-beruban",
    "needs_fact_check": true
   },
   {
@@ -85,8 +85,8 @@
    "subseries": "Sains Rambut",
    "style": "2d-motion",
    "title": "Apa sebenarnya yang menyebabkan kelemumur?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "56-punca-kelemumur",
    "needs_fact_check": true
   },
   {
@@ -96,8 +96,8 @@
    "subseries": "Sains Rambut",
    "style": "2d-motion",
    "title": "Adakah memakai topi menyebabkan botak?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "61-topi-botak",
    "needs_fact_check": true
   },
   {
@@ -107,8 +107,8 @@
    "subseries": "Sains Rambut",
    "style": "2d-motion",
    "title": "Adakah mencukur kepala membuatkan rambut lebih tebal?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "63-cukur-lebih-tebal",
    "needs_fact_check": true
   },
   {
@@ -380,8 +380,8 @@
    "subseries": "Barber Bercerita",
    "style": "2.5d-story",
    "title": "Cabaran menjadi barber selama 10 tahun.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "51-cabaran-10-tahun",
    "needs_fact_check": false
   },
   {
@@ -391,8 +391,8 @@
    "subseries": "Barber Bercerita",
    "style": "2.5d-story",
    "title": "Kenapa barber juga boleh mengalami burnout?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "58-barber-burnout",
    "needs_fact_check": false
   },
   {
@@ -402,8 +402,8 @@
    "subseries": "Barber Bercerita",
    "style": "2.5d-story",
    "title": "Jangan pandang rendah pekerjaan seorang barber.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "65-jangan-pandang-rendah",
    "needs_fact_check": false
   },
   {
@@ -457,8 +457,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Kenapa sesetengah barbershop tutup selepas setahun?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "40-kedai-tutup-setahun",
    "needs_fact_check": false
   },
   {
@@ -468,8 +468,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Gaji tetap atau komisen untuk barber?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "44-gaji-vs-komisen",
    "needs_fact_check": false
   },
   {
@@ -479,8 +479,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Kenapa pekerja yang bagus meninggalkan majikan?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "48-pekerja-bagus-pergi",
    "needs_fact_check": false
   },
   {
@@ -490,8 +490,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Perang harga dalam industri barber.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "55-perang-harga",
    "needs_fact_check": false
   },
   {
@@ -501,8 +501,8 @@
    "subseries": "Bisnes Di Sebalik Gunting",
    "style": "stickman",
    "title": "Bagaimana menukar pelanggan baharu menjadi pelanggan tetap?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "62-pelanggan-tetap",
    "needs_fact_check": false
   },
   {
@@ -578,8 +578,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Kenapa potongan rambut tentera sangat pendek?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "41-rambut-tentera",
    "needs_fact_check": true
   },
   {
@@ -589,8 +589,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Sejarah pisau cukur tradisional.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "45-pisau-cukur",
    "needs_fact_check": true
   },
   {
@@ -600,8 +600,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Bagaimana budaya rambut berbeza mengikut negara?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "50-budaya-rambut",
    "needs_fact_check": true
   },
   {
@@ -611,8 +611,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Kenapa barbershop menjadi tempat lelaki bersosial?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "57-barbershop-sosial",
    "needs_fact_check": true
   },
   {
@@ -622,8 +622,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Evolusi barbershop tradisional kepada barbershop moden.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "64-evolusi-barbershop",
    "needs_fact_check": true
   },
   {
@@ -677,8 +677,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Adakah pomade menyebabkan rambut gugur?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "38-pomade-gugur",
    "needs_fact_check": true
   },
   {
@@ -688,8 +688,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Apa perbezaan antara hair mousse dan hair gel?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "42-mousse-vs-gel",
    "needs_fact_check": true
   },
   {
@@ -699,8 +699,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Kenapa produk rambut anda tidak bertahan lama?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "46-produk-tak-tahan",
    "needs_fact_check": true
   },
   {
@@ -710,8 +710,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Apa yang berlaku jika anda menggunakan terlalu banyak produk rambut?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "52-terlalu-banyak-produk",
    "needs_fact_check": true
   },
   {
@@ -721,8 +721,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Apakah fungsi keratin pada rambut?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "59-fungsi-keratin",
    "needs_fact_check": true
   },
   {
@@ -732,8 +732,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Cara memilih produk rambut mengikut jenis rambut anda.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "66-produk-ikut-rambut",
    "needs_fact_check": true
   },
   {
@@ -787,8 +787,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Lima sikap yang membezakan barber biasa dengan barber profesional.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "39-sikap-barber-pro",
    "needs_fact_check": false
   },
   {
@@ -798,8 +798,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Kenapa barber perlu terus belajar walaupun sudah berpengalaman?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "43-terus-belajar",
    "needs_fact_check": false
   },
   {
@@ -809,8 +809,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Sijil kemahiran atau pengalaman, mana lebih penting?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "47-sijil-vs-pengalaman",
    "needs_fact_check": false
   },
   {
@@ -820,8 +820,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Kenapa golongan muda patut mempertimbangkan kerjaya barber?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "53-kerjaya-anak-muda",
    "needs_fact_check": false
   },
   {
@@ -831,8 +831,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Daripada memegang mesin gunting kepada menguruskan sebuah syarikat.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "60-gunting-ke-syarikat",
    "needs_fact_check": false
   },
   {
@@ -842,8 +842,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Masa depan industri barber dengan kecerdasan buatan (AI).",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "67-ai-dan-barber",
    "needs_fact_check": false
   }
  ]
