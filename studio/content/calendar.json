@@ -1,26 +1,8 @@
 {
- "start": "2026-11-26",
+ "start": "2026-12-26",
  "days": [
   {
-   "date": "2026-11-26",
-   "day": "Thu",
-   "category": "E",
-   "topic_id": 46,
-   "title": "Kenapa potongan rambut tentera sangat pendek?",
-   "status": "Idea",
-   "source": "studio"
-  },
-  {
-   "date": "2026-11-27",
-   "day": "Fri",
-   "category": "B",
-   "topic_id": 14,
-   "title": "Perbezaan antara Low Fade, Mid Fade dan High Fade.",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
-  },
-  {
-   "date": "2026-11-28",
+   "date": "2026-12-26",
    "day": "Sat",
    "category": "F",
    "topic_id": 55,
@@ -29,7 +11,7 @@
    "source": "studio"
   },
   {
-   "date": "2026-11-29",
+   "date": "2026-12-27",
    "day": "Sun",
    "category": "G",
    "topic_id": 65,
@@ -38,16 +20,16 @@
    "source": "studio"
   },
   {
-   "date": "2026-11-30",
+   "date": "2026-12-28",
    "day": "Mon",
-   "category": "C",
-   "topic_id": 24,
-   "title": "Lima jenis pelanggan di barbershop.",
+   "category": "B",
+   "topic_id": 13,
+   "title": "Kenapa potongan rambut anda tidak sama seperti dalam gambar?",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-01",
+   "date": "2026-12-29",
    "day": "Tue",
    "category": "D",
    "topic_id": 35,
@@ -56,34 +38,34 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-02",
+   "date": "2026-12-30",
    "day": "Wed",
-   "category": "B",
-   "topic_id": 11,
-   "title": "Cara memilih gaya rambut mengikut bentuk muka.",
+   "category": "C",
+   "topic_id": 25,
+   "title": "Kenapa harga gunting rambut semakin meningkat?",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-03",
+   "date": "2026-12-31",
    "day": "Thu",
    "category": "E",
-   "topic_id": 47,
-   "title": "Sejarah pisau cukur tradisional.",
+   "topic_id": 46,
+   "title": "Kenapa potongan rambut tentera sangat pendek?",
    "status": "Idea",
    "source": "studio"
   },
   {
-   "date": "2026-12-04",
+   "date": "2027-01-01",
    "day": "Fri",
-   "category": "A",
-   "topic_id": 8,
-   "title": "Air panas atau air sejuk, mana lebih baik untuk rambut?",
+   "category": "B",
+   "topic_id": 15,
+   "title": "Gaya rambut terbaik untuk lelaki berambut nipis.",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-05",
+   "date": "2027-01-02",
    "day": "Sat",
    "category": "F",
    "topic_id": 56,
@@ -92,7 +74,7 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-06",
+   "date": "2027-01-03",
    "day": "Sun",
    "category": "G",
    "topic_id": 66,
@@ -101,16 +83,16 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-07",
+   "date": "2027-01-04",
    "day": "Mon",
-   "category": "C",
-   "topic_id": 22,
-   "title": "Apabila pelanggan berkata, “Potong sikit sahaja.”",
+   "category": "B",
+   "topic_id": 17,
+   "title": "Kenapa rambut nampak cantik di kedai tetapi tidak di rumah?",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-08",
+   "date": "2027-01-05",
    "day": "Tue",
    "category": "D",
    "topic_id": 36,
@@ -119,34 +101,34 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-09",
+   "date": "2027-01-06",
    "day": "Wed",
-   "category": "B",
-   "topic_id": 12,
-   "title": "Lima gaya rambut yang membuatkan lelaki nampak lebih muda.",
+   "category": "C",
+   "topic_id": 26,
+   "title": "Apa yang berlaku di barbershop sebelum pelanggan datang?",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-10",
+   "date": "2027-01-07",
    "day": "Thu",
    "category": "E",
-   "topic_id": 48,
-   "title": "Bagaimana budaya rambut berbeza mengikut negara?",
+   "topic_id": 47,
+   "title": "Sejarah pisau cukur tradisional.",
    "status": "Idea",
    "source": "studio"
   },
   {
-   "date": "2026-12-11",
+   "date": "2027-01-08",
    "day": "Fri",
-   "category": "A",
-   "topic_id": 9,
-   "title": "Kenapa kulit kepala cepat berminyak?",
+   "category": "B",
+   "topic_id": 20,
+   "title": "Bagaimana gaya rambut mempengaruhi keyakinan diri?",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-12",
+   "date": "2027-01-09",
    "day": "Sat",
    "category": "F",
    "topic_id": 57,
@@ -155,7 +137,7 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-13",
+   "date": "2027-01-10",
    "day": "Sun",
    "category": "G",
    "topic_id": 67,
@@ -164,16 +146,16 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-14",
+   "date": "2027-01-11",
    "day": "Mon",
    "category": "C",
-   "topic_id": 21,
-   "title": "Perkara yang barber ingin pelanggan tahu.",
+   "topic_id": 27,
+   "title": "Perbezaan antara barber berpengalaman dan barber baharu.",
    "status": "Scheduled",
    "source": "siri (Metricool)"
   },
   {
-   "date": "2026-12-15",
+   "date": "2027-01-12",
    "day": "Tue",
    "category": "D",
    "topic_id": 37,
@@ -182,34 +164,34 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-16",
+   "date": "2027-01-13",
    "day": "Wed",
-   "category": "B",
-   "topic_id": 16,
-   "title": "Lima kesilapan lelaki dalam menjaga penampilan.",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
-  },
-  {
-   "date": "2026-12-17",
-   "day": "Thu",
-   "category": "E",
-   "topic_id": 49,
-   "title": "Kenapa barbershop menjadi tempat lelaki bersosial?",
+   "category": "A",
+   "topic_id": 1,
+   "title": "Kenapa rambut lelaki semakin menipis?",
    "status": "Idea",
    "source": "studio"
   },
   {
-   "date": "2026-12-18",
-   "day": "Fri",
-   "category": "B",
-   "topic_id": 18,
-   "title": "Berapa kerap lelaki perlu memotong rambut?",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
+   "date": "2027-01-14",
+   "day": "Thu",
+   "category": "E",
+   "topic_id": 48,
+   "title": "Bagaimana budaya rambut berbeza mengikut negara?",
+   "status": "Idea",
+   "source": "studio"
   },
   {
-   "date": "2026-12-19",
+   "date": "2027-01-15",
+   "day": "Fri",
+   "category": "C",
+   "topic_id": 28,
+   "title": "Cabaran menjadi barber selama 10 tahun.",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-16",
    "day": "Sat",
    "category": "F",
    "topic_id": 58,
@@ -218,7 +200,7 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-20",
+   "date": "2027-01-17",
    "day": "Sun",
    "category": "G",
    "topic_id": 68,
@@ -227,16 +209,16 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-21",
+   "date": "2027-01-18",
    "day": "Mon",
-   "category": "C",
-   "topic_id": 23,
-   "title": "Kenapa barber mengambil masa yang lama untuk satu potongan rambut?",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
+   "category": "A",
+   "topic_id": 2,
+   "title": "Kenapa rambut kita cepat beruban?",
+   "status": "Idea",
+   "source": "studio"
   },
   {
-   "date": "2026-12-22",
+   "date": "2027-01-19",
    "day": "Tue",
    "category": "D",
    "topic_id": 38,
@@ -245,16 +227,79 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-23",
+   "date": "2027-01-20",
    "day": "Wed",
-   "category": "B",
-   "topic_id": 19,
-   "title": "Cara memilih bentuk janggut mengikut wajah.",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
+   "category": "A",
+   "topic_id": 3,
+   "title": "Apa sebenarnya yang menyebabkan kelemumur?",
+   "status": "Idea",
+   "source": "studio"
   },
   {
-   "date": "2026-12-24",
+   "date": "2027-01-21",
+   "day": "Thu",
+   "category": "E",
+   "topic_id": 49,
+   "title": "Kenapa barbershop menjadi tempat lelaki bersosial?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-22",
+   "day": "Fri",
+   "category": "C",
+   "topic_id": 29,
+   "title": "Kenapa barber juga boleh mengalami burnout?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-23",
+   "day": "Sat",
+   "category": "F",
+   "topic_id": 59,
+   "title": "Apakah fungsi keratin pada rambut?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-24",
+   "day": "Sun",
+   "category": "G",
+   "topic_id": 69,
+   "title": "Daripada memegang mesin gunting kepada menguruskan sebuah syarikat.",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-25",
+   "day": "Mon",
+   "category": "A",
+   "topic_id": 4,
+   "title": "Adakah memakai topi menyebabkan botak?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-26",
+   "day": "Tue",
+   "category": "D",
+   "topic_id": 39,
+   "title": "Bagaimana menukar pelanggan baharu menjadi pelanggan tetap?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-27",
+   "day": "Wed",
+   "category": "A",
+   "topic_id": 5,
+   "title": "Adakah mencukur kepala membuatkan rambut lebih tebal?",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-28",
    "day": "Thu",
    "category": "E",
    "topic_id": 50,
@@ -263,13 +308,31 @@
    "source": "studio"
   },
   {
-   "date": "2026-12-25",
+   "date": "2027-01-29",
    "day": "Fri",
-   "category": "A",
-   "topic_id": 10,
-   "title": "Adakah tekanan hidup menyebabkan rambut gugur?",
-   "status": "Scheduled",
-   "source": "siri (Metricool)"
+   "category": "C",
+   "topic_id": 30,
+   "title": "Jangan pandang rendah pekerjaan seorang barber.",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-30",
+   "day": "Sat",
+   "category": "F",
+   "topic_id": 60,
+   "title": "Cara memilih produk rambut mengikut jenis rambut anda.",
+   "status": "Idea",
+   "source": "studio"
+  },
+  {
+   "date": "2027-01-31",
+   "day": "Sun",
+   "category": "G",
+   "topic_id": 70,
+   "title": "Masa depan industri barber dengan kecerdasan buatan (AI).",
+   "status": "Idea",
+   "source": "studio"
   }
  ]
 }

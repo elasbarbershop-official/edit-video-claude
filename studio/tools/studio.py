@@ -87,10 +87,7 @@ def cmd_calendar(a):
     booked = existing_schedule()
     by_slug = {t["slug"]: t for t in db["topics"] if t.get("slug")}
     used = {t["id"] for t in db["topics"] if t["status"] != "Idea"}
-    if os.path.exists(CAL):  # keep topics already placed on a date
-        for e in json.load(open(CAL)).get("days", []):
-            if e.get("topic_id") and e["date"] < start.isoformat():
-                used.add(e["topic_id"])
+    # Only produced/scheduled topics are excluded (status != Idea); a draft plan never reserves a topic.
     pool = {c: [t for t in db["topics"] if t["category"] == c and t["id"] not in used] for c in db["categories"]}
     days = []
     for i in range(a.days):

@@ -153,6 +153,8 @@ ICONS = {
             f'<ellipse cx="100" cy="90" rx="66" ry="22" {A} {SI}/><path d="M34 120 L34 90 M166 120 L166 90" {S}/>'
             f'<text x="100" y="98" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="28" fill="var(--ink)">RM</text>',
     "bolt": f'<path d="M112 16 L48 112 L94 112 L80 184 L152 82 L104 82 Z" {A} {SI}/>',
+    "cap": f'<path d="M36 128 Q36 54 100 50 Q164 54 164 128 Z" {A} {SI}/><path d="M36 128 L188 128 Q192 146 172 146 L36 146 Z" {P} {SI}/><circle cx="100" cy="48" r="9" {INK}/>'
+           f'<path d="M100 56 L100 126" stroke="var(--ink)" stroke-width="6" opacity="0.5"/>',
     "beard": face("oval", beard=True),
     "hair-thin": head("thin"),
 }
