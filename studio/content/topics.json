@@ -523,8 +523,8 @@
    "subseries": "Rahsia Dunia Barber",
    "style": "documentary",
    "title": "Kenapa tiang barber berwarna merah, putih dan biru?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Review",
+   "slug": "22-tiang-barber",
    "needs_fact_check": true
   },
   {
@@ -633,8 +633,8 @@
    "subseries": "Seminit Ilmu Barber",
    "style": "product",
    "title": "Pomade vs Wax: Mana lebih sesuai untuk anda?",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "23-pomade-vs-wax",
    "needs_fact_check": true
   },
   {
@@ -743,8 +743,8 @@
    "subseries": "Barber Bukan Biasa",
    "style": "2.5d-story",
    "title": "Barber bukan sekadar tukang gunting rambut.",
-   "status": "Idea",
-   "slug": null,
+   "status": "Production",
+   "slug": "24-barber-bukan-sekadar",
    "needs_fact_check": false
   },
   {

@@ -134,6 +134,16 @@ ICONS = {
     "spray": f'<rect x="54" y="82" width="76" height="98" rx="16" {P} {SI}/><path d="M72 82 L72 52 L118 52 L118 82" {S}/><path d="M86 52 L86 36 L146 36 L146 52" {A} {SI}/>'
              + "".join(f'<circle cx="{166+i*6}" cy="{28+j*14}" r="5" {A}/>' for i in range(2) for j in range(3)) + f'<rect x="70" y="112" width="44" height="38" rx="6" {A}/>',
     "scalp": f'<path d="M30 160 Q30 50 100 50 Q170 50 170 160" {P} {SI}/>' + "".join(f'<path d="M{x} {y} l6 6 m0 -6 l-6 6" stroke="var(--acc)" stroke-width="7" stroke-linecap="round"/>' for x, y in [(64, 92), (96, 76), (130, 88), (80, 116), (118, 112), (146, 126)]),
+    "pole": f'<rect x="64" y="14" width="72" height="16" rx="8" {A} {SI}/><rect x="64" y="170" width="72" height="16" rx="8" {A} {SI}/>'
+            f'<defs><clipPath id="pc"><rect x="74" y="30" width="52" height="140" rx="6"/></clipPath></defs><rect x="74" y="30" width="52" height="140" rx="6" fill="#ffffff"/>'
+            f'<g clip-path="url(#pc)">' + "".join(f'<path d="M60 {y} L140 {y - 40} L140 {y - 22} L60 {y + 18} Z" fill="{c}"/>' for y, c in [(40, "#c8102e"), (76, "#1f4fa3"), (112, "#c8102e"), (148, "#1f4fa3"), (184, "#c8102e")]) + '</g>'
+            f'<rect x="74" y="30" width="52" height="140" rx="6" fill="none" {SI}/>',
+    "bandage": f'<g transform="rotate(-35 100 100)"><rect x="22" y="70" width="156" height="60" rx="30" {P} {SI}/><rect x="72" y="70" width="56" height="60" {A} {SI}/>'
+               + "".join(f'<circle cx="{x}" cy="{y}" r="5" {INK}/>' for x in (88, 112) for y in (88, 112)) + '</g>',
+    "flag": f'<path d="M44 182 L44 24" {S}/><path d="M44 30 L164 30 L164 110 L44 110 Z" {P} {SI}/>'
+            + "".join(f'<path d="M44 {y} L164 {y}" stroke="var(--acc)" stroke-width="9"/>' for y in (50, 70, 90)) + f'<rect x="44" y="30" width="54" height="42" {INK}/>',
+    "book": f'<path d="M100 48 Q70 30 28 36 L28 164 Q70 158 100 176 Q130 158 172 164 L172 36 Q130 30 100 48 Z" {P} {SI}/><path d="M100 48 L100 176" {S}/>'
+            f'<path d="M48 70 L82 74 M48 96 L82 100 M118 74 L152 70 M118 100 L152 96" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/>',
     "beard": face("oval", beard=True),
     "hair-thin": head("thin"),
 }

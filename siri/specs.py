@@ -287,3 +287,135 @@ Ikuti @elasbarbershop.official untuk siri Di Sebalik Kerusi Barber.
 #bisnesbarber #usahawanmalaysia #tipsbisnes #barbershopmalaysia #barbermalaysia #bisneskecil #pengurusankewangan #usahawanmuda #lelakimalaysia #barberlife #reelsmalaysia #elasbarbershop
 """,
 ))
+
+VIDEOS += [
+ dict(slug="22-tiang-barber", series="RAHSIA DUNIA BARBER", music="lofi", topic_id=41,
+  handle="@elasbarbershop.official", tagline="Lebih daripada sekadar gunting rambut.",
+  tags=["#sejarahbarber", "#tiangbarber", "#faktamenarik", "#barbershopmalaysia", "#lelakimalaysia"],
+  scenes=[
+   hook("Kenapa tiang barber berwarna merah, putih dan biru? Jawapannya lebih ngeri daripada yang anda sangka.",
+        ["KENAPA TIANG", "BARBER MERAH,", "PUTIH & BIRU?"], [2], "pole", "Jawapannya agak ngeri"),
+   point("Pada zaman pertengahan di Eropah, barber bukan sahaja menggunting rambut. Mereka juga mencabut gigi dan melakukan bekam darah.",
+         ["BARBER", "ZAMAN DAHULU"], "Gunting, cabut gigi & bekam darah", "razor", "mencabut"),
+   point("Warna merah melambangkan darah daripada rawatan tersebut.", ["MERAH", "= DARAH"], "Daripada rawatan bekam", "drop", "darah"),
+   point("Warna putih pula melambangkan kain pembalut. Kain yang sudah dibasuh dijemur pada tiang di luar kedai, lalu berpusing ditiup angin.",
+         ["PUTIH", "= PEMBALUT"], "Kain dijemur pada tiang di luar kedai", "bandage", "pembalut"),
+   point("Biru pula dipercayai ditambah di Amerika Syarikat, mengikut warna bendera negara itu.", ["BIRU", "= AMERIKA?"], "Dipercayai ikut warna bendera AS", "flag", "amerika"),
+   tip("Hari ini, barber tidak lagi melakukan rawatan begitu. Tiang itu kekal sebagai simbol kedai gunting rambut di seluruh dunia.",
+       ["KINI CUMA", "SIMBOL"], "Tanda kedai gunting di seluruh dunia", "pole", "simbol"),
+   follow("Ikuti kami untuk lebih banyak fakta menarik dunia barber.", ["Ikuti kami untuk", "fakta menarik", "dunia barber"], "Fakta & sejarah dunia barber"),
+  ],
+  caption="""# Caption — 22-tiang-barber (Di Sebalik Kerusi Barber: Rahsia Dunia Barber)
+
+## TikTok
+
+Kenapa tiang barber merah, putih & biru? 💈
+Tengok sampai habis 👇
+
+Tahu fakta ni sebelum ni? Komen "TIANG" ✂️
+
+#sejarahbarber #tiangbarber #faktamenarik #elasbarbershop #fyp #barbershopmalaysia
+
+## Instagram
+
+Kenapa tiang barber berwarna merah, putih & biru? 💈👇
+
+✂️ Barber zaman pertengahan di Eropah juga mencabut gigi & melakukan bekam darah
+✨ Merah = darah, putih = kain pembalut yang dijemur pada tiang
+⏳ Biru dipercayai ditambah di Amerika Syarikat, ikut warna bendera
+
+Hari ini, tiang itu kekal sebagai simbol kedai gunting rambut di seluruh dunia.
+
+Tahu fakta ni sebelum ni? Komen "TIANG" atau DM kami 📩
+Ikuti @elasbarbershop.official untuk siri Di Sebalik Kerusi Barber.
+
+#sejarahbarber #tiangbarber #faktamenarik #barberpole #barbershopmalaysia #barbermalaysia #sejarah #tahukahanda #lelakimalaysia #reelsmalaysia #elasbarbershop
+"""),
+ dict(slug="23-pomade-vs-wax", series="SEMINIT ILMU BARBER", music="lofi", topic_id=51,
+  handle="@elasbarbershop.official", tagline="Lebih daripada sekadar gunting rambut.",
+  tags=["#pomade", "#hairwax", "#produkrambut", "#rambutlelaki", "#menshairstyle"],
+  scenes=[
+   hook("Pomade atau wax? Ramai lelaki tersalah pilih, sebab itu gaya rambut tak menjadi.",
+        ["POMADE", "ATAU", "WAX?"], [2], "jar", "Ramai tersalah pilih"),
+   compare("Pomade memberi rambut nampak berkilat dan licin, sesuai untuk gaya kemas seperti slick back dan side part. Wax pula memberi hasil matte dan bertekstur, sesuai untuk gaya santai seperti textured crop.",
+     side("POMADE", "jar", [("+", "Berkilat & licin"), ("+", "Slick back, side part")], "pomade"),
+     side("WAX", "hair-texture", [("+", "Matte & bertekstur"), ("+", "Textured crop, santai")], "wax")),
+   point("Satu lagi beza. Pomade berasaskan air lebih mudah dibilas. Wax pula biasanya boleh dibentuk semula sepanjang hari.",
+         ["BILAS &", "BENTUK SEMULA"], "Senang bilas vs boleh restyle", "drop", "berasaskan"),
+   tip("Jadi, pilih ikut gaya yang anda mahu. Nak kemas dan berkilat, pilih pomade. Nak natural dan bertekstur, pilih wax.",
+       ["PILIH IKUT", "GAYA ANDA"], "Kemas: pomade. Natural: wax.", "check", "pilih"),
+   tip("Dan ingat, mula dengan sedikit sahaja. Terlalu banyak produk buat rambut nampak berat dan berminyak.",
+       ["MULA DENGAN", "SEDIKIT"], "Terlalu banyak = berat & berminyak", "hand", "sedikit"),
+   cta("Anda geng pomade atau wax? Komen di bawah.", ["Geng pomade", "atau wax?"], "WAX", "Kongsi pilihan anda!"),
+  ],
+  caption="""# Caption — 23-pomade-vs-wax (Di Sebalik Kerusi Barber: Seminit Ilmu Barber)
+
+## TikTok
+
+Pomade atau wax? Ramai tersalah pilih 😅
+Tengok sampai habis 👇
+
+Anda geng mana? Komen "POMADE" atau "WAX" ✂️
+
+#pomade #hairwax #produkrambut #elasbarbershop #fyp #haircutmalaysia
+
+## Instagram
+
+Pomade atau wax? Ramai lelaki tersalah pilih 👇
+
+✂️ Pomade: berkilat & licin, sesuai slick back dan side part
+✨ Wax: matte & bertekstur, sesuai textured crop dan gaya santai
+⏳ Pomade berasaskan air lebih mudah dibilas; wax biasanya boleh dibentuk semula sepanjang hari
+
+Kesimpulannya: pilih ikut gaya yang anda mahu, dan mula dengan sedikit sahaja.
+
+Anda geng pomade atau wax? Komen di bawah atau DM kami 📩
+
+#pomade #hairwax #produkrambut #rambutlelaki #menshairstyle #gayarambut #tipsrambut #haircutmalaysia #hairtipsmalaysia #barbershopmalaysia #reelsmalaysia #elasbarbershop
+"""),
+ dict(slug="24-barber-bukan-sekadar", series="BARBER BUKAN BIASA", music="lofi", topic_id=61,
+  handle="@elasbarbershop.official", tagline="Lebih daripada sekadar gunting rambut.",
+  tags=["#barberlife", "#kerjayabarber", "#motivasi", "#barbershopmalaysia", "#lelakimalaysia"],
+  scenes=[
+   hook("Ramai orang fikir barber cuma tukang gunting rambut. Hakikatnya, kerja seorang barber jauh lebih besar.",
+        ["BARBER CUMA", "TUKANG", "GUNTING?"], [2], "confident", "Hakikatnya, jauh lebih besar"),
+   point("Pertama, barber ialah artis. Setiap potongan perlukan mata yang tajam, teknik dan latihan bertahun-tahun.",
+         ["SEORANG", "ARTIS"], "Mata tajam, teknik & latihan", "scissors", "artis"),
+   point("Kedua, barber ialah pendengar. Ramai pelanggan berkongsi cerita hidup mereka di kerusi ini.",
+         ["SEORANG", "PENDENGAR"], "Tempat pelanggan berkongsi cerita", "talk", "pendengar"),
+   point("Ketiga, barber membina keyakinan. Bila rambut kemas, cara seseorang berjalan pun berubah.",
+         ["PEMBINA", "KEYAKINAN"], "Rambut kemas, lebih yakin", "person", "keyakinan"),
+   point("Keempat, ramai barber juga pendidik dan usahawan. Mereka melatih barber baharu dan menguruskan perniagaan sendiri.",
+         ["PENDIDIK &", "USAHAWAN"], "Melatih barber & urus bisnes", "book", "pendidik"),
+   tip("Jadi, lain kali anda duduk di kerusi barber, ingat, anda sedang berjumpa seorang profesional.",
+       ["HORMATI", "PROFESION INI"], "Barber ialah seorang profesional", "check", "profesional"),
+   follow("Ikuti kami untuk lebih banyak cerita di sebalik kerusi barber.", ["Ikuti kami untuk", "cerita di sebalik", "kerusi barber"], "Cerita & inspirasi dunia barber"),
+  ],
+  caption="""# Caption — 24-barber-bukan-sekadar (Di Sebalik Kerusi Barber: Barber Bukan Biasa)
+
+## TikTok
+
+Barber cuma tukang gunting? Fikir semula 💈
+Tengok sampai habis 👇
+
+Tag barber kegemaran anda & komen "BARBER" ✂️
+
+#barberlife #kerjayabarber #motivasi #elasbarbershop #fyp #barbershopmalaysia
+
+## Instagram
+
+Ramai fikir barber cuma tukang gunting rambut. Hakikatnya, jauh lebih besar 👇
+
+✂️ Artis: mata tajam, teknik & latihan bertahun-tahun
+✨ Pendengar: tempat pelanggan berkongsi cerita
+⏳ Pembina keyakinan: rambut kemas, lebih yakin
+💡 Pendidik & usahawan: melatih barber baharu & urus bisnes
+
+Lain kali anda duduk di kerusi barber, ingat: anda sedang berjumpa seorang profesional.
+
+Tag barber kegemaran anda atau DM kami untuk tempah slot 📩
+Ikuti @elasbarbershop.official untuk siri Di Sebalik Kerusi Barber.
+
+#barberlife #kerjayabarber #motivasi #barbermalaysia #barbershopmalaysia #profesionbarber #inspirasi #usahawanmalaysia #lelakimalaysia #reelsmalaysia #elasbarbershop
+"""),
+]
