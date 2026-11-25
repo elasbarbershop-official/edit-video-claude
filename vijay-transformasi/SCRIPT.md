@@ -12,4 +12,4 @@ Bahasa Melayu santai, nada mesra dan yakin. Kira-kira 2.3 patah perkataan sesaat
 | 25.9–31.9 | BASAH vs SIAP | Tengok bezanya, dari lepas bilas sampai siap digayakan. |
 | 31.9–37.5 | CTA | Nak rambut licin macam ni? Tempah keratin di Ela's Barbershop sekarang! *(Teks TTS: "Elas Barbershop" supaya sebutan betul.)* |
 
-Suara: Microsoft ms-MY-YasminNeural (edge-tts, kadar +8%). Fail: `assets/vo/vo1.wav`–`vo7.wav`.
+Suara: ElevenLabs "Brian" (lelaki). Versi Yasmin disimpan dalam `assets/vo/yasmin/`. Logo outro bermula pada 36.1 s (perkataan "Elas").
