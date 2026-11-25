@@ -9,3 +9,5 @@ siri/*/raw.mp4
 siri/*/work-*/
 siri/*/check-summary.txt
 siri/*/.hyperframes/
+siri/build16.log
+siri/finish16.log

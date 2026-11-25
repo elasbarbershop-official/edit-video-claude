@@ -16,6 +16,18 @@ THEME = {
                    hl_css=f"background:{NAVY};color:{YEL};padding:0 14px;margin-left:-14px;", cap_hl=f"background:{NAVY};color:{YEL};"),
 }
 CAP_TOP = 1112
+# Landscape (16:9 full screen): text column on the left (x 130-1010), hero on the right (centre x 1440).
+LAND = False
+HX = 1440
+
+
+def Y(y):
+    """Portrait y -> landscape y (text column moves up by 190 px)."""
+    return y - 190 if LAND else y
+
+
+def WH():
+    return (1920, 1080) if LAND else (1080, 1920)
 
 
 def norm(w):
@@ -58,7 +70,7 @@ def align(text, vo):
     return list(zip(disp, times, toks))
 
 
-def captions(sid, text, vo, lead, theme, end):
+def captions(sid, text, vo, lead, theme, end, box=None):
     th = THEME[theme]
     words = align(text, vo)
     chunks, cur = [], []
@@ -81,8 +93,9 @@ def captions(sid, text, vo, lead, theme, end):
             hl = th["cap_hl"]
             bg = re.search(r"background:([^;]+)", hl).group(1); fg = re.search(r"color:([^;]+)", hl).group(1)
             js.append(f'tl.set("#{sid}-w{c}_{j}", {{ backgroundColor: "{bg}", color: "{fg}" }}, {tw:.2f}); tl.set("#{sid}-w{c}_{j}", {{ backgroundColor: "rgba(0,0,0,0)", color: "{th["text"]}" }}, {tn:.2f});')
-    css = f"""    .cap {{ position: absolute; left: 190px; top: {CAP_TOP}px; width: 590px; text-align: center; font-weight: 900; font-size: 50px; line-height: 1.25;
-      letter-spacing: 0.01em; color: {th['text']}; transform-origin: 50% 50%; }}"""
+    left, top, width, fs = box or ((130, 905, 880, 56) if LAND else (190, CAP_TOP, 590, 50))
+    css = f"""    .cap {{ position: absolute; left: {left}px; top: {top}px; width: {width}px; text-align: {'left' if LAND and not box else 'center'}; font-weight: 900; font-size: {fs}px; line-height: 1.25;
+      letter-spacing: 0.01em; color: {th['text']}; transform-origin: {'0%' if LAND and not box else '50%'} 50%; }}"""
     return css, "\n".join(html), "\n    ".join(js)
 
 
@@ -90,27 +103,32 @@ def captions(sid, text, vo, lead, theme, end):
 def hero(sid, icon, theme, top, height, key="h"):
     """Character when the icon names a person/look, else the flat icon."""
     cv = character.from_icon(icon)
+    if LAND:
+        top, height, cx = 90, 990, HX
+    else:
+        cx = 500
     if cv:
         w = int(height * 600 / 760)
         svg = character.character(f"{sid}{key}", shirt=THEME[theme]["shirt"], **cv)
-        return f'<div id="{sid}-{key}" class="hero" style="left:{500 - w // 2}px;top:{top}px;width:{w}px;height:{height}px;">{svg}</div>', True
-    s = int(height * 0.8)
-    return f'<div id="{sid}-{key}" class="hero ic" style="left:{500 - s // 2}px;top:{top + (height - s) // 2}px;width:{s}px;height:{s}px;">{icons.svg(icon, sid + key)}</div>', False
+        return f'<div id="{sid}-{key}" class="hero" style="left:{cx - w // 2}px;top:{top}px;width:{w}px;height:{height}px;">{svg}</div>', True
+    s = int(height * (0.62 if LAND else 0.8))
+    return f'<div id="{sid}-{key}" class="hero ic" style="left:{cx - s // 2}px;top:{top + (height - s) // 2}px;width:{s}px;height:{s}px;">{icons.svg(icon, sid + key)}</div>', False
 
 
 def title(sid, lines, top, size, theme, hl_last=True):
     th = THEME[theme]; out = []
     for j, l in enumerate(lines):
-        y = top + j * size * 1.04
+        y = Y(top) + j * size * 1.04
         extra = th["hl_css"] if (hl_last and j == len(lines) - 1) else ""
         out.append(f'    <div id="{sid}-t{j}" class="ttl" style="top:{y:.0f}px;font-size:{size}px;color:{th["text"]};{extra}">{escape(l)}</div>')
-    return "\n".join(out), top + len(lines) * size * 1.04
+    return "\n".join(out), Y(top) + len(lines) * size * 1.04
 
 
 def badge(sid, text, theme, top):
     fg = NAVY
     bg = YEL if theme != "yellow" else CREAM
-    return (f'    <div style="position:absolute;left:500px;top:{top}px;transform:translateX(-50%);max-width:560px;width:max-content;">'
+    pos = f"left:130px;top:{top}px;max-width:860px;" if LAND else f"left:500px;top:{top}px;transform:translateX(-50%);max-width:560px;"
+    return (f'    <div style="position:absolute;{pos}width:max-content;">'
             f'<div id="{sid}-bd" style="display:flex;align-items:center;gap:14px;padding:12px 26px 12px 14px;border-radius:40px;background:{bg};color:{fg};'
             f'font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(9,25,54,0.25);">'
             f'<svg width="46" height="46" viewBox="0 0 46 46" style="flex:none"><circle cx="23" cy="23" r="21" fill="{NAVY}"/>'
@@ -121,7 +139,11 @@ def badge(sid, text, theme, top):
 BASE_CSS = """    .ttl { position: absolute; left: 130px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; transform-origin: 0% 50%; }
     .hero { position: absolute; transform-origin: 50% 100%; }
     .hero svg, .ic svg { width: 100%; height: 100%; display: block; }
-    .chip { position: absolute; left: 130px; top: 300px; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }"""
+    .chip { position: absolute; left: 130px; top: CHIPTOPpx; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }"""
+
+
+def base_css():
+    return BASE_CSS.replace("CHIPTOP", str(Y(300)))
 
 
 def hero_js(sid, key="h", at=0.1, dur=3.0):
@@ -137,14 +159,15 @@ def chip(sid, text, theme):
 # ------------------------------------------------------------ scenes
 def s_hook(sid, sc, vo, lead, series, cue):
     theme = "navy"
-    size = fit(sc["lines"], 700, 92)
+    size = fit(sc["lines"], 860 if LAND else 700, 104 if LAND else 92)
     t_html, bottom = title(sid, sc["lines"], 360, size, theme, hl_last=False)
     t_html = re.sub(rf'(id="{sid}-t(\d+)" class="ttl" style="[^"]*?)color:{CREAM};', lambda m: m.group(1) + (f"color:{YEL};" if int(m.group(2)) in sc["hl"] else f"color:{CREAM};"), t_html)
     htop = int(bottom + 20); hh = 1080 - htop
     is_char = character.from_icon(sc["icon"]) is not None
     h_html, _ = hero(sid, sc["icon"] if is_char else "person", theme, htop, hh)
     if not is_char:
-        h_html += (f'\n    <div id="{sid}-fi" class="ic" style="position:absolute;left:610px;top:{htop + 20}px;width:200px;height:200px;">'
+        fx, fy = (HX + 170, 120) if LAND else (610, htop + 20)
+        h_html += (f'\n    <div id="{sid}-fi" class="ic" style="position:absolute;left:{fx}px;top:{fy}px;width:200px;height:200px;">'
                    f'{icons.svg(sc["icon"], sid + "fi")}</div>')
     html = chip(sid, series, theme) + "\n" + t_html + "\n    " + h_html
     js = "".join(f'tl.fromTo("#{sid}-t{j}", {{ scale: 1.08 }}, {{ scale: 1, duration: 0.3, ease: "power4.out" }}, {j * 0.05:.2f});\n    ' for j in range(len(sc["lines"])))
@@ -153,49 +176,49 @@ def s_hook(sid, sc, vo, lead, series, cue):
     if not is_char:
         js += f'\n    tl.fromTo("#{sid}-fi", {{ rotation: -14, scale: 0.8 }}, {{ rotation: 6, scale: 1, duration: 0.6, ease: "back.out(2)" }}, 0.05);'
     sfx = [("impact-bass-1", 0.0, 0.45)]
-    return theme, BASE_CSS, html, js, sfx
+    return theme, base_css(), html, js, sfx
 
 
 def s_point(sid, sc, vo, lead, theme, num, cue):
-    size = fit(sc["title"], 700, 80)
+    size = fit(sc["title"], 860 if LAND else 700, 92 if LAND else 80)
     t_html, bottom = title(sid, sc["title"], 364, size, theme)
     htop = int(bottom + 10); hh = 1095 - htop
     h_html, _ = hero(sid, sc["icon"], theme, htop, hh)
     ts = lead + cue(vo, sc.get("cs"), 0.45)
-    html = chip(sid, f"{num:02d}", theme) + "\n" + t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, 988)
+    html = chip(sid, f"{num:02d}", theme) + "\n" + t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, int(bottom + 60) if LAND else 988)
     js = (f'tl.fromTo("#{sid}-chip", {{ scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }}, 0.2);\n    '
           + "".join(f'tl.fromTo("#{sid}-t{j}", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }}, {0.3 + j * 0.12:.2f});\n    ' for j in range(len(sc["title"])))
           + hero_js(sid, "h", 0.35, vo["dur"]) + "\n    "
           + f'tl.fromTo("#{sid}-bd", {{ scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }}, {ts:.2f});')
-    return theme, BASE_CSS, html, js, [("pop", 0.2, 1.2), ("click", ts, 1.1)]
+    return theme, base_css(), html, js, [("pop", 0.2, 1.2), ("click", ts, 1.1)]
 
 
 def s_tip(sid, sc, vo, lead, theme, cue):
-    size = fit(sc["title"], 700, 88)
+    size = fit(sc["title"], 860 if LAND else 700, 100 if LAND else 88)
     t_html, bottom = title(sid, sc["title"], 330, size, theme)
     htop = int(bottom + 20); hh = 1095 - htop
     h_html, _ = hero(sid, sc["icon"], theme, htop, hh)
     ts = lead + cue(vo, sc.get("cs"), 0.5)
-    html = t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, 988)
+    html = t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, int(bottom + 60) if LAND else 988)
     js = ("".join(f'tl.fromTo("#{sid}-t{j}", {{ scale: 1.25, opacity: 0 }}, {{ scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }}, {0.3 + j * 0.18:.2f});\n    ' for j in range(len(sc["title"])))
           + hero_js(sid, "h", 0.4, vo["dur"]) + "\n    "
           + f'tl.fromTo("#{sid}-bd", {{ scale: 0.5, opacity: 0 }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }}, {ts:.2f});')
-    return theme, BASE_CSS, html, js, [("sparkle", 0.4, 0.35), ("click", ts, 1.1)]
+    return theme, base_css(), html, js, [("sparkle", 0.4, 0.35), ("click", ts, 1.1)]
 
 
 def s_rows(sid, sc, vo, lead, theme, cue):
     """One character whose look changes on each row's cue, with a level meter."""
     n = len(sc["items"])
     th = THEME[theme]
-    html = [f'    <div id="{sid}-head" style="position:absolute;left:130px;top:300px;font-weight:800;font-size:44px;line-height:1;color:{th["text"]};">{escape(sc["head"])}</div>']
+    html = [f'    <div id="{sid}-head" style="position:absolute;left:130px;top:{Y(300)}px;font-weight:800;font-size:44px;line-height:1;color:{th["text"]};">{escape(sc["head"])}</div>']
     seg_w = int((650 - (n - 1) * 14) / n)
-    base = 470 + 20 + (n - 1) * 14
+    base = Y(470) + 20 + (n - 1) * 14
     meter = []
     for j, r in enumerate(sc["items"]):
         x = 130 + j * (seg_w + 14)
-        meter.append(f'<div id="{sid}-m{j}" style="position:absolute;left:{x}px;top:470px;width:{seg_w}px;height:{20 + j * 14}px;border-radius:8px;background:{th["text"]};opacity:0.18;transform-origin:50% 100%;"></div>'
+        meter.append(f'<div id="{sid}-m{j}" style="position:absolute;left:{x}px;top:{Y(470)}px;width:{seg_w}px;height:{20 + j * 14}px;border-radius:8px;background:{th["text"]};opacity:0.18;transform-origin:50% 100%;"></div>'
                      f'<div style="position:absolute;left:{x}px;top:{base + 10}px;width:{seg_w}px;text-align:center;font-weight:800;font-size:28px;color:{th["text"]};">{escape(r["label"].split()[0])}</div>')
-    meter = [m.replace(f'top:470px;width:{seg_w}px;height:{20 + j * 14}px', f'top:{base - (20 + j * 14)}px;width:{seg_w}px;height:{20 + j * 14}px') for j, m in enumerate(meter)]
+    meter = [m.replace(f'top:{Y(470)}px;width:{seg_w}px;height:{20 + j * 14}px', f'top:{base - (20 + j * 14)}px;width:{seg_w}px;height:{20 + j * 14}px') for j, m in enumerate(meter)]
     html.append("    " + "".join(meter))
     htop = base + 50; hh = 1070 - htop
     js, sfx = [f'tl.fromTo("#{sid}-head", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }}, 0.15);'], []
@@ -205,9 +228,9 @@ def s_rows(sid, sc, vo, lead, theme, cue):
         t = lead + raw; times.append(t)
         size = fit([r["label"]], 520, 76)
         hh_html, _ = hero(sid, r["icon"], theme, htop, hh, key=f"h{j}")
-        html.append(f'    <div id="{sid}-L{j}" style="position:absolute;left:130px;top:360px;font-weight:900;font-size:{size}px;line-height:1;white-space:nowrap;{th["hl_css"]}color:{NAVY if theme != "navy" else YEL};opacity:0;">{escape(r["label"])}</div>')
+        html.append(f'    <div id="{sid}-L{j}" style="position:absolute;left:130px;top:{Y(360)}px;font-weight:900;font-size:{size}px;line-height:1;white-space:nowrap;{th["hl_css"]}color:{NAVY if theme != "navy" else YEL};opacity:0;">{escape(r["label"])}</div>')
         html.append("    " + hh_html)
-        html.append(badge(f"{sid}-{j}", r["desc"], theme, 988).replace(f'id="{sid}-{j}-bd"', f'id="{sid}-bd{j}"'))
+        html.append(badge(f"{sid}-{j}", r["desc"], theme, base + 90 if LAND else 988).replace(f'id="{sid}-{j}-bd"', f'id="{sid}-bd{j}"'))
     for j, t in enumerate(times):
         nxt = times[j + 1] if j + 1 < n else None
         js.append(f'tl.fromTo("#{sid}-L{j}", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }}, {t:.2f});')
@@ -220,13 +243,14 @@ def s_rows(sid, sc, vo, lead, theme, cue):
         sfx.append(("pop", t, 1.2))
     # hide all later characters at start
     init = "".join(f'tl.set("#{sid}-h{j}", {{ opacity: 0 }}, 0); tl.set("#{sid}-bd{j}", {{ opacity: 0 }}, 0); ' for j in range(n))
-    return theme, BASE_CSS, "\n".join(html), init + "\n    " + "\n    ".join(js), sfx
+    return theme, base_css(), "\n".join(html), init + "\n    " + "\n    ".join(js), sfx
 
 
 def s_compare(sid, sc, vo, lead, cue):
     theme = "navy"
     html, js, sfx = [], [], []
-    for j, (key, x) in enumerate([("L", 130), ("R", 465)]):
+    cw = 440 if LAND else 315  # card width
+    for j, (key, x) in enumerate([("L", 500), ("R", 980)] if LAND else [("L", 130), ("R", 465)]):
         sd = sc[key]
         t = lead + cue(vo, sd["cue"], 0.1 if j == 0 else 0.55)
         ls = fit([sd["label"]], 280, 44)
@@ -237,17 +261,17 @@ def s_compare(sid, sc, vo, lead, cue):
                    "-": (NAVY, f'<path d="M17 17 L35 35 M35 17 L17 35" stroke="{CREAM}" stroke-width="6" stroke-linecap="round"/>'),
                    "o": (NAVY, f'<circle cx="26" cy="26" r="7" fill="{CREAM}"/>')}[sign]
             badge_svg = f'<svg viewBox="0 0 52 52" width="52" height="52"><circle cx="26" cy="26" r="24" fill="{col[0]}"/>{col[1]}</svg>'
-            items.append(f'<div id="{sid}-{key}i{m}" style="position:absolute;left:18px;top:{yy}px;width:280px;"><div style="position:absolute;left:0;top:0;">{badge_svg}</div>'
-                         f'<div style="position:absolute;left:66px;top:4px;width:212px;font-weight:700;font-size:30px;line-height:1.18;color:{NAVY};">{escape(text)}</div></div>')
+            items.append(f'<div id="{sid}-{key}i{m}" style="position:absolute;left:{30 if LAND else 18}px;top:{yy}px;width:{cw - 35}px;"><div style="position:absolute;left:0;top:0;">{badge_svg}</div>'
+                         f'<div style="position:absolute;left:66px;top:4px;width:{cw - 103}px;font-weight:700;font-size:{34 if LAND else 30}px;line-height:1.18;color:{NAVY};">{escape(text)}</div></div>')
             js.append(f'tl.fromTo("#{sid}-{key}i{m}", {{ x: 30, opacity: 0 }}, {{ x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }}, {t + 0.35 + m * 0.3:.2f});')
-        html.append(f"""    <div id="{sid}-{key}" style="position:absolute;left:{x}px;top:310px;width:315px;height:760px;border-radius:28px;background:{CREAM};--ink:{NAVY};--acc:{YEL};--paper:#ffffff;">
-      <div style="position:absolute;left:0;top:28px;width:315px;text-align:center;font-weight:900;font-size:{ls}px;line-height:1;color:{NAVY};">{escape(sd['label'])}</div>
-      <div class="ic" style="position:absolute;left:57px;top:92px;width:200px;height:200px;">{icons.svg(sd['icon'], f'{sid}{key}')}</div>
+        html.append(f"""    <div id="{sid}-{key}" style="position:absolute;left:{x}px;top:{110 if LAND else 310}px;width:{cw}px;height:760px;border-radius:28px;background:{CREAM};--ink:{NAVY};--acc:{YEL};--paper:#ffffff;">
+      <div style="position:absolute;left:0;top:28px;width:{cw}px;text-align:center;font-weight:900;font-size:{ls}px;line-height:1;color:{NAVY};">{escape(sd['label'])}</div>
+      <div class="ic" style="position:absolute;left:{(cw - 200) // 2}px;top:92px;width:200px;height:200px;">{icons.svg(sd['icon'], f'{sid}{key}')}</div>
       {''.join(items)}
     </div>""")
         js.insert(0, f'tl.fromTo("#{sid}-{key}", {{ y: 120, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.4, ease: "power4.out" }}, {t:.2f});')
         sfx.append(("pop", t, 1.3))
-    return theme, BASE_CSS, "\n".join(html), "\n    ".join(js), sfx
+    return theme, base_css(), "\n".join(html), "\n    ".join(js), sfx
 
 
 def s_cta(sid, sc, vo, lead, cue):
@@ -259,14 +283,14 @@ def s_cta(sid, sc, vo, lead, cue):
     wi = [i for i, (w, s) in enumerate(vo["words"]) if norm(w).startswith("komen")]
     tw = lead + vo["words"][wi[0] + 1][1] if wi and wi[0] + 1 < len(vo["words"]) else tk + 0.4
     word = sc["word"]; t_end = tw + 0.07 * len(word)
-    html = f"""    <div id="{sid}-q" style="position:absolute;left:130px;top:330px;font-weight:900;font-size:{size}px;line-height:1.08;">{lines}</div>
-    <div id="{sid}-box" style="position:absolute;left:130px;top:700px;width:650px;height:120px;border-radius:60px;background:{CREAM};">
+    html = f"""    <div id="{sid}-q" style="position:absolute;left:130px;top:{Y(330)}px;font-weight:900;font-size:{size}px;line-height:1.08;">{lines}</div>
+    <div id="{sid}-box" style="position:absolute;left:130px;top:{Y(700)}px;width:650px;height:120px;border-radius:60px;background:{CREAM};">
       <div style="position:absolute;left:22px;top:22px;width:76px;height:76px;border-radius:38px;background:{YEL};"></div>
       <div id="{sid}-ph" style="position:absolute;left:124px;top:38px;color:rgba(9,25,54,0.45);font-weight:600;font-size:40px;line-height:1;">Tambah komen...</div>
       <div id="{sid}-typed" style="position:absolute;left:124px;top:34px;color:{NAVY};font-weight:900;font-size:48px;line-height:1;letter-spacing:0.04em;"></div>
       <div id="{sid}-send" style="position:absolute;right:16px;top:16px;width:88px;height:88px;border-radius:44px;background:rgba(9,25,54,0.14);"><svg style="position:absolute;left:22px;top:22px" width="44" height="44" viewBox="0 0 44 44"><path d="M6 22 L38 6 L28 38 L22 24 Z" fill="{NAVY}"/></svg></div>
     </div>
-    <div id="{sid}-reply" style="position:absolute;left:230px;top:860px;padding:22px 30px;border-radius:34px 34px 34px 8px;background:{YEL};color:{NAVY};font-weight:900;font-size:44px;line-height:1;white-space:nowrap;">{escape(sc['reply'])}</div>"""
+    <div id="{sid}-reply" style="position:absolute;left:230px;top:{Y(860)}px;padding:22px 30px;border-radius:34px 34px 34px 8px;background:{YEL};color:{NAVY};font-weight:900;font-size:44px;line-height:1;white-space:nowrap;">{escape(sc['reply'])}</div>"""
     js = f"""tl.fromTo("#{sid}-q", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }}, 0.25);
     tl.fromTo("#{sid}-box", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "power4.out" }}, {max(0.6, tk - 0.6):.2f});
     tl.set("#{sid}-ph", {{ opacity: 0 }}, {tw - 0.02:.2f});
@@ -277,7 +301,11 @@ def s_cta(sid, sc, vo, lead, cue):
     tl.fromTo("#{sid}-send", {{ scale: 1 }}, {{ scale: 0.85, duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }}, {t_end + 0.1:.2f});
     tl.fromTo("#{sid}-reply", {{ scale: 0.5, opacity: 0, transformOrigin: "0% 100%" }}, {{ scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.2)" }}, {t_end + 0.45:.2f});"""
     sfx = [("typing", tw, 0.9, min(0.75, 0.07 * len(word) + 0.2), 0.42), ("click", t_end + 0.1, 1.3), ("pop", t_end + 0.45, 1.4)]
-    return theme, BASE_CSS, html, js, sfx
+    if LAND:  # fill the right half with the happy customer
+        h_html, _ = hero(sid, "confident", theme, 0, 0)
+        html += "\n    " + h_html
+        js += "\n    " + hero_js(sid, "h", 0.3, vo["dur"])
+    return theme, base_css(), html, js, sfx
 
 
 def scene_file(sid, theme, css, html, js, first, cap_css, cap_html, cap_js):
@@ -286,19 +314,20 @@ def scene_file(sid, theme, css, html, js, first, cap_css, cap_html, cap_js):
     wipe = ""
     if not first:
         s2 = CREAM if theme != "cream" else NAVY
-        stripes = (f'    <div style="position:absolute;left:-660px;top:-240px;width:2400px;height:2400px;transform:rotate(22deg);pointer-events:none;z-index:9;">'
-                   f'<div id="{sid}-sa" style="position:absolute;left:-200px;top:0;width:170px;height:2400px;background:{YEL};"></div>'
-                   f'<div id="{sid}-sb" style="position:absolute;left:-400px;top:0;width:120px;height:2400px;background:{s2};"></div></div>')
+        sw = 3600 if LAND else 2400
+        stripes = (f'    <div style="position:absolute;left:-660px;top:{-1200 if LAND else -240}px;width:{sw}px;height:{sw}px;transform:rotate(22deg);pointer-events:none;z-index:9;">'
+                   f'<div id="{sid}-sa" style="position:absolute;left:-200px;top:0;width:170px;height:{sw}px;background:{YEL};"></div>'
+                   f'<div id="{sid}-sb" style="position:absolute;left:-400px;top:0;width:120px;height:{sw}px;background:{s2};"></div></div>')
         wipe = (f'tl.fromTo("#root", {{ clipPath: "polygon(0% 0%, -30% 0%, -70% 100%, 0% 100%)" }}, {{ clipPath: "polygon(0% 0%, 150% 0%, 110% 100%, 0% 100%)", duration: 0.5, ease: "power2.inOut" }}, 0);\n    '
-                f'tl.fromTo("#{sid}-sa", {{ x: 0 }}, {{ x: 2700, duration: 0.5, ease: "power2.inOut" }}, 0);\n    '
-                f'tl.fromTo("#{sid}-sb", {{ x: 0 }}, {{ x: 2700, duration: 0.55, ease: "power2.inOut" }}, 0);\n    ')
+                f'tl.fromTo("#{sid}-sa", {{ x: 0 }}, {{ x: {sw + 300}, duration: 0.5, ease: "power2.inOut" }}, 0);\n    '
+                f'tl.fromTo("#{sid}-sb", {{ x: 0 }}, {{ x: {sw + 300}, duration: 0.55, ease: "power2.inOut" }}, 0);\n    ')
     return f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; background: {th['bg']}; color: {th['text']}; font-family: "Montserrat", sans-serif; overflow: hidden; {th['vars']} }}
 {css}
 {cap_css}
   </style>
-  <div id="root" data-composition-id="{sid}" data-width="1080" data-height="1920">
+  <div id="root" data-composition-id="{sid}" data-width="{WH()[0]}" data-height="{WH()[1]}">
 {html}
 {cap_html}
 {stripes}

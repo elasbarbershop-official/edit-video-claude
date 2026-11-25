@@ -1,6 +1,7 @@
 """Build Elas tips-series reels from siri/specs.py.
 
-usage: python3 siri/tools/build.py [slug-prefix ...]   (no args = all videos)
+usage: python3 siri/tools/build.py [--16x9] [slug-prefix ...]   (no args = all videos)
+--16x9 builds the full-screen landscape version into siri/<slug>-16x9/ (VO reused from the portrait project).
 Per video: ElevenLabs Brian VO per scene (cached), Whisper word cues, scene compositions,
 root index.html with SFX + music + locked elas-outro, SCRIPT.md and CAPTION.md.
 """
@@ -300,8 +301,10 @@ def setup(proj, music):
 
 
 def build(v):
-    slug = v["slug"]; proj = f"{SIRI}/{slug}"
+    slug = v["slug"]; proj = f"{SIRI}/{slug}" + ("-16x9" if S2.LAND else "")
     os.makedirs(proj, exist_ok=True)
+    if S2.LAND and os.path.isdir(f"{SIRI}/{slug}/assets/vo"):
+        shutil.copytree(f"{SIRI}/{slug}/assets/vo", f"{proj}/assets/vo", dirs_exist_ok=True)
     music_path, music_src = setup(proj, v["music"])
     json.dump({"id": f"elas-{slug}", "name": slug}, open(f"{proj}/meta.json", "w"))
     scenes = v["scenes"]
@@ -337,7 +340,8 @@ def build(v):
             cap_end = lead + (el[-1] if el else vo["dur"] - 1.0) + 0.45
         else:
             cap_end = lead + vo["dur"] + 0.35
-        cap_css, cap_html, cap_js = S2.captions(sid, sc["vo"], vo, lead, theme, cap_end)
+        box = (510, 905, 900, 56) if S2.LAND and sc["t"] == "compare" else None
+        cap_css, cap_html, cap_js = S2.captions(sid, sc["vo"], vo, lead, theme, cap_end, box)
         open(f"{proj}/compositions/{sid}.html", "w").write(S2.scene_file(sid, theme, css, html, js, i == 0, cap_css, cap_html, cap_js))
         slot = lead + vo["dur"] + 0.35
         if sc["t"] == "cta":
@@ -370,26 +374,28 @@ def build(v):
         sfx_tags.append(f'      <audio id="sfx-{n + 1}" class="clip" src="assets/sfx/{name}.mp3" data-start="{f2(st)}" data-duration="{f2(d)}"{mattr} data-volume="{f2(vol)}" data-track-index="{li + 4}"></audio>')
     bed = 0.2 if music_src.startswith("elas-lofi") else 0.1
     peakv = 0.5 if music_src.startswith("elas-lofi") else 0.25
+    W, H = S2.WH()
+    outro = "elas-outro-16x9" if S2.LAND else "elas-outro"
     host_tags = "\n".join(
-        f'      <div id="{sid}" data-composition-id="{sid}" data-composition-src="compositions/{sid}.html" data-start="{f2(s)}" data-duration="{f2(d)}" data-track-index="{j % 2}" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: {zz}"></div>'
+        f'      <div id="{sid}" data-composition-id="{sid}" data-composition-src="compositions/{sid}.html" data-start="{f2(s)}" data-duration="{f2(d)}" data-track-index="{j % 2}" data-track-kind="graphics" data-width="{W}" data-height="{H}" style="z-index: {zz}"></div>'
         for j, (sid, s, d, zz) in enumerate(hosts))
     vo_html = "\n".join(f'      <audio id="vo-{n}" class="clip" src="assets/vo/vo{n}.wav" data-start="{f2(s)}" data-duration="{f2(d + 0.02)}" data-volume="1" data-track-index="3"></audio>' for n, s, d in vo_tags)
     index = f"""<!doctype html>
-<html lang="ms" data-resolution="portrait">
+<html lang="ms" data-resolution="{'landscape' if S2.LAND else 'portrait'}">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1080, height=1920" />
+    <meta name="viewport" content="width={W}, height={H}" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-      html, body {{ width: 1080px; height: 1920px; overflow: hidden; background: {NAVY}; }}
+      html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: {NAVY}; }}
       #root {{ position: relative; width: 100%; height: 100%; }}
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="{f2(total)}" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="{f2(total)}" data-width="{W}" data-height="{H}">
 {host_tags}
-      <div id="elas-outro" data-composition-id="elas-outro" data-composition-src="compositions/elas-outro.html" data-start="{f2(outro_start)}" data-duration="4.2" data-track-index="0" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index: 50"></div>
+      <div id="elas-outro" data-composition-id="elas-outro" data-composition-src="compositions/{outro}.html" data-start="{f2(outro_start)}" data-duration="4.2" data-track-index="0" data-track-kind="graphics" data-width="{W}" data-height="{H}" style="z-index: 50"></div>
 
       <!-- Music bed: brand/music/{music_src}.mp3 looped -->
       <audio id="music-bed" class="clip" src="{music_path}" data-start="0" data-duration="{f2(outro_start)}" data-volume="{bed}" data-fade-in="0.3" data-track-index="2"></audio>
@@ -409,7 +415,8 @@ def build(v):
 </html>
 """
     open(f"{proj}/index.html", "w").write(index)
-    write_docs(v, proj, total)
+    if not S2.LAND:  # captions/script live with the portrait project
+        write_docs(v, proj, total)
     return proj, total
 
 
@@ -460,7 +467,8 @@ Tengok sampai habis 👇
 
 
 if __name__ == "__main__":
-    want = sys.argv[1:]
+    want = [a for a in sys.argv[1:] if a != "--16x9"]
+    S2.LAND = "--16x9" in sys.argv
     for v in VIDEOS:
         if want and not any(v["slug"].startswith(w) for w in want):
             continue

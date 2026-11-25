@@ -1,4 +1,5 @@
-"""Make a 16:9 (1920x1080) branded version of a finished 9:16 reel.
+"""SUPERSEDED: landscape versions are now built full screen (CLAUDE.md rule 8, build.py --16x9).
+Kept for reference only. Made a 16:9 (1920x1080) version with the 9:16 reel centred.
 
 The portrait video sits in the centre; the left panel carries the series label and the hook title,
 the right panel the Elas logo and the comment CTA. Audio is copied unchanged.

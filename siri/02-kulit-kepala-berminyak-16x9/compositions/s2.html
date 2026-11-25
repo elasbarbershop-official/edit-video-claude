@@ -1,0 +1,59 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #faf8f2; color: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; --ink:#091936;--acc:#ffba00;--paper:#ffffff; }
+    .ttl { position: absolute; left: 130px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; transform-origin: 0% 50%; }
+    .hero { position: absolute; transform-origin: 50% 100%; }
+    .hero svg, .ic svg { width: 100%; height: 100%; display: block; }
+    .chip { position: absolute; left: 130px; top: 110px; padding: 9px 16px; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; line-height: 1; }
+    .cap { position: absolute; left: 130px; top: 905px; width: 880px; text-align: left; font-weight: 900; font-size: 56px; line-height: 1.25;
+      letter-spacing: 0.01em; color: #091936; transform-origin: 0% 50%; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-chip" class="chip" style="background:#ffba00;color:#091936;">01</div>
+    <div id="s2-t0" class="ttl" style="top:174px;font-size:92px;color:#091936;">HORMON &amp;</div>
+    <div id="s2-t1" class="ttl" style="top:270px;font-size:92px;color:#091936;background:#ffba00;color:#091936;padding:0 14px;margin-left:-14px;">GENETIK</div>
+    <div id="s2-h" class="hero ic" style="left:1134px;top:278px;width:613px;height:613px;"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" overflow="visible"><path d="M70 20 C150 60 50 140 130 180" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M130 20 C50 60 150 140 70 180" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M86 50 L114 50" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/><path d="M82 75 L118 75" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/><path d="M78 100 L122 100" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/><path d="M82 125 L118 125" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/><path d="M86 150 L114 150" stroke="var(--acc)" stroke-width="8" stroke-linecap="round"/></svg></div>
+    <div style="position:absolute;left:130px;top:425px;max-width:860px;width:max-content;"><div id="s2-bd" style="display:flex;align-items:center;gap:14px;padding:12px 26px 12px 14px;border-radius:40px;background:#ffba00;color:#091936;font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(9,25,54,0.25);"><svg width="46" height="46" viewBox="0 0 46 46" style="flex:none"><circle cx="23" cy="23" r="21" fill="#091936"/><path d="M12 24 L20 32 L34 15" fill="none" stroke="#ffba00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ADA ORANG MEMANG LEBIH BERMINYAK</span></div></div>
+    <div id="s2-c0" class="cap" style="opacity:0;"><span id="s2-w0_0" style="padding:2px 10px;border-radius:8px;">PERTAMA</span></div>
+    <div id="s2-c1" class="cap" style="opacity:0;"><span id="s2-w1_0" style="padding:2px 10px;border-radius:8px;">FAKTOR</span> <span id="s2-w1_1" style="padding:2px 10px;border-radius:8px;">SEMULA</span></div>
+    <div id="s2-c2" class="cap" style="opacity:0;"><span id="s2-w2_0" style="padding:2px 10px;border-radius:8px;">JADI</span></div>
+    <div id="s2-c3" class="cap" style="opacity:0;"><span id="s2-w3_0" style="padding:2px 10px;border-radius:8px;">HORMON</span> <span id="s2-w3_1" style="padding:2px 10px;border-radius:8px;">DAN</span> <span id="s2-w3_2" style="padding:2px 10px;border-radius:8px;">GENETIK</span></div>
+    <div id="s2-c4" class="cap" style="opacity:0;"><span id="s2-w4_0" style="padding:2px 10px;border-radius:8px;">BUAT</span> <span id="s2-w4_1" style="padding:2px 10px;border-radius:8px;">SESETENGAH</span></div>
+    <div id="s2-c5" class="cap" style="opacity:0;"><span id="s2-w5_0" style="padding:2px 10px;border-radius:8px;">ORANG</span> <span id="s2-w5_1" style="padding:2px 10px;border-radius:8px;">MEMANG</span> <span id="s2-w5_2" style="padding:2px 10px;border-radius:8px;">LEBIH</span></div>
+    <div id="s2-c6" class="cap" style="opacity:0;"><span id="s2-w6_0" style="padding:2px 10px;border-radius:8px;">BERMINYAK</span></div>
+    <div style="position:absolute;left:-660px;top:-1200px;width:3600px;height:3600px;transform:rotate(22deg);pointer-events:none;z-index:9;"><div id="s2-sa" style="position:absolute;left:-200px;top:0;width:170px;height:3600px;background:#ffba00;"></div><div id="s2-sb" style="position:absolute;left:-400px;top:0;width:120px;height:3600px;background:#091936;"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "polygon(0% 0%, -30% 0%, -70% 100%, 0% 100%)" }, { clipPath: "polygon(0% 0%, 150% 0%, 110% 100%, 0% 100%)", duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s2-sa", { x: 0 }, { x: 3900, duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s2-sb", { x: 0 }, { x: 3900, duration: 0.55, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s2-chip", { scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 0.2);
+    tl.fromTo("#s2-t0", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.30);
+    tl.fromTo("#s2-t1", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.42);
+    tl.fromTo("#s2-h", { y: 80, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.35);
+    tl.to("#s2-h", { scale: 1.025, duration: 5.18, ease: "sine.inOut" }, 0.80);
+    tl.fromTo("#s2-bd", { scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 2.10);
+    tl.set("#s2-c0", { opacity: 1 }, 0.30); tl.fromTo("#s2-c0", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.30); tl.set("#s2-c0", { opacity: 0 }, 0.66);
+    tl.set("#s2-w0_0", { backgroundColor: "#ffba00", color: "#091936" }, 0.30); tl.set("#s2-w0_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 0.66);
+    tl.set("#s2-c1", { opacity: 1 }, 0.66); tl.fromTo("#s2-c1", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 0.66); tl.set("#s2-c1", { opacity: 0 }, 1.38);
+    tl.set("#s2-w1_0", { backgroundColor: "#ffba00", color: "#091936" }, 0.66); tl.set("#s2-w1_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 1.10);
+    tl.set("#s2-w1_1", { backgroundColor: "#ffba00", color: "#091936" }, 1.10); tl.set("#s2-w1_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 1.38);
+    tl.set("#s2-c2", { opacity: 1 }, 1.38); tl.fromTo("#s2-c2", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 1.38); tl.set("#s2-c2", { opacity: 0 }, 2.10);
+    tl.set("#s2-w2_0", { backgroundColor: "#ffba00", color: "#091936" }, 1.38); tl.set("#s2-w2_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.10);
+    tl.set("#s2-c3", { opacity: 1 }, 2.10); tl.fromTo("#s2-c3", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 2.10); tl.set("#s2-c3", { opacity: 0 }, 3.32);
+    tl.set("#s2-w3_0", { backgroundColor: "#ffba00", color: "#091936" }, 2.10); tl.set("#s2-w3_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.68);
+    tl.set("#s2-w3_1", { backgroundColor: "#ffba00", color: "#091936" }, 2.68); tl.set("#s2-w3_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 2.80);
+    tl.set("#s2-w3_2", { backgroundColor: "#ffba00", color: "#091936" }, 2.80); tl.set("#s2-w3_2", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.32);
+    tl.set("#s2-c4", { opacity: 1 }, 3.32); tl.fromTo("#s2-c4", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 3.32); tl.set("#s2-c4", { opacity: 0 }, 4.10);
+    tl.set("#s2-w4_0", { backgroundColor: "#ffba00", color: "#091936" }, 3.32); tl.set("#s2-w4_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 3.50);
+    tl.set("#s2-w4_1", { backgroundColor: "#ffba00", color: "#091936" }, 3.50); tl.set("#s2-w4_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 4.10);
+    tl.set("#s2-c5", { opacity: 1 }, 4.10); tl.fromTo("#s2-c5", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 4.10); tl.set("#s2-c5", { opacity: 0 }, 4.92);
+    tl.set("#s2-w5_0", { backgroundColor: "#ffba00", color: "#091936" }, 4.10); tl.set("#s2-w5_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 4.32);
+    tl.set("#s2-w5_1", { backgroundColor: "#ffba00", color: "#091936" }, 4.32); tl.set("#s2-w5_1", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 4.62);
+    tl.set("#s2-w5_2", { backgroundColor: "#ffba00", color: "#091936" }, 4.62); tl.set("#s2-w5_2", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 4.92);
+    tl.set("#s2-c6", { opacity: 1 }, 4.92); tl.fromTo("#s2-c6", { scale: 0.9 }, { scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, 4.92); tl.set("#s2-c6", { opacity: 0 }, 5.83);
+    tl.set("#s2-w6_0", { backgroundColor: "#ffba00", color: "#091936" }, 4.92); tl.set("#s2-w6_0", { backgroundColor: "rgba(0,0,0,0)", color: "#091936" }, 5.83);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Check, render and loudness-normalise siri projects.
 # usage: siri/tools/finish.sh [slug-prefix ...]   (no args = every project in siri/)
+# Projects named <slug>-16x9 (build.py --16x9) render to renders/landscape/<slug>-16x9.mp4.
 set -uo pipefail
 export HYPERFRAMES_BROWSER_PATH=${HYPERFRAMES_BROWSER_PATH:-/opt/pw-browsers/chromium-1243/chrome-linux64/chrome}
 cd "$(dirname "$0")/.."
@@ -8,6 +9,7 @@ mkdir -p renders
 for d in [0-9][0-9]-*/; do
   slug=${d%/}
   if [ $# -gt 0 ]; then ok=0; for p in "$@"; do [[ $slug == $p* ]] && ok=1; done; [ $ok = 1 ] || continue; fi
+  out="../renders/$slug.mp4"; [[ $slug == *-16x9 ]] && out="../renders/landscape/$slug.mp4"
   (
     cd "$slug"
     npx hyperframes check --json > check.json 2>/dev/null
@@ -21,6 +23,6 @@ open("check-summary.txt", "w").write(f"ok={d.get('ok')}\n" + "\n".join(bad) + "\
 EOF
     npx hyperframes render -q delivery -o raw.mp4 > render.log 2>&1 &&
     ffmpeg -nostdin -v error -y -i raw.mp4 -c:v copy -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -c:a aac -b:a 192k \
-      -movflags +faststart "../renders/$slug.mp4" && rm -f raw.mp4 && echo "rendered $slug" || echo "FAILED $slug"
+      -movflags +faststart "$out" && rm -f raw.mp4 && echo "rendered $slug" || echo "FAILED $slug"
   )
 done

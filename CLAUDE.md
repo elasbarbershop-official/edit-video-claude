@@ -34,3 +34,12 @@ Elas Barbershop social reels (1080×1920, Malay).
    yellow block, tick badge pills, navy/cream alternating scenes, yellow tip scenes, diagonal stripe
    transitions, the comment-box CTA, music bed and the locked logo outro. New topics are added as
    entries in `siri/specs.py`.
+8. **Landscape (16:9, 1920×1080) versions are full screen.** Never put the portrait video in the
+   middle with side panels. Build the landscape natively at 1920×1080 and end it with
+   `compositions/elas-outro-16x9.html` (installed by `brand/install-outro.sh`):
+   - Animated siri videos: `python3 siri/tools/build.py --16x9 <slug>` → `siri/tools/finish.sh <slug>-16x9`
+     (renders to `siri/renders/landscape/<slug>-16x9.mp4`). Text column left, character on the right.
+   - Real footage: a `landscape/` HyperFrames project beside the portrait one (see
+     `vijay-transformasi/landscape/`): footage fills the frame (cover crop framed on the hair), text on
+     the left over a navy gradient, before/after side by side, same VO, music and finished audio mix.
+   - YouTube gets the 16:9 version as a normal video (not a Short).
