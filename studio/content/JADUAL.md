@@ -71,3 +71,8 @@ Belum dijadualkan kerana had: 39 (TikTok, Threads, YT 16:9), 40 dan 41 (semua pl
 - Januari juga ada Threads untuk 49–67 dan Google untuk 47–50.
 - Jumlah: Disember 200/200, Januari 200/200.
 - Tiada siaran: Threads untuk 39–41 serta Google untuk 39–41 dan 51–67.
+
+### Kemas kini masa (26 Nov 2026)
+
+Data "best time" Metricool untuk akaun ini: IG kemuncak 10:00, FB 10:00–12:00, YouTube 16:00 (14:00–17:00 tinggi), TikTok 18:00.
+Semua IG/FB/YT Short/TikTok sudah pada masa kemuncak. YouTube 16:9 dipindahkan dari 21:00 (aktiviti < separuh kemuncak) ke 14:00 untuk semua video 26 Nov – 31 Jan.
