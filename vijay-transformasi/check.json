@@ -1,0 +1,178 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 8
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "selector": "#cta-q",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cta.html",
+        "bbox": {
+          "x": 130,
+          "y": 324,
+          "width": 760.95,
+          "height": 61
+        },
+        "time": 34.75,
+        "rect": {
+          "left": 130,
+          "top": 324,
+          "right": 890.95,
+          "bottom": 385,
+          "width": 760.95,
+          "height": 61
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Nak rambut licin macam ni?",
+        "message": "<div> \"Nak rambut licin macam ni?\" is outside the safe area: YouTube Shorts (right edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 34.75,
+        "lastSeen": 34.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          34.75
+        ]
+      },
+      {
+        "selector": "#cta-follow",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cta.html",
+        "bbox": {
+          "x": 130,
+          "y": 820,
+          "width": 678.41,
+          "height": 99
+        },
+        "time": 34.75,
+        "rect": {
+          "left": 130,
+          "top": 820,
+          "right": 808.41,
+          "bottom": 919,
+          "width": 678.41,
+          "height": 99
+        },
+        "code": "outside_safe_zone",
+        "severity": "warning",
+        "text": "Follow untuk lebih banyak hasil keratin",
+        "message": "<div> \"Follow untuk lebih banyak hasil keratin\" is outside the safe area: TikTok (right edge).",
+        "fixHint": "Move the text inside the safe area, or mark text meant to sit there with data-layout-allow-safe-zone.",
+        "firstSeen": 34.75,
+        "lastSeen": 34.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          34.75
+        ]
+      }
+    ],
+    "duration": 41.7,
+    "samples": [
+      2.317,
+      6.95,
+      11.583,
+      16.217,
+      20.85,
+      25.483,
+      30.117,
+      34.75,
+      39.383
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false,
+    "faceCheck": {
+      "ran": false,
+      "reason": "could not download opencv.js (fetch failed)"
+    }
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.317,
+      11.583,
+      20.85,
+      30.117,
+      39.383
+    ],
+    "checked": 12,
+    "passed": 12
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 334
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "c79a9ee4-8686-4adf-a982-f00402ac8d54",
+    "revision": "7bd49a84-7949-44fe-93fa-aeec5584a2f3",
+    "report": "/home/user/edit-video-claude/vijay-transformasi/.hyperframes/artifacts/checks/c79a9ee4-8686-4adf-a982-f00402ac8d54.json",
+    "attribution": "recorded-revision"
+  },
+  "_meta": {
+    "version": "0.9.72",
+    "latestVersion": "0.9.91",
+    "updateAvailable": true,
+    "checkedAt": "2026-11-24T17:30:38.867Z"
+  }
+}

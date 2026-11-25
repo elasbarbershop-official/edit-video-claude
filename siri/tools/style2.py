@@ -10,9 +10,9 @@ NAVY, YEL, CREAM = "#091936", "#ffba00", "#faf8f2"
 THEME = {
     "navy": dict(bg=NAVY, text=CREAM, vars=f"--ink:{CREAM};--acc:{YEL};--paper:#1c2d55;", shirt=CREAM,
                  hl_css=f"color:{YEL};", cap_hl=f"background:{YEL};color:{NAVY};"),
-    "cream": dict(bg=CREAM, text=NAVY, vars=f"--ink:{NAVY};--acc:{YEL};--paper:#ffffff;", shirt="#1c2d55",
+    "cream": dict(bg=CREAM, text=NAVY, vars=f"--ink:{NAVY};--acc:{YEL};--paper:#ffffff;", shirt="#091936",
                   hl_css=f"background:{YEL};color:{NAVY};padding:0 14px;margin-left:-14px;", cap_hl=f"background:{YEL};color:{NAVY};"),
-    "yellow": dict(bg=YEL, text=NAVY, vars=f"--ink:{NAVY};--acc:{CREAM};--paper:#ffffff;", shirt="#1c2d55",
+    "yellow": dict(bg=YEL, text=NAVY, vars=f"--ink:{NAVY};--acc:{CREAM};--paper:#ffffff;", shirt="#091936",
                    hl_css=f"background:{NAVY};color:{YEL};padding:0 14px;margin-left:-14px;", cap_hl=f"background:{NAVY};color:{YEL};"),
 }
 CAP_TOP = 1112
@@ -112,7 +112,7 @@ def badge(sid, text, theme, top):
     bg = YEL if theme != "yellow" else CREAM
     return (f'    <div style="position:absolute;left:500px;top:{top}px;transform:translateX(-50%);max-width:560px;width:max-content;">'
             f'<div id="{sid}-bd" style="display:flex;align-items:center;gap:14px;padding:12px 26px 12px 14px;border-radius:40px;background:{bg};color:{fg};'
-            f'font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(0,0,0,0.18);">'
+            f'font-weight:900;font-size:34px;line-height:1.15;box-shadow:0 6px 0 rgba(9,25,54,0.25);">'
             f'<svg width="46" height="46" viewBox="0 0 46 46" style="flex:none"><circle cx="23" cy="23" r="21" fill="{NAVY}"/>'
             f'<path d="M12 24 L20 32 L34 15" fill="none" stroke="{bg}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
             f'<span>{escape(text.upper())}</span></div></div>')
@@ -162,7 +162,7 @@ def s_point(sid, sc, vo, lead, theme, num, cue):
     htop = int(bottom + 10); hh = 1095 - htop
     h_html, _ = hero(sid, sc["icon"], theme, htop, hh)
     ts = lead + cue(vo, sc.get("cs"), 0.45)
-    html = chip(sid, f"{num:02d}", theme) + "\n" + t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, htop + hh - 70)
+    html = chip(sid, f"{num:02d}", theme) + "\n" + t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, 988)
     js = (f'tl.fromTo("#{sid}-chip", {{ scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }}, 0.2);\n    '
           + "".join(f'tl.fromTo("#{sid}-t{j}", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }}, {0.3 + j * 0.12:.2f});\n    ' for j in range(len(sc["title"])))
           + hero_js(sid, "h", 0.35, vo["dur"]) + "\n    "
@@ -176,7 +176,7 @@ def s_tip(sid, sc, vo, lead, theme, cue):
     htop = int(bottom + 20); hh = 1095 - htop
     h_html, _ = hero(sid, sc["icon"], theme, htop, hh)
     ts = lead + cue(vo, sc.get("cs"), 0.5)
-    html = t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, htop + hh - 60)
+    html = t_html + "\n    " + h_html + "\n" + badge(sid, sc["sub"], theme, 988)
     js = ("".join(f'tl.fromTo("#{sid}-t{j}", {{ scale: 1.25, opacity: 0 }}, {{ scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }}, {0.3 + j * 0.18:.2f});\n    ' for j in range(len(sc["title"])))
           + hero_js(sid, "h", 0.4, vo["dur"]) + "\n    "
           + f'tl.fromTo("#{sid}-bd", {{ scale: 0.5, opacity: 0 }}, {{ scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }}, {ts:.2f});')
@@ -199,14 +199,15 @@ def s_rows(sid, sc, vo, lead, theme, cue):
     html.append("    " + "".join(meter))
     htop = base + 50; hh = 1070 - htop
     js, sfx = [f'tl.fromTo("#{sid}-head", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.inOut" }}, 0.15);'], []
-    times = []
+    times = []; prev = -1.0
     for j, r in enumerate(sc["items"]):
-        t = lead + cue(vo, r["cue"], (j + 0.3) / n); times.append(t)
+        raw = cue(vo, r["cue"], (j + 0.3) / n, prev); prev = raw
+        t = lead + raw; times.append(t)
         size = fit([r["label"]], 520, 76)
         hh_html, _ = hero(sid, r["icon"], theme, htop, hh, key=f"h{j}")
         html.append(f'    <div id="{sid}-L{j}" style="position:absolute;left:130px;top:360px;font-weight:900;font-size:{size}px;line-height:1;white-space:nowrap;{th["hl_css"]}color:{NAVY if theme != "navy" else YEL};opacity:0;">{escape(r["label"])}</div>')
         html.append("    " + hh_html)
-        html.append(badge(f"{sid}-{j}", r["desc"], theme, htop + hh - 70).replace(f'id="{sid}-{j}-bd"', f'id="{sid}-bd{j}"'))
+        html.append(badge(f"{sid}-{j}", r["desc"], theme, 988).replace(f'id="{sid}-{j}-bd"', f'id="{sid}-bd{j}"'))
     for j, t in enumerate(times):
         nxt = times[j + 1] if j + 1 < n else None
         js.append(f'tl.fromTo("#{sid}-L{j}", {{ opacity: 0, x: -30 }}, {{ opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }}, {t:.2f});')
@@ -261,9 +262,9 @@ def s_cta(sid, sc, vo, lead, cue):
     html = f"""    <div id="{sid}-q" style="position:absolute;left:130px;top:330px;font-weight:900;font-size:{size}px;line-height:1.08;">{lines}</div>
     <div id="{sid}-box" style="position:absolute;left:130px;top:700px;width:650px;height:120px;border-radius:60px;background:{CREAM};">
       <div style="position:absolute;left:22px;top:22px;width:76px;height:76px;border-radius:38px;background:{YEL};"></div>
-      <div id="{sid}-ph" style="position:absolute;left:124px;top:38px;color:#7d8291;font-weight:600;font-size:40px;line-height:1;">Tambah komen...</div>
+      <div id="{sid}-ph" style="position:absolute;left:124px;top:38px;color:rgba(9,25,54,0.45);font-weight:600;font-size:40px;line-height:1;">Tambah komen...</div>
       <div id="{sid}-typed" style="position:absolute;left:124px;top:34px;color:{NAVY};font-weight:900;font-size:48px;line-height:1;letter-spacing:0.04em;"></div>
-      <div id="{sid}-send" style="position:absolute;right:16px;top:16px;width:88px;height:88px;border-radius:44px;background:#d7d9df;"><svg style="position:absolute;left:22px;top:22px" width="44" height="44" viewBox="0 0 44 44"><path d="M6 22 L38 6 L28 38 L22 24 Z" fill="{NAVY}"/></svg></div>
+      <div id="{sid}-send" style="position:absolute;right:16px;top:16px;width:88px;height:88px;border-radius:44px;background:rgba(9,25,54,0.14);"><svg style="position:absolute;left:22px;top:22px" width="44" height="44" viewBox="0 0 44 44"><path d="M6 22 L38 6 L28 38 L22 24 Z" fill="{NAVY}"/></svg></div>
     </div>
     <div id="{sid}-reply" style="position:absolute;left:230px;top:860px;padding:22px 30px;border-radius:34px 34px 34px 8px;background:{YEL};color:{NAVY};font-weight:900;font-size:44px;line-height:1;white-space:nowrap;">{escape(sc['reply'])}</div>"""
     js = f"""tl.fromTo("#{sid}-q", {{ clipPath: "inset(0% 100% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }}, 0.25);

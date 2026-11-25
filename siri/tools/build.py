@@ -84,10 +84,12 @@ def norm(w):
     return "komen" + w[7:] if w.startswith("comment") else w
 
 
-def cue(vo, token, frac=0.5):
+def cue(vo, token, frac=0.5, after=-1.0):
     if token:
         t = norm(token)
         for w, s in vo["words"]:
+            if s <= after:
+                continue
             nw = norm(w)
             if nw and (nw.startswith(t[:5]) or t.startswith(nw[:5]) and len(nw) >= 3):
                 return s
