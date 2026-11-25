@@ -33,3 +33,8 @@ Dijadualkan pada 25 Nov 2026 dalam Metricool (brand: elasbarbershop.official), a
 | Isn 2027-01-11 | 20-barber-lama-vs-baru | ✓ | ✓ | ✓ | ✓ |
 
 Jumlah: 80 siaran (20 video × 4 platform). Ubah atau padam dalam Metricool → Planner.
+
+## YouTube versi landskap (16:9 penuh skrin)
+
+Ditambah 25 Nov 2026: setiap tarikh di atas juga ada video YouTube biasa (bukan Short) pada **21:00**
+menggunakan `renders/landscape/<slug>-16x9.mp4`. Jumlah kini 100 siaran (20 video × 5).
