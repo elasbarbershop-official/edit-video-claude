@@ -1,0 +1,33 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    #cta-photo { position: absolute; left: 960px; top: 0; width: 960px; height: 1080px; object-fit: cover; object-position: 50% 45%; }
+    #cta-edge { position: absolute; left: 948px; top: 0; width: 12px; height: 1080px; background: #ffba00; }
+    #cta-q { position: absolute; left: 120px; top: 250px; color: #faf8f2; font-weight: 900; font-size: 44px; line-height: 1; }
+    #cta-name { position: absolute; left: 120px; top: 340px; color: #faf8f2; font-weight: 900;
+      font-size: 92px; line-height: 0.95; letter-spacing: -0.01em; transform-origin: 0% 50%; }
+    #cta-name span { display: block; }
+    #cta-name .dark { color: #ffba00; }
+    #cta-book { position: absolute; left: 120px; top: 600px; padding: 18px 28px; background: #ffba00; color: #091936;
+      font-weight: 900; font-size: 42px; line-height: 1; letter-spacing: 0.02em; }
+    #cta-follow { position: absolute; left: 120px; top: 720px; width: 720px; color: #faf8f2; font-weight: 800; font-size: 38px; line-height: 1.25; }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1920" data-height="1080">
+    <img id="cta-photo" src="assets/img/final-right.jpg" alt="" />
+    <div id="cta-edge"></div>
+    <div id="cta-q">Nak rambut licin macam ni?</div>
+    <div id="cta-name"><span>ELA'S</span><span class="dark">BARBERSHOP</span></div>
+    <div id="cta-book">TEMPAH KERATIN SEKARANG</div>
+    <div id="cta-follow">Follow untuk lebih banyak hasil keratin</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#root", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0);
+    tl.fromTo("#cta-photo", { x: 200 }, { x: 0, duration: 0.6, ease: "power4.out" }, 0.1);
+    tl.fromTo("#cta-q", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.2);
+    tl.fromTo("#cta-name", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, 0.33);
+    tl.fromTo("#cta-book", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.2)" }, 0.95);
+    tl.fromTo("#cta-follow", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 1.15);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>

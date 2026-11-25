@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #091936; font-family: "Montserrat", sans-serif; overflow: hidden; }
+    .cmp-pair { position: absolute; inset: 0; }
+    .cmp-img { position: absolute; top: 0; width: 960px; height: 1080px; object-fit: cover; }
+    .cmp-img.w { left: 0; }
+    .cmp-img.f { left: 960px; }
+    .cmp-div { position: absolute; left: 954px; top: 0; width: 12px; height: 1080px; background: #ffba00; }
+    #cmp-head { position: absolute; left: 0; top: 0; width: 1920px; height: 300px;
+      background: linear-gradient(180deg, rgba(9,25,54,0.8) 0%, rgba(9,25,54,0) 100%); }
+    #cmp-title { position: absolute; left: 0; top: 60px; width: 1920px; text-align: center; color: #faf8f2; font-weight: 900;
+      font-size: 84px; line-height: 1; letter-spacing: -0.01em; }
+    #cmp-title .red { background: #ffba00; color: #091936; padding: 0 14px; }
+    .cmp-tag { position: absolute; top: 930px; padding: 14px 24px; font-weight: 900; font-size: 46px; line-height: 1; letter-spacing: 0.04em; }
+    .cmp-tag.wet { left: 80px; background: #faf8f2; color: #091936; }
+    .cmp-tag.styled { left: 1040px; background: #ffba00; color: #091936; }
+  </style>
+  <div id="root" data-composition-id="compare" data-width="1920" data-height="1080">
+    <div id="cmp-p1" class="cmp-pair">
+      <img id="cmp-w1" class="cmp-img w" src="assets/img/wet-right.jpg" alt="" style="object-position: 50% 50%" />
+      <img id="cmp-f1" class="cmp-img f" src="assets/img/final-right.jpg" alt="" style="object-position: 50% 50%" />
+    </div>
+    <div id="cmp-p2" class="cmp-pair">
+      <img id="cmp-w2" class="cmp-img w" src="assets/img/wet-left.jpg" alt="" style="object-position: 50% 50%" />
+      <img id="cmp-f2" class="cmp-img f" src="assets/img/final-left.jpg" alt="" style="object-position: 50% 50%" />
+    </div>
+    <div id="cmp-p3" class="cmp-pair">
+      <img id="cmp-w3" class="cmp-img w" src="assets/img/wet-back.jpg" alt="" style="object-position: 50% 35%" />
+      <img id="cmp-f3" class="cmp-img f" src="assets/img/final-back.jpg" alt="" style="object-position: 50% 35%" />
+    </div>
+    <div id="cmp-div" class="cmp-div"></div>
+    <div id="cmp-head"></div>
+    <div id="cmp-title">BASAH <span class="red">VS</span> SIAP</div>
+    <div id="cmp-tw" class="cmp-tag wet">LEPAS BILAS</div>
+    <div id="cmp-ts" class="cmp-tag styled">HASIL KERATIN</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cmp-title", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 0.05);
+    tl.fromTo("#cmp-tw", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0.2);
+    [1, 2, 3].forEach((i) => {
+      const t0 = (i - 1) * 2;
+      if (i > 1) tl.fromTo(`#cmp-p${i}`, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, t0);
+      else tl.set(`#cmp-p${i}`, { opacity: 1 }, 0);
+      if (i > 1) tl.set(`#cmp-p${i - 1}`, { opacity: 0 }, t0 + 0.01);
+      tl.fromTo(`#cmp-w${i}`, { scale: 1.06 }, { scale: 1.0, duration: 2, ease: "sine.out" }, t0);
+      tl.fromTo(`#cmp-f${i}`, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.inOut" }, t0 + 0.6);
+      tl.fromTo("#cmp-ts", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "back.out(2.2)", immediateRender: i === 1 }, t0 + 0.9);
+      if (i < 3) tl.set("#cmp-ts", { opacity: 0 }, t0 + 2);
+    });
+    window.__timelines["compare"] = tl;
+  </script>
+</template>

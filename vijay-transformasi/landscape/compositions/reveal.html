@@ -1,0 +1,36 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: "Montserrat", sans-serif; }
+    #rv-flash { position: absolute; inset: 0; background: #faf8f2; }
+    #rv-band { position: absolute; left: 0; top: 0; width: 1150px; height: 1080px;
+      background: linear-gradient(90deg, rgba(9,25,54,0.82) 0%, rgba(9,25,54,0.55) 50%, rgba(9,25,54,0) 100%); }
+    #rv-title { position: absolute; left: 120px; top: 250px; color: #faf8f2; font-family: "Montserrat", sans-serif; font-weight: 900;
+      font-size: 150px; line-height: 0.95; letter-spacing: -0.01em; transform-origin: 0% 50%;
+      text-shadow: 0 6px 24px rgba(9,25,54,0.55); }
+    #rv-title span { display: block; }
+    #rv-title .red { display: inline-block; background: #ffba00; color: #091936; padding: 0 22px 10px; margin-top: 10px; }
+    #rv-plate { position: absolute; left: 120px; top: 640px; padding: 18px 28px; background: #ffba00; color: #091936;
+      font-weight: 900; font-size: 42px; line-height: 1; letter-spacing: 0.02em; }
+    #rv-back { position: absolute; left: 120px; top: 330px; color: #faf8f2; font-family: "Montserrat", sans-serif; font-weight: 900;
+      font-size: 100px; line-height: 1; letter-spacing: -0.01em; text-shadow: 0 6px 24px rgba(9,25,54,0.6); }
+    #rv-back span { display: block; }
+    #rv-back .red { background: #ffba00; color: #091936; padding: 0 14px; }
+  </style>
+  <div id="root" data-composition-id="reveal" data-width="1920" data-height="1080">
+    <div id="rv-band"></div>
+    <div id="rv-title"><span>HASIL</span><span class="red">AKHIR</span></div>
+    <div id="rv-plate">LICIN &amp; SENANG URUS</div>
+    <div id="rv-back"><span>BELAKANG</span><span>PUN <span class="red" style="display:inline">LICIN</span></span></div>
+    <div id="rv-flash"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#rv-flash", { opacity: 0.85 }, { opacity: 0, duration: 0.3, ease: "power2.out" }, 0);
+    tl.fromTo("#rv-title", { scale: 1.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.out" }, 0.03);
+    tl.fromTo("#rv-plate", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.inOut" }, 1.0);
+    tl.to(["#rv-title", "#rv-plate"], { opacity: 0, duration: 0.15, ease: "none" }, 7.85);
+    tl.fromTo("#rv-back", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.32, ease: "power3.inOut" }, 8.1);
+    tl.to(["#rv-back", "#rv-band"], { opacity: 0, duration: 0.15, ease: "none" }, 10.8);
+    window.__timelines["reveal"] = tl;
+  </script>
+</template>
