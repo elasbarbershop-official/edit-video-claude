@@ -63,3 +63,11 @@ Had pelan Metricool: 200 siaran sebulan (ikut bulan siaran). Disember sudah penu
 | Aha 2027-01-31 | 70 | 67-ai-dan-barber | 5/7 (IG, FB, YT Short, TikTok, YT 16:9) |
 
 Belum dijadualkan kerana had: 39 (TikTok, Threads, YT 16:9), 40 dan 41 (semua platform), serta Google Business + Threads untuk 42–67 (52 siaran; Januari ada baki 35 slot).
+
+### Kemas kini (had 200 sebulan, pilihan pemilik: tukar siaran Disember)
+
+- Threads 1–7 Dis dan Google 2–6 Dis (12 siaran video Disember) dipindahkan ke Januari: Threads untuk 42–48 dan Google untuk 42–46.
+- Slot Disember yang dibebaskan diisi dengan 39 (TikTok, YT 16:9), 40 dan 41 (IG, FB, YT Short, TikTok, YT 16:9).
+- Januari juga ada Threads untuk 49–67 dan Google untuk 47–50.
+- Jumlah: Disember 200/200, Januari 200/200.
+- Tiada siaran: Threads untuk 39–41 serta Google untuk 39–41 dan 51–67.
