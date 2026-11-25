@@ -1,0 +1,12 @@
+{
+  "name": "elas-ai-content-studio",
+  "private": true,
+  "description": "ELA'S AI Content Studio: Di Sebalik Kerusi Barber. Thin npm wrappers around studio/tools/studio.py and siri/tools.",
+  "scripts": {
+    "topics": "python3 tools/studio.py topics",
+    "calendar": "python3 tools/studio.py calendar",
+    "generate": "python3 tools/studio.py make",
+    "render": "python3 tools/studio.py make --render",
+    "report": "python3 tools/studio.py report"
+  }
+}

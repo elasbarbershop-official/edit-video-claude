@@ -1,5 +1,6 @@
 # Elas Barbershop tips series: one entry per video.
-# Scene types: hook, point, rows, compare, tip, cta. Each scene has one voiceover line ("vo").
+# Scene types: hook, point, rows, compare, tip, cta; business/story: shop, chart, split, morph, follow (tools/style_biz.py).
+# Optional "tts" on a scene overrides the spoken text (e.g. to add <break> tags) while captions use "vo". Each scene has one voiceover line ("vo").
 # Cue words ("cs", "cue") are words in the voiceover that trigger an on-screen element.
 
 def hook(vo, lines, hl, icon, sub): return dict(t="hook", vo=vo, lines=lines, hl=hl, icon=icon, sub=sub)
@@ -229,3 +230,60 @@ VIDEOS = [
    cta("Ada barber kegemaran? Komen dan tag mereka.", ["Barber", "kegemaran anda?"], "BARBER", "Tag mereka!"),
   ]),
 ]
+
+
+# ---------------------------------------------------------------- Di Sebalik Kerusi Barber (studio/)
+def shop(vo, lines, hl): return dict(t="shop", vo=vo, lines=lines, hl=hl)
+def chart(vo, title, tts=None): return dict(t="chart", vo=vo, title=title, **({"tts": tts} if tts else {}))
+def split(vo, title, costs): return dict(t="split", vo=vo, title=title, costs=costs)
+def morph(vo, title, sub, tts=None): return dict(t="morph", vo=vo, title=title, sub=sub, **({"tts": tts} if tts else {}))
+def follow(vo, ask, cardsub="Ilmu & rahsia industri barber"): return dict(t="follow", vo=vo, ask=ask, cardsub=cardsub)
+
+DSKB = "DI SEBALIK KERUSI BARBER"
+VIDEOS.append(dict(
+ slug="21-kedai-penuh-tapi-rugi", series=DSKB, music="lofi", topic_id=31,
+ handle="@elasbarbershop.official", tagline="Lebih daripada sekadar gunting rambut.",
+ tags=["#bisnesbarber", "#usahawanmalaysia", "#barbershopmalaysia", "#tipsbisnes", "#lelakimalaysia"],
+ scenes=[
+  shop("Pernah tak anda tengok kedai gunting rambut sentiasa penuh dengan pelanggan, tetapi akhirnya terpaksa tutup?",
+       ["PENUH PELANGGAN,", "TAPI RUGI?"], [1]),
+  chart("Ramai orang menyangka jualan yang tinggi bermaksud keuntungan yang tinggi. Hakikatnya, dua perkara ini sangat berbeza.",
+        ["JUALAN TINGGI", "≠ UNTUNG TINGGI"],
+        tts='Ramai orang menyangka jualan yang tinggi bermaksud keuntungan yang tinggi. <break time="0.5s" /> Hakikatnya, dua perkara ini sangat berbeza.'),
+  split("Setiap ringgit yang diterima perlu menampung gaji pekerja, sewa kedai, bil elektrik, peralatan, produk dan kos operasi. Jika kos tidak dikawal, semakin banyak pelanggan belum tentu semakin banyak keuntungan.",
+        ["KE MANA PERGI", "WANG JUALAN?"],
+        [("Gaji pekerja", 40), ("Sewa kedai", 15), ("Bil elektrik", 6), ("Peralatan", 8), ("Produk", 12), ("Kos operasi", 9)]),
+  morph("Untuk berjaya dalam industri barber, anda bukan sahaja perlu pandai menggunting rambut. Anda juga perlu pandai menguruskan perniagaan.",
+        ["PANDAI GUNTING", "+ PANDAI URUS"], "Urus kewangan, pekerja & kos",
+        tts='Untuk berjaya dalam industri barber, anda bukan sahaja perlu pandai menggunting rambut. <break time="0.5s" /> Anda juga perlu pandai menguruskan perniagaan.'),
+  follow("Ikuti kami untuk lebih banyak ilmu dan rahsia industri barber.", ["Ikuti kami untuk", "ilmu & rahsia", "industri barber"]),
+ ],
+ caption="""# Caption — 21-kedai-penuh-tapi-rugi (Di Sebalik Kerusi Barber #1)
+
+## TikTok
+
+Kedai gunting penuh pelanggan, tapi kenapa masih rugi? 🤔
+Tengok sampai habis 👇
+
+Pernah nampak kedai macam ni? Komen "BISNES" ✂️
+
+#bisnesbarber #usahawanmalaysia #tipsbisnes #elasbarbershop #fyp #barbershopmalaysia
+
+## Instagram
+
+Kedai gunting penuh pelanggan, tapi kenapa masih rugi? 👇
+
+✂️ Jualan tinggi tak semestinya untung tinggi
+✨ Setiap ringgit kena tampung gaji, sewa, bil elektrik, peralatan, produk & kos operasi
+⏳ Kos tak dikawal = lebih ramai pelanggan belum tentu lebih untung
+
+Kesimpulannya: pandai gunting saja tak cukup, kena pandai urus bisnes juga.
+
+Ada soalan pasal bisnes barber? Komen "BISNES" atau DM kami 📩
+Ikuti @elasbarbershop.official untuk siri Di Sebalik Kerusi Barber.
+
+*Angka dalam video ialah contoh ilustrasi, bukan angka sebenar Ela's Barbershop.
+
+#bisnesbarber #usahawanmalaysia #tipsbisnes #barbershopmalaysia #barbermalaysia #bisneskecil #pengurusankewangan #usahawanmuda #lelakimalaysia #barberlife #reelsmalaysia #elasbarbershop
+""",
+))

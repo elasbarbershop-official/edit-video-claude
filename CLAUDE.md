@@ -43,3 +43,13 @@ Elas Barbershop social reels (1080×1920, Malay).
      `vijay-transformasi/landscape/`): footage fills the frame (cover crop framed on the hair), text on
      the left over a navy gradient, before/after side by side, same VO, music and finished audio mix.
    - YouTube gets the 16:9 version as a normal video (not a Short).
+9. **Content studio (`studio/`)** for the series "DI SEBALIK KERUSI BARBER — BY ELA'S" (tagline "Lebih
+   daripada sekadar gunting rambut."). 70 topics are in `studio/content/topics.json` and the 30-day plan
+   is `studio/tools/studio.py calendar`. Weekday themes: Mon hair myths, Tue business, Wed style,
+   Thu history, Fri barber life, Sat products, Sun motivation. A new video is an entry in `siri/specs.py`
+   with `topic_id`. Business and story topics use the scene types `shop/chart/split/morph/follow`
+   (`siri/tools/style_biz.py`, stickman). Build it with `studio.py make <id> --render` (both sizes).
+   Rules: never invent the founder's experience, testimonials, customer stories, prices or product
+   claims; label every money figure as "contoh ilustrasi"; health topics need reliable sources, no
+   diagnosis or cure claims, and should suggest seeing a professional; nothing is scheduled without the
+   owner's approval. Set the topic's status as you go (Idea → … → Published).

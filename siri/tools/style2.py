@@ -75,6 +75,8 @@ def captions(sid, text, vo, lead, theme, end, box=None):
     words = align(text, vo)
     chunks, cur = [], []
     for w in words:
+        if cur and sum(len(x[0]) for x in cur) + len(w[0]) > 15:  # keep every chunk on one line
+            chunks.append(cur); cur = []
         cur.append(w)
         if len(cur) == 3 or sum(len(x[0]) for x in cur) >= 12 or re.search(r"[.,?!]$", w[2]):
             chunks.append(cur); cur = []

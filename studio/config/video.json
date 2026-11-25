@@ -1,0 +1,9 @@
+{
+ "engine": "HyperFrames 0.9.72 (HTML + GSAP, rendered with headless Chromium + FFmpeg)",
+ "formats": {"9x16": [1080, 1920], "16x9": [1920, 1080]},
+ "fps": 30, "codec": "H.264", "audio": "AAC 48 kHz",
+ "target_duration_s": [45, 60],
+ "loudness": "loudnorm I=-15 TP=-1.5",
+ "safe_zone_9x16": {"top": 280, "bottom": 1300, "left": 130, "right": 880},
+ "music": {"default": "brand/music/elas-lofi-90.mp3", "energetic": "brand/music/elas-trap-100.mp3", "bed_volume": 0.2, "outro_volume": 0.5}
+}

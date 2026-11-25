@@ -1,0 +1,19 @@
+{
+ "name": "Ela's Barbershop",
+ "tts_name": "Elas Barbershop",
+ "product_brand": "ELA'S Barber Care",
+ "handle": "@elasbarbershop.official",
+ "website": "www.elasbarbershop.com",
+ "series": "DI SEBALIK KERUSI BARBER — BY ELA'S",
+ "tagline": "Lebih daripada sekadar gunting rambut.",
+ "colors": {"navy": "#091936", "yellow": "#FFBA00", "offwhite": "#FAF8F2"},
+ "colors_note": "Sampled from the official logo (brand/logo/elas-logo.png). The brief lists #0A1A37 / #FCBE06 / #F8F7F2, which are visually the same; the logo values are kept so every video matches the locked outro.",
+ "font": "Montserrat 700/800/900",
+ "logo": "brand/logo/elas-logo.png",
+ "outro": {"9x16": "brand/elas-outro/compositions/elas-outro.html", "16x9": "brand/elas-outro/compositions/elas-outro-16x9.html"},
+ "founder_facts_verified_by_owner": [
+  "Pemilik dua cawangan barbershop", "Barber profesional", "Tenaga pengajar industri barber", "Jurulatih kemahiran",
+  "Juri pertandingan barber antarabangsa", "Juri Asia Glory Beauty and Hair Award 2026",
+  "Bendahari Malaysian Indian Hairstylist Empowerment Association (MIHASS)", "Graduan MBA"
+ ]
+}

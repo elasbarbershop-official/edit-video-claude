@@ -1,0 +1,9 @@
+{
+ "provider": "elevenlabs",
+ "voice": "Brian", "voice_id": "nPczCjzI2devNBz1zQrb", "model": "eleven_multilingual_v2",
+ "key": "Injected by the cloud environment proxy (header xi-api-key). Locally: ELEVENLABS_API_KEY in .env.",
+ "pronunciation": {"keratin": "ke-ratin", "Ela's Barbershop": "Elas Barbershop"},
+ "pause_before_punchline": "<break time=\"0.5s\" />",
+ "manual_voiceover": "Put your own WAV as <project>/assets/vo/vo<N>.wav and delete vo<N>.json; Whisper re-times the captions on the next build.",
+ "alignment": "openai-whisper small, language ms, word timestamps"
+}

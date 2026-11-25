@@ -13,6 +13,7 @@ SIRI = f"{ROOT}/siri"
 sys.path.insert(0, f"{SIRI}/tools"); sys.path.insert(0, SIRI)
 import icons  # noqa: E402
 import style2 as S2  # noqa: E402
+import style_biz as SB  # noqa: E402
 from specs import VIDEOS  # noqa: E402
 
 VOICE = "nPczCjzI2devNBz1zQrb"  # Brian
@@ -295,6 +296,8 @@ def setup(proj, music):
     if not os.path.exists(mp):
         sh("ffmpeg", "-nostdin", "-v", "error", "-y", "-stream_loop", "3", "-i", f"{ROOT}/brand/music/{src}.mp3", "-t", "90", "-c:a", "libmp3lame", "-b:a", "192k", mp)
     sh(f"{ROOT}/brand/install-outro.sh", proj)
+    os.makedirs(f"{proj}/assets/img", exist_ok=True)
+    shutil.copy(f"{ROOT}/brand/logo/elas-logo.png", f"{proj}/assets/img/")
     for f in ("hyperframes.json", "package.json"):
         shutil.copy(f"{ROOT}/keratin-vs-rebonding/{f}", proj)
     return mp.split(proj + "/")[1], src
@@ -310,8 +313,8 @@ def build(v):
     scenes = v["scenes"]
     vos = []
     for i, sc in enumerate(scenes):
-        text = tts_text(sc["vo"])
-        if sc["t"] == "cta":
+        text = tts_text(sc.get("tts", sc["vo"]))
+        if sc["t"] in ("cta", "follow"):
             text += ' <break time="1.0s" /> Elas Barbershop.'
         vos.append(make_vo(proj, i + 1, text))
     npts = sum(1 for s in scenes if s["t"] == "point")
@@ -334,8 +337,20 @@ def build(v):
             theme, css, html, js, sfx = S2.s_compare(sid, sc, vo, lead, cue)
         elif sc["t"] == "cta":
             theme, css, html, js, sfx = S2.s_cta(sid, sc, vo, lead, cue)
+        elif sc["t"] == "shop":
+            theme, css, html, js, sfx = SB.s_shop(sid, sc, vo, lead, v["series"], cue)
+        elif sc["t"] == "chart":
+            theme = alt; alt = "navy" if alt == "cream" else "cream"
+            theme, css, html, js, sfx = SB.s_chart(sid, sc, vo, lead, theme, cue)
+        elif sc["t"] == "split":
+            theme = alt; alt = "navy" if alt == "cream" else "cream"
+            theme, css, html, js, sfx = SB.s_split(sid, sc, vo, lead, theme, cue)
+        elif sc["t"] == "morph":
+            theme, css, html, js, sfx = SB.s_morph(sid, sc, vo, lead, cue)
+        elif sc["t"] == "follow":
+            theme, css, html, js, sfx = SB.s_follow(sid, sc, vo, lead, v["series"], v.get("handle", "@elasbarbershop.official"), v.get("tagline", ""), cue)
         prev_theme = theme
-        if sc["t"] == "cta":
+        if sc["t"] in ("cta", "follow"):
             el = [s_ for w, s_ in vo["words"] if norm(w).startswith("elas")]
             cap_end = lead + (el[-1] if el else vo["dur"] - 1.0) + 0.45
         else:
@@ -344,11 +359,11 @@ def build(v):
         cap_css, cap_html, cap_js = S2.captions(sid, sc["vo"], vo, lead, theme, cap_end, box)
         open(f"{proj}/compositions/{sid}.html", "w").write(S2.scene_file(sid, theme, css, html, js, i == 0, cap_css, cap_html, cap_js))
         slot = lead + vo["dur"] + 0.35
-        if sc["t"] == "cta":
+        if sc["t"] in ("cta", "follow"):
             el = [s for w, s in vo["words"] if norm(w).startswith("elas")]
             outro_start = t + lead + (el[-1] if el else vo["dur"] - 1.0)
             slot = outro_start - t
-        hosts.append((sid, t, slot + (0.45 if i < len(scenes) - 1 or sc["t"] == "cta" else 0), z)); z += 1
+        hosts.append((sid, t, slot + (0.45 if i < len(scenes) - 1 or sc["t"] in ("cta", "follow") else 0), z)); z += 1
         vo_tags.append((i + 1, t + lead, vo["dur"]))
         if i > 0:
             if i % 2:
@@ -417,6 +432,8 @@ def build(v):
     open(f"{proj}/index.html", "w").write(index)
     if not S2.LAND:  # captions/script live with the portrait project
         write_docs(v, proj, total)
+        if v.get("caption"):
+            open(f"{proj}/CAPTION.md", "w").write(v["caption"])
     return proj, total
 
 
