@@ -11,3 +11,4 @@ siri/*/check-summary.txt
 siri/*/.hyperframes/
 siri/build16.log
 siri/finish16.log
+siri/*/.raw.hf-transaction-*/
